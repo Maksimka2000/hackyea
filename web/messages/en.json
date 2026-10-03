@@ -227,6 +227,10 @@
       "text": "The link may be outdated or the solution was removed from the library.",
       "library": "Browse the library",
       "home": "Home page"
+    },
+    "video": {
+      "watch": "Watch the video about the solution: {title}",
+      "opensInNewTab": "opens in a new tab on YouTube"
     }
   },
   "Submit": {
@@ -374,6 +378,26 @@
       "text": "Check that the link is complete. If you lost it, you can send a new submission.",
       "cta": "Report a need",
       "home": "Home page"
+    }
+  },
+  "Library": {
+    "metaTitle": "Innovation library",
+    "nav": {
+      "label": "Library categories",
+      "all": "All"
+    },
+    "header": {
+      "title": "Innovation library",
+      "description": "{count, plural, one {# proven solution} other {# proven solutions}} from the ROPS Kraków library, grouped by category.",
+      "categoryDescription": "{count, plural, one {# proven solution} other {# proven solutions}} in this category."
+    },
+    "group": {
+      "viewAll": "{count, plural, one {View # solution} other {View # solutions}}",
+      "viewSolution": "View solution"
+    },
+    "empty": {
+      "title": "No solutions",
+      "text": "There are no published solutions in this category yet."
     }
   }
 }

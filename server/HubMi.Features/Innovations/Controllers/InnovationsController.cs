@@ -19,6 +19,16 @@ public sealed class InnovationsController(InnovationDetailsService details, Inno
         return innovation is null ? NotFound() : innovation;
     }
 
+    /// <summary>Public and anonymous: the catalogue as short cards, all of them or one category's (`categoryId`). Unknown category gives 404.</summary>
+    [HttpGet]
+    [ProducesResponseType<IReadOnlyList<InnovationSummaryResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<InnovationSummaryResponse>>> GetAll([FromQuery] string? categoryId, CancellationToken cancellationToken)
+    {
+        var catalog = await lists.GetCatalogAsync(categoryId, cancellationToken);
+        return catalog is null ? NotFound() : Ok(catalog);
+    }
+
     /// <summary>Public and anonymous: a few cards to show on the home page.</summary>
     [HttpGet("featured")]
     [ProducesResponseType<IReadOnlyList<InnovationSummaryResponse>>(StatusCodes.Status200OK)]

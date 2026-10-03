@@ -6,7 +6,7 @@ export type ApiMode = "mock" | "live";
  * Each backend capability can be switched on its own, so finished endpoints go live while the rest stay mocked:
  * - matching: POST /api/match
  * - innovationDetail: GET /api/innovations/{id}
- * - innovationList: lists of innovation cards (home examples, related solutions); no backend endpoint yet
+ * - innovationList: lists of innovation cards (home examples, related solutions, the library page, categories)
  * - submissions: needs and ideas; no backend endpoint yet
  */
 export type ApiFeature = "matching" | "innovationDetail" | "innovationList" | "submissions";

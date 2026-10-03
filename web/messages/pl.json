@@ -227,6 +227,10 @@
       "text": "Link może być nieaktualny albo rozwiązanie zostało usunięte z biblioteki.",
       "library": "Przeglądaj bibliotekę",
       "home": "Strona główna"
+    },
+    "video": {
+      "watch": "Obejrzyj film o rozwiązaniu: {title}",
+      "opensInNewTab": "otwiera się w nowej karcie w serwisie YouTube"
     }
   },
   "Submit": {
@@ -374,6 +378,26 @@
       "text": "Sprawdź, czy link jest kompletny. Jeśli go zgubiłeś, możesz wysłać nowe zgłoszenie.",
       "cta": "Zgłoś potrzebę",
       "home": "Strona główna"
+    }
+  },
+  "Library": {
+    "metaTitle": "Biblioteka innowacji",
+    "nav": {
+      "label": "Kategorie biblioteki",
+      "all": "Wszystkie"
+    },
+    "header": {
+      "title": "Biblioteka innowacji",
+      "description": "{count, plural, one {# sprawdzone rozwiązanie} few {# sprawdzone rozwiązania} many {# sprawdzonych rozwiązań} other {# sprawdzonego rozwiązania}} z biblioteki ROPS Kraków, pogrupowane według kategorii.",
+      "categoryDescription": "{count, plural, one {# sprawdzone rozwiązanie} few {# sprawdzone rozwiązania} many {# sprawdzonych rozwiązań} other {# sprawdzonego rozwiązania}} w tej kategorii."
+    },
+    "group": {
+      "viewAll": "{count, plural, one {Zobacz # rozwiązanie} few {Zobacz # rozwiązania} many {Zobacz # rozwiązań} other {Zobacz # rozwiązania}}",
+      "viewSolution": "Zobacz rozwiązanie"
+    },
+    "empty": {
+      "title": "Brak rozwiązań",
+      "text": "W tej kategorii nie ma jeszcze opublikowanych rozwiązań."
     }
   }
 }

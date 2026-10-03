@@ -7,6 +7,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // YouTube preview images on the innovation detail page.
+  images: { remotePatterns: [{ protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" }] },
   // The browser only talks to this site; /api/* is forwarded to the backend, so no CORS setup is needed.
   async rewrites() {
     return [{ source: "/api/:path*", destination: `${apiOrigin}/api/:path*` }];

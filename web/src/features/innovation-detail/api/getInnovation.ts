@@ -16,8 +16,7 @@ export const getInnovation = cache(async (id: string): Promise<InnovationDetail 
     const dto =
       apiModeFor("innovationDetail") === "mock"
         ? await getInnovationMock(id)
-        : // PLACEHOLDER endpoint: replace when the backend defines it.
-          await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}`, { schema: innovationDtoSchema });
+        : await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}`, { schema: innovationDtoSchema });
 
     return dto ? mapInnovationDetail(dto) : null;
   } catch (error) {
