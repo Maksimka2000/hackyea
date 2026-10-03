@@ -9,6 +9,8 @@ public static class FeatureServiceRegistration
         services.AddControllers()
             .AddApplicationPart(typeof(FeatureServiceRegistration).Assembly);
 
+        services.AddMatchingFeature();
+
         return services;
     }
 }

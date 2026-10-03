@@ -1,0 +1,48 @@
+# HubMI.pl backend: Postgres + API, nothing else needed on the host.
+#   cp .env.example .env   (set HUBMI_DB_PASSWORD)
+#   docker compose -f docker-compose.hubmi.yml up --build
+# API: http://localhost:8081   health: /health   matching: POST /api/match   Swagger UI: /swagger
+# Separate from docker-compose.yml, which belongs to the legacy shipping template.
+name: hubmi
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: hubmi-postgres
+    environment:
+      POSTGRES_DB: hubmi
+      POSTGRES_USER: hubmi
+      POSTGRES_PASSWORD: ${HUBMI_DB_PASSWORD:?Set HUBMI_DB_PASSWORD in server/.env}
+    volumes:
+      - hubmi-pgdata:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hubmi -d hubmi"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: HubMi.Api/Dockerfile
+    container_name: hubmi-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ConnectionStrings__HubMi: Host=postgres;Port=5432;Database=hubmi;Username=hubmi;Password=${HUBMI_DB_PASSWORD}
+      Swagger__Enabled: ${HUBMI_SWAGGER_ENABLED:-true}
+      Persistence__MigrateOnStartup: "true"
+      Persistence__SeedSampleLibrary: "true"
+      Matching__ClientKeySalt: ${HUBMI_CLIENT_KEY_SALT:-}
+      RateLimiting__Match__PermitLimit: ${HUBMI_MATCH_RATE_LIMIT:-20}
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
+
+volumes:
+  hubmi-pgdata:
