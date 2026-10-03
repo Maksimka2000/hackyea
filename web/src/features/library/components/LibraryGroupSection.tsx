@@ -1,9 +1,10 @@
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
-import { InnovationCard } from "@/shared/ui/composite/InnovationCard";
 
 import type { LibraryGroup } from "../types/library";
+
+import { LibraryRow } from "./LibraryRow";
 
 type LibraryGroupSectionProps = Readonly<{
   group: LibraryGroup;
@@ -16,7 +17,7 @@ export function LibraryGroupSection({ group, showHeading }: LibraryGroupSectionP
   const headingId = `library-group-${group.category.id}`;
 
   return (
-    <section aria-labelledby={headingId} className="flex flex-col gap-6">
+    <section aria-labelledby={headingId} className="flex flex-col gap-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
         <h2 className={showHeading ? "text-2xl font-extrabold text-foreground" : "sr-only"} id={headingId}>
           {group.category.name}
@@ -28,10 +29,10 @@ export function LibraryGroupSection({ group, showHeading }: LibraryGroupSectionP
           </Link>
         ) : null}
       </div>
-      <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="border-line overflow-hidden rounded-card border-border-strong bg-surface">
         {group.items.map((item) => (
-          <li key={item.id}>
-            <InnovationCard {...item} viewLabel={t("viewSolution")} />
+          <li className="border-t-(length:--line-width) border-border first:border-t-0" key={item.id}>
+            <LibraryRow item={item} />
           </li>
         ))}
       </ul>

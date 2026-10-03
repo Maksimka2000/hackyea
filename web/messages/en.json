@@ -384,20 +384,23 @@
     "metaTitle": "Innovation library",
     "nav": {
       "label": "Library categories",
-      "all": "All"
+      "all": "All",
+      "title": "Categories"
     },
     "header": {
       "title": "Innovation library",
-      "description": "{count, plural, one {# proven solution} other {# proven solutions}} from the ROPS Kraków library, grouped by category.",
-      "categoryDescription": "{count, plural, one {# proven solution} other {# proven solutions}} in this category."
+      "count": "{count, plural, one {# solution} other {# solutions}}"
     },
     "group": {
-      "viewAll": "{count, plural, one {View # solution} other {View # solutions}}",
-      "viewSolution": "View solution"
+      "viewAll": "{count, plural, one {View # solution} other {View # solutions}}"
     },
     "empty": {
       "title": "No solutions",
       "text": "There are no published solutions in this category yet."
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "library": "Innovation library"
     }
   }
 }

@@ -384,20 +384,23 @@
     "metaTitle": "Biblioteka innowacji",
     "nav": {
       "label": "Kategorie biblioteki",
-      "all": "Wszystkie"
+      "all": "Wszystkie",
+      "title": "Kategorie"
     },
     "header": {
       "title": "Biblioteka innowacji",
-      "description": "{count, plural, one {# sprawdzone rozwiązanie} few {# sprawdzone rozwiązania} many {# sprawdzonych rozwiązań} other {# sprawdzonego rozwiązania}} z biblioteki ROPS Kraków, pogrupowane według kategorii.",
-      "categoryDescription": "{count, plural, one {# sprawdzone rozwiązanie} few {# sprawdzone rozwiązania} many {# sprawdzonych rozwiązań} other {# sprawdzonego rozwiązania}} w tej kategorii."
+      "count": "{count, plural, one {# rozwiązanie} few {# rozwiązania} many {# rozwiązań} other {# rozwiązania}}"
     },
     "group": {
-      "viewAll": "{count, plural, one {Zobacz # rozwiązanie} few {Zobacz # rozwiązania} many {Zobacz # rozwiązań} other {Zobacz # rozwiązania}}",
-      "viewSolution": "Zobacz rozwiązanie"
+      "viewAll": "{count, plural, one {Zobacz # rozwiązanie} few {Zobacz # rozwiązania} many {Zobacz # rozwiązań} other {Zobacz # rozwiązania}}"
     },
     "empty": {
       "title": "Brak rozwiązań",
       "text": "W tej kategorii nie ma jeszcze opublikowanych rozwiązań."
+    },
+    "breadcrumb": {
+      "label": "Ścieżka nawigacji",
+      "library": "Biblioteka innowacji"
     }
   }
 }
