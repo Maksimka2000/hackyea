@@ -1,4 +1,4 @@
-import { AreaSelect } from "./AreaSelect";
+import { CategorySelect } from "./CategorySelect";
 import { DescriptionField } from "./DescriptionField";
 import { PlaceInput } from "./PlaceInput";
 import { SubmitterSelect } from "./SubmitterSelect";
@@ -8,7 +8,7 @@ export function NeedFields() {
     <>
       <DescriptionField type="need" />
       <div className="grid gap-6 sm:grid-cols-2">
-        <AreaSelect />
+        <CategorySelect />
         <PlaceInput />
       </div>
       <SubmitterSelect />

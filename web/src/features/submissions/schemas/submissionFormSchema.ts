@@ -46,7 +46,7 @@ export const submissionFormSchema = z
       .trim()
       .min(DESCRIPTION_MIN_LENGTH, { message: key("descriptionTooShort") })
       .max(DESCRIPTION_MAX_LENGTH, { message: key("descriptionTooLong") }),
-    areaId: z.string(),
+    categoryId: z.string(),
     place: z.string().trim().max(PLACE_MAX_LENGTH, { message: key("placeTooLong") }),
     submitterType: z.string(),
     title: z.string().trim(),

@@ -1,4 +1,4 @@
-import { apiBaseUrl, apiMode } from "@/shared/config/env";
+import { apiBaseUrl, apiModeFor } from "@/shared/config/env";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
 import { createSubmissionResponseDtoSchema, type CreateSubmissionResponseDto } from "../schemas/submissionDtoSchema";
@@ -8,7 +8,7 @@ import { createSubmissionMock } from "./submissionsMock";
 
 /** Called from the browser (a mutation), so it uses the public API base URL. */
 export async function createSubmission(request: CreateSubmissionRequest): Promise<CreateSubmissionResponseDto> {
-  if (apiMode === "mock") {
+  if (apiModeFor("submissions") === "mock") {
     return createSubmissionMock(request);
   }
 

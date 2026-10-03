@@ -8,10 +8,7 @@ export function MatchCardSkeleton() {
       className="border-line relative flex flex-col gap-4 overflow-hidden rounded-card border-border-strong bg-surface py-6 pr-6 pl-8 shadow-soft"
     >
       <span className="absolute inset-y-0 left-0 w-2 bg-tint-strong" />
-      <div className="flex gap-3">
-        <Skeleton className="h-7 w-48 rounded-full" />
-        <Skeleton className="h-7 w-28 rounded-full" />
-      </div>
+      <Skeleton className="h-7 w-48 rounded-full" />
       <div className="flex flex-col gap-2">
         <Skeleton className="h-8 w-3/4" />
         <Skeleton className="h-6 w-full" />

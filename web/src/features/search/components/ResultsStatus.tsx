@@ -13,7 +13,7 @@ export function ResultsStatus({ state }: ResultsStatusProps) {
   return (
     <p aria-live="polite" className="mb-5 text-xl font-bold text-foreground" role="status">
       {state.kind === "loading" ? t("loading") : null}
-      {state.kind === "results" ? t("found", { count: state.items.length }) : null}
+      {state.kind === "results" ? t(state.isLowConfidence ? "nearest" : "found", { count: state.items.length }) : null}
       {state.kind === "empty" ? t("empty") : null}
       {state.kind === "error" ? t("error") : null}
     </p>

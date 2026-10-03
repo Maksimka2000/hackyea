@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { apiMode, serverApiBaseUrl } from "@/shared/config/env";
+import { apiModeFor, serverApiBaseUrl } from "@/shared/config/env";
 import { ApiError } from "@/shared/lib/api-error";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
@@ -14,7 +14,7 @@ import { getSubmissionStatusMock } from "./submissionsMock";
 export const getSubmissionStatus = cache(async (token: string): Promise<SubmissionView | null> => {
   try {
     const dto =
-      apiMode === "mock"
+      apiModeFor("submissions") === "mock"
         ? await getSubmissionStatusMock(token)
         : // PLACEHOLDER endpoint: replace when the backend defines it.
           await fetchJson(`${serverApiBaseUrl}/submissions/${encodeURIComponent(token)}`, {

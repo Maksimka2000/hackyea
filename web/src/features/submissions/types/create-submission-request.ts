@@ -6,7 +6,7 @@ import type { SubmissionType } from "../constants/submission-types";
 export type CreateSubmissionRequest = {
   type: SubmissionType;
   description: string;
-  areaId?: string;
+  categoryId?: string;
   place?: string;
   submitterType?: SubmitterType;
   email?: string;

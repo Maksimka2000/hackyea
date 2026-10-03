@@ -46,7 +46,8 @@ Scope: everything under `web/`. Backend rules live in `server/AGENTS.md`. Compon
 
 - The backend contract is not final. Each feature keeps three separate layers: DTO schema (`schemas/*DtoSchema.ts`, mirrors the server), mapper (`utils/map*.ts`), and a view-model type (`types/`). Components only see view models.
 - When the real contract changes, edit the DTO schema and mapper. Do not change components for a renamed field.
-- `NEXT_PUBLIC_API_MODE=mock` (default) serves fixtures from `api/*Mock.ts`, parsed through the same DTO schema as live data. `live` calls the backend through `NEXT_PUBLIC_API_BASE_URL`.
+- Each feature switches between mock and live on its own (`apiModeFor("matching" | "innovations" | "submissions")`): `NEXT_PUBLIC_API_MODE` is the default and `NEXT_PUBLIC_API_MODE_<FEATURE>` overrides it. Mock fixtures live in `api/*Mock.ts` and pass through the same DTO schema as live data.
+- Browser calls use the same-origin `/api` path, which `next.config.ts` proxies to `API_ORIGIN`; server components call `serverApiBaseUrl`. Frontend work never edits `server/`; backend gaps go to the backend developer as a request.
 - Mark guessed endpoints and shapes as PLACEHOLDER/PROPOSED in a comment.
 - Never put the user's problem description (or any free text they typed) in a URL or query string; it may contain personal details. Pass it between pages through `shared/lib/problem-session.ts`.
 - Validation messages are translation keys resolved in the UI (`Validation.*` namespace for messages shared by several features).

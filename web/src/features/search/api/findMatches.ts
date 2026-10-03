@@ -1,21 +1,23 @@
-import { apiBaseUrl, apiMode } from "@/shared/config/env";
+import { apiBaseUrl, apiModeFor } from "@/shared/config/env";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
 import { matchResponseDtoSchema } from "../schemas/matchResponseDtoSchema";
-import type { MatchResult } from "../types/match-result";
+import type { MatchOutcome } from "../types/match-result";
 import { mapMatchResponse } from "../utils/mapMatchResponse";
 
 import { findMatchesMock } from "./matchesMock";
 
-export async function findMatches(problem: string): Promise<MatchResult[]> {
+const INPUT_MODE = "typed";
+
+export async function findMatches(problem: string): Promise<MatchOutcome> {
   const dto =
-    apiMode === "mock"
+    apiModeFor("matching") === "mock"
       ? await findMatchesMock(problem)
-      : // PLACEHOLDER endpoint and body: replace when the backend defines them.
-        await fetchJson(`${apiBaseUrl}/matches`, {
+      : // Backend: POST /api/match (rate limited to 20 requests per minute, 429 when exceeded).
+        await fetchJson(`${apiBaseUrl}/match`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ problem }),
+          body: JSON.stringify({ text: problem, inputMode: INPUT_MODE }),
           schema: matchResponseDtoSchema,
         });
 

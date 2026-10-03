@@ -4,6 +4,7 @@ import { useMatchSearch } from "../hooks/useMatchSearch";
 import { useSavedProblem } from "@/shared/hooks/useSavedProblem";
 
 import { EmptySearch } from "./EmptySearch";
+import { LowConfidenceNotice } from "./LowConfidenceNotice";
 import { NoMatchState } from "./NoMatchState";
 import { ResultList } from "./ResultList";
 import { ResultsSkeleton } from "./ResultsSkeleton";
@@ -21,7 +22,12 @@ export function SearchResults() {
     <div>
       <ResultsStatus state={state} />
       {state.kind === "loading" ? <ResultsSkeleton /> : null}
-      {state.kind === "results" ? <ResultList items={state.items} /> : null}
+      {state.kind === "results" ? (
+        <div className="flex flex-col gap-6">
+          {state.isLowConfidence ? <LowConfidenceNotice /> : null}
+          <ResultList items={state.items} />
+        </div>
+      ) : null}
       {state.kind === "empty" ? <NoMatchState /> : null}
       {state.kind === "error" ? <SearchError isRateLimited={state.isRateLimited} onRetry={state.retry} /> : null}
     </div>

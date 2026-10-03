@@ -10,8 +10,8 @@ export function buildSubmissionPayload(values: SubmissionFormValues): CreateSubm
     description: values.description,
   };
 
-  if (values.areaId) {
-    payload.areaId = values.areaId;
+  if (values.categoryId) {
+    payload.categoryId = values.categoryId;
   }
 
   if (values.place) {

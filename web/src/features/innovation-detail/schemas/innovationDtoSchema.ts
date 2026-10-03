@@ -1,8 +1,9 @@
 import { z } from "zod";
 
 /*
-  PROPOSED contract for the innovation endpoints (simple on purpose, to be replaced by the agreed shape).
-  Update this file and the mappers in `utils/` when the backend response is final.
+  PROPOSED contract for the innovation endpoints, which the backend does not serve yet. The field names follow the
+  backend's Innovation entity (HubMi.Domain/Innovations/Innovation.cs); `category` is the one addition we need,
+  because the entity only stores a CategoryId. Update this file and the mappers in `utils/` once the endpoint exists.
 */
 export const innovationDtoSchema = z.object({
   id: z.string(),
@@ -18,12 +19,10 @@ export const innovationDtoSchema = z.object({
   beneficiaries: z.string().nullable(),
   evidence: z.string().nullable(),
   sourceUrl: z.string(),
-  links: z.object({
-    video: z.string().nullable(),
-    materials: z.string().nullable(),
-    detailsPdf: z.string().nullable(),
-    license: z.string().nullable(),
-  }),
+  videoUrl: z.string().nullable(),
+  materialsUrl: z.string().nullable(),
+  detailsPdfUrl: z.string().nullable(),
+  licenseUrl: z.string().nullable(),
 });
 
 export const innovationListDtoSchema = z.array(innovationDtoSchema);

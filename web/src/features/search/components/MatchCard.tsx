@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
-import { Tag } from "@/shared/ui/primitives/Tag";
 
 import { matchStrengthStyles } from "../constants/match-strengths";
 import type { MatchResult } from "../types/match-result";
@@ -34,10 +33,7 @@ export function MatchCard({ result }: MatchCardProps) {
         className={cn("absolute inset-y-0 left-0 w-2", matchStrengthStyles[result.strength].accentClassName)}
       />
 
-      <div className="flex flex-wrap items-center gap-3">
-        <StrengthBadge strength={result.strength} />
-        <Tag>{result.categoryName}</Tag>
-      </div>
+      <StrengthBadge strength={result.strength} />
 
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl leading-tight font-extrabold text-foreground">

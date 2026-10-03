@@ -39,7 +39,8 @@ export function useMatchSearch(problem: string | null | undefined): SearchViewSt
   }
 
   if (query.isSuccess) {
-    return query.data.length > 0 ? { kind: "results", items: query.data } : { kind: "empty" };
+    const { isLowConfidence, items } = query.data;
+    return items.length > 0 ? { kind: "results", items, isLowConfidence } : { kind: "empty" };
   }
 
   return { kind: "loading" };

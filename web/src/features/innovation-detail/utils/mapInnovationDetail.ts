@@ -21,10 +21,10 @@ export function mapInnovationDetail(dto: InnovationDto): InnovationDetail {
     sections: innovationSectionKeys.map((key) => ({ key, paragraphs: splitParagraphs(texts[key]) })),
     sourceUrl: dto.sourceUrl,
     resources: {
-      materialsUrl: dto.links.materials,
-      detailsPdfUrl: dto.links.detailsPdf,
-      videoUrl: dto.links.video,
-      licenseUrl: dto.links.license,
+      materialsUrl: dto.materialsUrl,
+      detailsPdfUrl: dto.detailsPdfUrl,
+      videoUrl: dto.videoUrl,
+      licenseUrl: dto.licenseUrl,
     },
   };
 }

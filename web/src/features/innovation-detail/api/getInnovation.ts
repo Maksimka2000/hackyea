@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { apiMode, serverApiBaseUrl } from "@/shared/config/env";
+import { apiModeFor, serverApiBaseUrl } from "@/shared/config/env";
 import { ApiError } from "@/shared/lib/api-error";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
@@ -14,7 +14,7 @@ import { getInnovationMock } from "./innovationMock";
 export const getInnovation = cache(async (id: string): Promise<InnovationDetail | null> => {
   try {
     const dto =
-      apiMode === "mock"
+      apiModeFor("innovations") === "mock"
         ? await getInnovationMock(id)
         : // PLACEHOLDER endpoint: replace when the backend defines it.
           await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}`, { schema: innovationDtoSchema });

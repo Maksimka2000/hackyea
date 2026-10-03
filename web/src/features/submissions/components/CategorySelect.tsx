@@ -3,25 +3,24 @@
 import { useTranslations } from "next-intl";
 import { useFormContext } from "react-hook-form";
 
-import { challengeAreas } from "@/shared/constants/challenge-areas";
+import { libraryCategories } from "@/shared/constants/library-categories";
 import { FormField } from "@/shared/ui/primitives/FormField";
 import { Select } from "@/shared/ui/primitives/Select";
 
 import type { SubmissionFormValues } from "../schemas/submissionFormSchema";
 
-export function AreaSelect() {
+export function CategorySelect() {
   const t = useTranslations("Submit.fields");
-  const tAreas = useTranslations("ChallengeAreas");
   const { register } = useFormContext<SubmissionFormValues>();
 
   return (
-    <FormField id="submission-area" label={t("area.label")}>
+    <FormField id="submission-category" label={t("category.label")}>
       {(controlProps) => (
-        <Select {...controlProps} {...register("areaId")}>
-          <option value="">{t("area.empty")}</option>
-          {challengeAreas.map((area) => (
-            <option key={area.key} value={area.slug}>
-              {tAreas(`${area.key}.name`)}
+        <Select {...controlProps} {...register("categoryId")}>
+          <option value="">{t("category.empty")}</option>
+          {libraryCategories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
             </option>
           ))}
         </Select>

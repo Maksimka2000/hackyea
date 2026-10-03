@@ -25,7 +25,7 @@ export function useSubmissionForm(type: SubmissionType) {
     values: {
       type,
       description: type === "need" ? (savedProblem ?? "") : "",
-      areaId: "",
+      categoryId: "",
       place: "",
       submitterType: "",
       title: "",

@@ -77,9 +77,9 @@
         }
       }
     },
-    "areas": {
-      "title": "Browse by challenge",
-      "description": "Eight areas from the Małopolska Map of Social Challenges."
+    "categories": {
+      "title": "Browse by category",
+      "description": "The nine categories of the ROPS Kraków Social Innovation Library (their names stay in Polish)."
     },
     "featured": {
       "title": "Examples from the library",
@@ -115,7 +115,8 @@
       "loading": "Looking for solutions…",
       "found": "{count, plural, one {Found # solution} other {Found # solutions}}",
       "empty": "No matches",
-      "error": "The search failed"
+      "error": "The search failed",
+      "nearest": "Nearest suggestions: {count}"
     },
     "strength": {
       "strong": {
@@ -160,6 +161,11 @@
     "submitPrompt": {
       "title": "Nothing fits?",
       "text": "Report a need and ROPS staff will reply.",
+      "cta": "Report a need"
+    },
+    "lowConfidence": {
+      "title": "We did not find a close match",
+      "text": "Below are the nearest solutions in the library. They may fit only partly. If none fits, report the need to ROPS.",
       "cta": "Report a need"
     }
   },
@@ -218,40 +224,6 @@
       "home": "Home page"
     }
   },
-  "ChallengeAreas": {
-    "seniors": {
-      "name": "Seniors",
-      "text": "Loneliness, care, independence at home"
-    },
-    "homelessness": {
-      "name": "Homelessness",
-      "text": "Housing crisis and support for a new start"
-    },
-    "disability": {
-      "name": "Disability",
-      "text": "Accessible services and spaces"
-    },
-    "poverty": {
-      "name": "Poverty",
-      "text": "Exclusion, debt, lack of resources"
-    },
-    "foreigners": {
-      "name": "Integration of foreigners",
-      "text": "Language, culture, access to information"
-    },
-    "health": {
-      "name": "Health",
-      "text": "Care, prevention, treatment at home"
-    },
-    "mentalHealth": {
-      "name": "Mental health",
-      "text": "Depression, stress, crisis support"
-    },
-    "family": {
-      "name": "Family and foster care",
-      "text": "Support for families and child carers"
-    }
-  },
   "Submit": {
     "header": {
       "need": {
@@ -275,10 +247,6 @@
       },
       "descriptionHint": "Do not include personal data, for example names of other people.",
       "counter": "{count} / {max}",
-      "area": {
-        "label": "Area (optional)",
-        "empty": "I do not know / skip"
-      },
       "place": {
         "label": "Town / municipality (optional)",
         "hint": "For example: Nowy Targ."
@@ -314,6 +282,10 @@
         "label": "Email address (optional)",
         "hint": "We will send the link to your submission there. Without an address, save the link shown after sending.",
         "consent": "I agree that ROPS Kraków sends the link to my submission to this email address."
+      },
+      "category": {
+        "label": "Category (optional)",
+        "empty": "I do not know / skip"
       }
     },
     "errors": {

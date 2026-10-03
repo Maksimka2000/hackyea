@@ -77,9 +77,9 @@
         }
       }
     },
-    "areas": {
-      "title": "Przeglądaj według wyzwania",
-      "description": "Osiem obszarów z Mapy Wyzwań Społecznych Małopolski."
+    "categories": {
+      "title": "Przeglądaj według kategorii",
+      "description": "Dziewięć kategorii Biblioteki Innowacji Społecznych ROPS Kraków."
     },
     "featured": {
       "title": "Przykłady z biblioteki",
@@ -115,7 +115,8 @@
       "loading": "Szukamy rozwiązań…",
       "found": "{count, plural, one {Znaleziono # rozwiązanie} few {Znaleziono # rozwiązania} many {Znaleziono # rozwiązań} other {Znaleziono # rozwiązania}}",
       "empty": "Brak dopasowań",
-      "error": "Nie udało się wyszukać"
+      "error": "Nie udało się wyszukać",
+      "nearest": "Najbliższe propozycje: {count}"
     },
     "strength": {
       "strong": {
@@ -160,6 +161,11 @@
     "submitPrompt": {
       "title": "Żadne nie pasuje?",
       "text": "Zgłoś potrzebę, a pracownicy ROPS odpowiedzą.",
+      "cta": "Zgłoś potrzebę"
+    },
+    "lowConfidence": {
+      "title": "Nie znaleźliśmy bliskiego dopasowania",
+      "text": "Poniżej są najbliższe rozwiązania z biblioteki. Mogą pasować tylko częściowo. Jeśli żadne nie pasuje, zgłoś potrzebę do ROPS.",
       "cta": "Zgłoś potrzebę"
     }
   },
@@ -218,40 +224,6 @@
       "home": "Strona główna"
     }
   },
-  "ChallengeAreas": {
-    "seniors": {
-      "name": "Seniorzy",
-      "text": "Samotność, opieka, samodzielność w domu"
-    },
-    "homelessness": {
-      "name": "Bezdomność",
-      "text": "Kryzys mieszkaniowy i wsparcie na starcie"
-    },
-    "disability": {
-      "name": "Niepełnosprawność",
-      "text": "Dostępność usług i przestrzeni"
-    },
-    "poverty": {
-      "name": "Ubóstwo",
-      "text": "Wykluczenie, zadłużenie, brak zasobów"
-    },
-    "foreigners": {
-      "name": "Integracja cudzoziemców",
-      "text": "Język, kultura, dostęp do informacji"
-    },
-    "health": {
-      "name": "Zdrowie",
-      "text": "Opieka, profilaktyka, leczenie w domu"
-    },
-    "mentalHealth": {
-      "name": "Zdrowie psychiczne",
-      "text": "Depresja, stres, wsparcie w kryzysie"
-    },
-    "family": {
-      "name": "Rodzina i piecza zastępcza",
-      "text": "Wsparcie rodzin i opiekunów dzieci"
-    }
-  },
   "Submit": {
     "header": {
       "need": {
@@ -275,10 +247,6 @@
       },
       "descriptionHint": "Nie podawaj danych osobowych, np. imion i nazwisk innych osób.",
       "counter": "{count} / {max}",
-      "area": {
-        "label": "Obszar (opcjonalnie)",
-        "empty": "Nie wiem / pomiń"
-      },
       "place": {
         "label": "Miejscowość / gmina (opcjonalnie)",
         "hint": "Na przykład: Nowy Targ."
@@ -314,6 +282,10 @@
         "label": "Adres e-mail (opcjonalnie)",
         "hint": "Wyślemy tam link do zgłoszenia. Bez adresu zapisz link, który pokażemy po wysłaniu.",
         "consent": "Zgadzam się, aby ROPS Kraków wysłał link do zgłoszenia na ten adres e-mail."
+      },
+      "category": {
+        "label": "Kategoria (opcjonalnie)",
+        "empty": "Nie wiem / pomiń"
       }
     },
     "errors": {

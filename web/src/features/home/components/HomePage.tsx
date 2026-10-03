@@ -2,7 +2,7 @@ import { Container } from "@/shared/ui/primitives/Container";
 
 import { getFeaturedInnovations } from "../api/getFeaturedInnovations";
 
-import { ChallengeAreas } from "./ChallengeAreas";
+import { LibraryCategories } from "./LibraryCategories";
 import { FeaturedInnovations } from "./FeaturedInnovations";
 import { HomeHero } from "./HomeHero";
 import { HowItWorks } from "./HowItWorks";
@@ -21,7 +21,7 @@ export async function HomePage() {
         <LibraryNote />
       </Container>
       <HowItWorks />
-      <ChallengeAreas />
+      <LibraryCategories />
       <FeaturedInnovations innovations={featuredInnovations} />
       <SubmitCallout />
     </>

@@ -6,4 +6,4 @@ export type SearchViewState =
   | { kind: "no-problem" }
   | { kind: "error"; isRateLimited: boolean; retry: () => void }
   | { kind: "empty" }
-  | { kind: "results"; items: MatchResult[] };
+  | { kind: "results"; items: MatchResult[]; isLowConfidence: boolean };
