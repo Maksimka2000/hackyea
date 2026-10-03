@@ -36,6 +36,10 @@ services:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
       ConnectionStrings__HubMi: Host=postgres;Port=5432;Database=hubmi;Username=hubmi;Password=${HUBMI_DB_PASSWORD}
       Swagger__Enabled: ${HUBMI_SWAGGER_ENABLED:-true}
+      # Trust X-Forwarded-For from the Next.js proxy on private networks only; narrow these in production.
+      ForwardedHeaders__KnownNetworks__0: 10.0.0.0/8
+      ForwardedHeaders__KnownNetworks__1: 172.16.0.0/12
+      ForwardedHeaders__KnownNetworks__2: 192.168.0.0/16
       Persistence__MigrateOnStartup: "true"
       Persistence__SeedSampleLibrary: "true"
       Matching__ClientKeySalt: ${HUBMI_CLIENT_KEY_SALT:-}

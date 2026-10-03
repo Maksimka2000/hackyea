@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddSearchConfiguration();
 
+builder.Services.AddForwardedHeadersSupport(builder.Configuration);
 builder.Services.AddApiServices();
 builder.Services.AddSwaggerDocs();
 builder.Services.AddMatchingOptions(builder.Configuration);
