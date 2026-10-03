@@ -1,18 +1,13 @@
-@layer components {
-  .page-shell {
-    @apply mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-10 px-6 py-12 sm:px-10 lg:px-12;
-  }
-
-  .section-stack {
-    @apply flex flex-col gap-6 rounded-[var(--radius-card)] border border-border bg-surface px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10;
-  }
-
-  .surface-card {
-    @apply flex flex-col gap-3 rounded-[var(--radius-card)] border border-border bg-surface px-5 py-5 shadow-[var(--shadow-soft)];
-  }
-
-  .eyebrow {
-    @apply inline-flex w-fit rounded-full border border-border bg-surface-strong px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground;
-  }
+/* Border width follows the contrast mode (1px normally, 2px in high contrast). */
+@utility border-line {
+  border-style: solid;
+  border-width: var(--line-width);
 }
 
+/* Use on dark areas (header, hero, call-to-action) so the focus ring stays visible. */
+@utility on-dark {
+  --focus: var(--accent);
+}
+
+/* Lets decoration disappear in high contrast: `contrast-high:hidden`. */
+@custom-variant contrast-high (html[data-contrast="high"] &);

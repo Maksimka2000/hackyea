@@ -1,0 +1,135 @@
+{
+  "Metadata": {
+    "siteName": "Social Innovation Hub",
+    "title": "Find a proven social solution",
+    "description": "Describe a problem in your own words and we will point you to proven social innovations from the ROPS Kraków library."
+  },
+  "Layout": {
+    "skipToContent": "Skip to content",
+    "brandName": "Innovation Hub",
+    "brandRegion": "Małopolska",
+    "mainNavigation": "Main navigation",
+    "nav": {
+      "findSolution": "Find a solution",
+      "library": "Innovation library",
+      "knowledge": "Knowledge",
+      "submit": "Submit an idea"
+    }
+  },
+  "Accessibility": {
+    "groupLabel": "Accessibility settings",
+    "textSizeLabel": "Text size",
+    "textSize": {
+      "md": "Standard text size",
+      "lg": "Larger text",
+      "xl": "Largest text"
+    },
+    "contrast": "High contrast",
+    "contrastShort": "Contrast",
+    "languageLabel": "Language",
+    "languages": {
+      "pl": "Polski",
+      "en": "English"
+    }
+  },
+  "Footer": {
+    "tagline": "The Social Innovation Hub connects the needs of Małopolska residents with proven solutions.",
+    "linksTitle": "Quick links",
+    "accessibilityDeclaration": "Accessibility statement",
+    "ropsSite": "ROPS Kraków",
+    "sourceNote": "Data comes from the public Social Innovation Library of ROPS Kraków. Every result links to its source.",
+    "prototypeNote": "Prototype built during HackYeah 2026."
+  },
+  "Home": {
+    "hero": {
+      "title": "Describe the problem. <highlight>Find a solution</highlight> that already works.",
+      "lead": "A few sentences are enough – we show proven innovations and explain why they fit."
+    },
+    "search": {
+      "label": "What is happening?",
+      "placeholder": "E.g. in our municipality young people have nowhere to go and feel lonely…",
+      "hint": "Do not include personal data.",
+      "counter": "{count} / {max}",
+      "submit": "Find solutions",
+      "examplesTitle": "Try an example",
+      "examples": {
+        "senior": "An older neighbour lives alone and feels lonely",
+        "disability": "Our municipality lacks services for people with disabilities",
+        "youth": "Young people in our town struggle with stress"
+      },
+      "errors": {
+        "tooShort": "Describe the problem in at least {min} characters.",
+        "tooLong": "The description can have at most {max} characters."
+      },
+      "placeholderNotice": "Matching will be available soon."
+    },
+    "libraryNote": "ROPS Kraków library · {count} proven innovations",
+    "howItWorks": {
+      "title": "How it works",
+      "description": "Three steps, no account needed.",
+      "steps": {
+        "describe": {
+          "title": "Describe the problem",
+          "text": "Write in your own words what is happening. No technical terms needed."
+        },
+        "review": {
+          "title": "See the matches",
+          "text": "We show proven innovations and explain why they fit your situation."
+        },
+        "act": {
+          "title": "Use it or report it",
+          "text": "Read how to implement the solution. If nothing fits, report the need to ROPS."
+        }
+      }
+    },
+    "areas": {
+      "title": "Browse by challenge",
+      "description": "Eight areas from the Małopolska Map of Social Challenges.",
+      "items": {
+        "seniors": {
+          "name": "Seniors",
+          "text": "Loneliness, care, independence at home"
+        },
+        "homelessness": {
+          "name": "Homelessness",
+          "text": "Housing crisis and support for a new start"
+        },
+        "disability": {
+          "name": "Disability",
+          "text": "Accessible services and spaces"
+        },
+        "poverty": {
+          "name": "Poverty",
+          "text": "Exclusion, debt, lack of resources"
+        },
+        "foreigners": {
+          "name": "Integration of foreigners",
+          "text": "Language, culture, access to information"
+        },
+        "health": {
+          "name": "Health",
+          "text": "Care, prevention, treatment at home"
+        },
+        "mentalHealth": {
+          "name": "Mental health",
+          "text": "Depression, stress, crisis support"
+        },
+        "family": {
+          "name": "Family and foster care",
+          "text": "Support for families and child carers"
+        }
+      }
+    },
+    "featured": {
+      "title": "Examples from the library",
+      "description": "With a description of the test, the licence and a link to the source.",
+      "viewSolution": "View solution"
+    },
+    "submitCallout": {
+      "title": "Did not find an answer?",
+      "text": "Report a need or an idea. ROPS staff will reply, and you can check the status through a private link.",
+      "needCta": "Report a need",
+      "ideaCta": "Propose an idea"
+    }
+  }
+}

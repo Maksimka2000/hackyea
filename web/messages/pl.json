@@ -1,0 +1,135 @@
+{
+  "Metadata": {
+    "siteName": "Hub Innowacji Społecznych",
+    "title": "Znajdź sprawdzone rozwiązanie społeczne",
+    "description": "Opisz problem własnymi słowami, a wskażemy sprawdzone innowacje społeczne z biblioteki ROPS Kraków."
+  },
+  "Layout": {
+    "skipToContent": "Przejdź do treści",
+    "brandName": "Hub Innowacji",
+    "brandRegion": "Małopolska",
+    "mainNavigation": "Nawigacja główna",
+    "nav": {
+      "findSolution": "Znajdź rozwiązanie",
+      "library": "Biblioteka innowacji",
+      "knowledge": "Wiedza",
+      "submit": "Zgłoś pomysł"
+    }
+  },
+  "Accessibility": {
+    "groupLabel": "Ustawienia dostępności",
+    "textSizeLabel": "Rozmiar tekstu",
+    "textSize": {
+      "md": "Standardowy rozmiar tekstu",
+      "lg": "Większy tekst",
+      "xl": "Największy tekst"
+    },
+    "contrast": "Wysoki kontrast",
+    "contrastShort": "Kontrast",
+    "languageLabel": "Język",
+    "languages": {
+      "pl": "Polski",
+      "en": "English"
+    }
+  },
+  "Footer": {
+    "tagline": "Hub Innowacji Społecznych łączy potrzeby mieszkańców Małopolski ze sprawdzonymi rozwiązaniami.",
+    "linksTitle": "Na skróty",
+    "accessibilityDeclaration": "Deklaracja dostępności",
+    "ropsSite": "ROPS Kraków",
+    "sourceNote": "Dane pochodzą z publicznej Biblioteki Innowacji Społecznych ROPS Kraków. Przy każdym wyniku podajemy źródło.",
+    "prototypeNote": "Prototyp wykonany podczas HackYeah 2026."
+  },
+  "Home": {
+    "hero": {
+      "title": "Opisz problem. <highlight>Znajdź rozwiązanie</highlight>, które już działa.",
+      "lead": "Wystarczy kilka zdań – pokażemy sprawdzone innowacje i wyjaśnimy, dlaczego pasują."
+    },
+    "search": {
+      "label": "Co się dzieje?",
+      "placeholder": "Np. w naszej gminie młodzi ludzie nie mają dokąd pójść i czują się samotni…",
+      "hint": "Nie podawaj danych osobowych.",
+      "counter": "{count} / {max}",
+      "submit": "Znajdź rozwiązania",
+      "examplesTitle": "Wypróbuj przykład",
+      "examples": {
+        "senior": "Starsza sąsiadka mieszka sama i czuje się samotna",
+        "disability": "W naszej gminie brakuje usług dla osób z niepełnosprawnością",
+        "youth": "Młodzi w naszej miejscowości nie radzą sobie ze stresem"
+      },
+      "errors": {
+        "tooShort": "Opisz problem w co najmniej {min} znakach.",
+        "tooLong": "Opis może mieć najwyżej {max} znaków."
+      },
+      "placeholderNotice": "Wyszukiwanie dopasowań będzie dostępne wkrótce."
+    },
+    "libraryNote": "Biblioteka ROPS Kraków · {count} sprawdzonych innowacji",
+    "howItWorks": {
+      "title": "Jak to działa",
+      "description": "Trzy kroki, bez zakładania konta.",
+      "steps": {
+        "describe": {
+          "title": "Opisz problem",
+          "text": "Napisz własnymi słowami, co się dzieje. Nie musisz znać fachowych pojęć."
+        },
+        "review": {
+          "title": "Zobacz dopasowania",
+          "text": "Pokażemy sprawdzone innowacje i wyjaśnimy, dlaczego pasują do Twojej sytuacji."
+        },
+        "act": {
+          "title": "Skorzystaj lub zgłoś",
+          "text": "Przeczytaj, jak wdrożyć rozwiązanie. Jeśli nic nie pasuje, zgłoś potrzebę do ROPS."
+        }
+      }
+    },
+    "areas": {
+      "title": "Przeglądaj według wyzwania",
+      "description": "Osiem obszarów z Mapy Wyzwań Społecznych Małopolski.",
+      "items": {
+        "seniors": {
+          "name": "Seniorzy",
+          "text": "Samotność, opieka, samodzielność w domu"
+        },
+        "homelessness": {
+          "name": "Bezdomność",
+          "text": "Kryzys mieszkaniowy i wsparcie na starcie"
+        },
+        "disability": {
+          "name": "Niepełnosprawność",
+          "text": "Dostępność usług i przestrzeni"
+        },
+        "poverty": {
+          "name": "Ubóstwo",
+          "text": "Wykluczenie, zadłużenie, brak zasobów"
+        },
+        "foreigners": {
+          "name": "Integracja cudzoziemców",
+          "text": "Język, kultura, dostęp do informacji"
+        },
+        "health": {
+          "name": "Zdrowie",
+          "text": "Opieka, profilaktyka, leczenie w domu"
+        },
+        "mentalHealth": {
+          "name": "Zdrowie psychiczne",
+          "text": "Depresja, stres, wsparcie w kryzysie"
+        },
+        "family": {
+          "name": "Rodzina i piecza zastępcza",
+          "text": "Wsparcie rodzin i opiekunów dzieci"
+        }
+      }
+    },
+    "featured": {
+      "title": "Przykłady z biblioteki",
+      "description": "Z opisem testu, licencją i linkiem do źródła.",
+      "viewSolution": "Zobacz rozwiązanie"
+    },
+    "submitCallout": {
+      "title": "Nie znalazłeś odpowiedzi?",
+      "text": "Zgłoś potrzebę lub pomysł. Pracownicy ROPS odpowiedzą, a status sprawdzisz pod prywatnym linkiem.",
+      "needCta": "Zgłoś potrzebę",
+      "ideaCta": "Zaproponuj pomysł"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+/* Shared look of the header's toggle controls (text size, contrast, language). Header sits on a dark surface. */
+export const headerToggleClasses =
+  "inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-control border border-hero-foreground/50 bg-hero-foreground/10 px-2 text-sm text-hero-foreground transition-colors duration-150 hover:bg-hero-foreground/20 aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:font-bold aria-pressed:text-accent-foreground aria-[current=true]:border-accent aria-[current=true]:bg-accent aria-[current=true]:font-bold aria-[current=true]:text-accent-foreground";

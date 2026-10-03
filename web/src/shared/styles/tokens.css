@@ -1,30 +1,100 @@
+/*
+  Design tokens. Components use only the semantic names below (bg-primary, text-muted, ...),
+  never raw colours, so contrast mode and text size work by overriding variables here.
+*/
+
 :root {
-  --font-sans: "Segoe UI", system-ui, sans-serif;
-  --background: oklch(0.985 0.004 95);
-  --foreground: oklch(0.22 0.02 260);
-  --muted-foreground: oklch(0.48 0.02 255);
-  --surface: oklch(0.995 0.002 95);
-  --surface-strong: oklch(0.965 0.006 95);
-  --border: oklch(0.89 0.01 95);
-  --accent: oklch(0.63 0.16 188);
-  --accent-strong: oklch(0.57 0.17 188);
-  --accent-foreground: oklch(0.99 0.01 188);
-  --radius-card: 1.25rem;
-  --shadow-soft: 0 20px 60px -36px rgb(15 23 42 / 0.35);
-  --duration-fast: 160ms;
-  --duration-base: 240ms;
+  /* surfaces and text */
+  --background: #ffffff;
+  --surface: #ffffff;
+  --tint: #f1f5fc;
+  --tint-strong: #dce6f8;
+  --foreground: #0d1a36;
+  --muted: #4a5a7c;
+  --border: #d5def0;
+
+  /* brand */
+  --primary: #0e3a8c;
+  --primary-strong: #082766;
+  --primary-foreground: #ffffff;
+  --hero: #0a1f55;
+  --hero-deep: #071845;
+  --hero-foreground: #ffffff;
+  --accent: #ffc21a;
+  --accent-foreground: #0d1a36;
+
+  /* feedback and focus */
+  --danger: #b3261e;
+  --focus: #b85c00;
+
+  /* shape and depth */
+  --line-width: 1px;
+  --elevation-card: 0 18px 40px -22px rgb(10 31 85 / 0.55);
+}
+
+/* Text size: every size in the UI is in rem, so changing the root size scales the whole page. */
+html {
+  font-size: 17px;
+}
+
+html[data-text-size="lg"] {
+  font-size: 19px;
+}
+
+html[data-text-size="xl"] {
+  font-size: 21px;
+}
+
+/* High contrast: black on white, thick borders, no shadows, yellow focus on dark areas. */
+html[data-contrast="high"] {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --tint: #ffffff;
+  --tint-strong: #ffffff;
+  --foreground: #000000;
+  --muted: #000000;
+  --border: #000000;
+
+  --primary: #00107a;
+  --primary-strong: #000000;
+  --hero: #000000;
+  --hero-deep: #000000;
+  --accent: #ffd400;
+  --accent-foreground: #000000;
+
+  --danger: #8c0000;
+  --focus: #000000;
+
+  --line-width: 2px;
+  --elevation-card: none;
 }
 
 @theme inline {
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-figtree), "Segoe UI", system-ui, sans-serif;
+
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
   --color-surface: var(--surface);
-  --color-surface-strong: var(--surface-strong);
+  --color-tint: var(--tint);
+  --color-tint-strong: var(--tint-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-hero: var(--hero);
+  --color-hero-deep: var(--hero-deep);
+  --color-hero-foreground: var(--hero-foreground);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
   --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+
+  --shadow-card: var(--elevation-card);
 }
 
+@theme {
+  --radius-control: 0.75rem;
+  --radius-card: 0.875rem;
+  --radius-panel: 1.25rem;
+}
