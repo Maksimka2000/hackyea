@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pl" data-size="m" data-contrast="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kierunek A – Urząd (IBM Plex Sans)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font:"IBM Plex Sans",system-ui,sans-serif;
+  --bg:#fff; --surface:#fff; --tint:#EEF3FA; --ink:#0F1B33; --muted:#4A5873; --line:#CBD5E4;
+  --primary:#0B2A6F; --primary-hover:#071C4D; --primary-ink:#fff;
+  --accent:#F2B705; --accent-ink:#0F1B33; --focus:#B85C00;
+  --bar:#071C4D; --bar-ink:#fff; --radius:8px; --border:1px;
+}
+[data-contrast="high"]{
+  --bg:#fff; --surface:#fff; --tint:#fff; --ink:#000; --muted:#000; --line:#000;
+  --primary:#00107A; --primary-hover:#000; --accent:#FFD400; --accent-ink:#000; --focus:#000;
+  --bar:#000; --bar-ink:#fff; --border:2px;
+}
+html{font-size:17px} html[data-size="l"]{font-size:19px} html[data-size="xl"]{font-size:21px}
+*{box-sizing:border-box} body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+a{color:var(--primary)} h1,h2,h3{line-height:1.2;margin:0;color:var(--ink)}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+button{font:inherit;cursor:pointer}
+/* utility bar */
+.bar{background:var(--bar);color:var(--bar-ink);font-size:.82rem}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:2.6rem;flex-wrap:wrap}
+.bar .grp{display:flex;align-items:center;gap:.5rem}
+.bar button{background:transparent;color:inherit;border:1px solid rgba(255,255,255,.55);border-radius:4px;padding:.15rem .6rem;min-width:2.2rem}
+.bar button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.bar :focus-visible{outline-color:var(--accent)}
+/* header */
+header.main{border-bottom:var(--border) solid var(--line);background:var(--surface)}
+header.main .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;min-height:5rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.15rem}
+.brand i{width:2.4rem;height:2.4rem;background:var(--primary);display:grid;place-items:center;border-radius:6px}
+.brand small{display:block;font-weight:400;font-size:.75rem;color:var(--muted)}
+nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;font-weight:500;padding:.4rem 0;border-bottom:3px solid transparent}
+nav a:hover{border-color:var(--accent)}
+/* hero */
+.hero{background:var(--tint);border-bottom:var(--border) solid var(--line);padding:4rem 0}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:3.5rem;align-items:center}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:1rem}
+.hero h1{font-size:2.6rem;font-weight:700;letter-spacing:-.01em}
+.hero p.lead{font-size:1.1rem;color:var(--muted);margin:1.2rem 0 0;max-width:34rem}
+.card{background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);padding:1.6rem;box-shadow:0 12px 32px -18px rgba(11,42,111,.45)}
+label.big{display:block;font-weight:600;font-size:1.05rem;margin-bottom:.5rem}
+textarea{width:100%;min-height:8.5rem;font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--primary);border-radius:var(--radius);padding:.9rem 1rem;resize:vertical}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin:.4rem 0 1rem;gap:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--primary);color:var(--primary-ink);border:2px solid var(--primary);border-radius:var(--radius);padding:.8rem 1.4rem;font-weight:600;text-decoration:none}
+.btn:hover{background:var(--primary-hover)}
+.btn.accent{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--primary);border-color:var(--primary)}
+.card .btn{width:100%}
+.chips-title{font-size:.85rem;color:var(--muted);margin:1.2rem 0 .5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{background:var(--tint);border:var(--border) solid var(--line);color:var(--ink);border-radius:999px;padding:.35rem .85rem;font-size:.85rem;text-align:left}
+.chip:hover{border-color:var(--primary)}
+#status{min-height:1.4rem;margin:.8rem 0 0;font-size:.9rem;color:var(--primary);font-weight:500}
+/* stats */
+.stats{border-bottom:var(--border) solid var(--line)}
+.stats ul{list-style:none;margin:0;padding:1.6rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.stats strong{display:block;font-size:2rem;color:var(--primary);line-height:1}
+.stats span{color:var(--muted);font-size:.95rem}
+/* sections */
+section.s{padding:4.5rem 0}
+section.s.alt{background:var(--tint);border-block:var(--border) solid var(--line)}
+.s h2{font-size:1.9rem;margin-bottom:.6rem} .s .sub{color:var(--muted);max-width:40rem;margin:0 0 2.2rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{border-top:4px solid var(--primary);padding-top:1rem;counter-increment:s}
+.steps li::before{content:"0" counter(s);display:block;font-size:2rem;font-weight:700;color:var(--primary);margin-bottom:.4rem}
+.steps h3{font-size:1.15rem;margin-bottom:.4rem} .steps p{margin:0;color:var(--muted)}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;list-style:none;padding:0;margin:0}
+.areas a{display:block;height:100%;background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);padding:1.2rem;text-decoration:none;color:var(--ink);border-top:4px solid var(--primary)}
+.areas a:hover{border-color:var(--primary);box-shadow:0 8px 20px -14px var(--primary)}
+.areas b{display:block;font-size:1.05rem;margin-bottom:.3rem;color:var(--primary)} .areas span{color:var(--muted);font-size:.9rem}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;list-style:none;padding:0;margin:0}
+.inno{background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);overflow:hidden;height:100%;display:flex;flex-direction:column}
+.ph{aspect-ratio:16/9;background:repeating-linear-gradient(135deg,var(--tint) 0 14px,#E3EBF7 14px 28px);display:grid;place-items:center;color:var(--muted);font-size:.8rem;border-bottom:var(--border) solid var(--line)}
+.inno .b{padding:1.2rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.tag{align-self:flex-start;background:var(--tint);border:var(--border) solid var(--line);border-radius:4px;padding:.1rem .55rem;font-size:.78rem;color:var(--primary);font-weight:600}
+.inno h3{font-size:1.15rem} .inno p{margin:0;color:var(--muted);flex:1} .inno a{font-weight:600}
+/* cta */
+.cta{background:var(--primary);color:#fff;padding:3.5rem 0}
+[data-contrast="high"] .cta{background:#000}
+.cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.cta h2{color:#fff;font-size:1.7rem;max-width:34rem} .cta p{margin:.5rem 0 0;max-width:34rem;opacity:.9}
+.cta .row{display:flex;gap:.8rem;flex-wrap:wrap}
+.cta .btn.ghost{color:#fff;border-color:#fff} .cta :focus-visible{outline-color:var(--accent)}
+footer{padding:2rem 0;color:var(--muted);font-size:.88rem;border-top:var(--border) solid var(--line)}
+@media (max-width:60rem){.hero .wrap,.steps,.cards3{grid-template-columns:1fr}.areas{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:2.1rem}}
+@media (max-width:34rem){.areas,.stats ul{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.areas a,.btn,.chip{transition:all .15s}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="bar"><div class="wrap">
+  <span>Prototyp · Hub Innowacji Społecznych</span>
+  <div class="grp">
+    <span id="sz">Rozmiar tekstu</span>
+    <div class="grp" role="group" aria-labelledby="sz">
+      <button data-size-btn="m" aria-label="Standardowy rozmiar tekstu" style="font-size:.85rem">A</button>
+      <button data-size-btn="l" aria-label="Większy tekst" style="font-size:1.05rem">A</button>
+      <button data-size-btn="xl" aria-label="Największy tekst" style="font-size:1.3rem">A</button>
+    </div>
+    <button data-contrast-btn aria-pressed="false">Wysoki kontrast</button>
+    <div class="grp" role="group" aria-label="Język"><button data-lang-btn="pl" lang="pl">PL</button><button data-lang-btn="en" lang="en">EN</button></div>
+  </div>
+</div></div>
+<header class="main"><div class="wrap">
+  <a class="brand" href="#"><i aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 11l6-4M9 13l6 4"/></svg></i><span>Hub Innowacji<small>Małopolska</small></span></a>
+  <nav aria-label="Główna"><ul><li><a href="#">Znajdź rozwiązanie</a></li><li><a href="#">Biblioteka innowacji</a></li><li><a href="#">Wiedza</a></li><li><a href="#">Zgłoś pomysł</a></li></ul></nav>
+</div></header>
+<main id="main">
+<section class="hero" aria-labelledby="h1"><div class="wrap">
+  <div>
+    <p class="eyebrow">Matchmaking społeczny</p>
+    <h1 id="h1">Opisz problem. Znajdziemy sprawdzone rozwiązanie.</h1>
+    <p class="lead">Przeszukujemy bibliotekę innowacji społecznych ROPS Kraków i pokazujemy, co już działa – razem z uzasadnieniem, dlaczego pasuje do Twojej sytuacji.</p>
+  </div>
+  <form class="card" id="search-form" novalidate>
+    <label class="big" for="problem">Co się dzieje?</label>
+    <textarea id="problem" maxlength="1000" aria-describedby="hint counter" placeholder="Np. mieszkam na wsi, a starsi sąsiedzi nie mają jak dojechać do lekarza…"></textarea>
+    <div class="meta"><span id="hint">Nie podawaj danych osobowych.</span><span id="counter" aria-live="off">0 / 1000</span></div>
+    <button class="btn" type="submit">Znajdź rozwiązania →</button>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p class="chips-title">Nie wiesz, jak zacząć? Wybierz przykład:</p>
+    <div class="chips" id="chips"></div>
+  </form>
+</div></section>
+<div class="stats"><div class="wrap"><ul id="stats"></ul></div></div>
+<section class="s" aria-labelledby="h-how"><div class="wrap">
+  <h2 id="h-how">Jak to działa</h2><p class="sub">Trzy kroki, bez zakładania konta.</p>
+  <ol class="steps" id="steps"></ol>
+</div></section>
+<section class="s alt" aria-labelledby="h-areas"><div class="wrap">
+  <h2 id="h-areas">Przeglądaj według wyzwania</h2><p class="sub">Osiem obszarów z Mapy Wyzwań Społecznych Małopolski. Wybierz obszar, aby zobaczyć powiązane rozwiązania.</p>
+  <ul class="areas" id="areas"></ul>
+</div></section>
+<section class="s" aria-labelledby="h-inno"><div class="wrap">
+  <h2 id="h-inno">Przykłady z biblioteki</h2><p class="sub">Każde rozwiązanie ma opis testu, informację o licencji i link do źródła w ROPS.</p>
+  <ul class="cards3" id="inno"></ul>
+</div></section>
+<section class="cta" aria-labelledby="h-cta"><div class="wrap">
+  <div><h2 id="h-cta">Żadne rozwiązanie nie pasuje?</h2><p>Zgłoś potrzebę albo własny pomysł. Pracownicy ROPS zobaczą zgłoszenie i odpowiedzą – status sprawdzisz pod prywatnym linkiem.</p></div>
+  <div class="row"><a class="btn accent" href="#">Zgłoś potrzebę</a><a class="btn ghost" href="#">Zaproponuj pomysł</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">Prototyp HackYeah 2026. Dane pochodzą z publicznej Biblioteki Innowacji Społecznych ROPS Kraków; przy każdym wyniku podajemy źródło.</div></footer>
+<script>
+/* Shared by all three mockups: sample content + working accessibility controls.
+   Mockup-only code. The real app keeps this logic in hooks/providers, not in the markup. */
+window.HUBMI = {
+  stats: [
+    { value: "115", label: "innowacji w bibliotece" },
+    { value: "9", label: "kategorii rozwiązań" },
+    { value: "8", label: "obszarów wyzwań Małopolski" },
+  ],
+  examples: [
+    "Starsza sąsiadka mieszka sama i czuje się samotna",
+    "W naszej gminie brakuje usług dla osób z niepełnosprawnością",
+    "Młodzi w naszej miejscowości nie radzą sobie ze stresem",
+    "Cudzoziemcy nie wiedzą, gdzie szukać pomocy",
+  ],
+  steps: [
+    { title: "Opisz problem", text: "Napisz własnymi słowami, co się dzieje. Nie musisz znać fachowych pojęć." },
+    { title: "Zobacz dopasowania", text: "Pokażemy sprawdzone innowacje i wyjaśnimy, dlaczego pasują do Twojej sytuacji." },
+    { title: "Skorzystaj lub zgłoś", text: "Przeczytaj, jak wdrożyć rozwiązanie. Jeśli nic nie pasuje, zgłoś potrzebę do ROPS." },
+  ],
+  areas: [
+    { name: "Seniorzy", text: "Samotność, opieka, samodzielność w domu" },
+    { name: "Bezdomność", text: "Kryzys mieszkaniowy i wsparcie na starcie" },
+    { name: "Niepełnosprawność", text: "Dostępność usług i przestrzeni" },
+    { name: "Ubóstwo", text: "Wykluczenie, zadłużenie, brak zasobów" },
+    { name: "Integracja cudzoziemców", text: "Język, kultura, dostęp do informacji" },
+    { name: "Zdrowie", text: "Opieka, profilaktyka, leczenie w domu" },
+    { name: "Zdrowie psychiczne", text: "Depresja, stres, wsparcie w kryzysie" },
+    { name: "Rodzina i piecza zastępcza", text: "Wsparcie rodzin i opiekunów dzieci" },
+  ],
+  innovations: [
+    { title: "Terapeuta przestrzeni", category: "Dla seniorów", text: "Usługa dla osób starszych mieszkających samodzielnie albo z rodziną." },
+    { title: "Inteligentny organizer do leków", category: "Dla zdrowia i medycyny", text: "Organizer na leki połączony z aplikacją mobilną." },
+    { title: "Centrum antydepresyjne", category: "Dla seniorów", text: "Kompleksowa pomoc osobom starszym w stanach depresyjnych." },
+  ],
+};
+
+(function () {
+  var root = document.documentElement;
+  function read(k, d) { try { return localStorage.getItem(k) || d; } catch (e) { return d; } }
+  function write(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  function apply() {
+    root.dataset.size = read("hubmi-size", "m");
+    root.dataset.contrast = read("hubmi-contrast", "off") === "on" ? "high" : "normal";
+    document.querySelectorAll("[data-size-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.sizeBtn === root.dataset.size));
+    });
+    document.querySelectorAll("[data-contrast-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(root.dataset.contrast === "high"));
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.langBtn === read("hubmi-lang", "pl")));
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-size-btn],[data-contrast-btn],[data-lang-btn],[data-example]");
+    if (!t) return;
+    if (t.dataset.sizeBtn) write("hubmi-size", t.dataset.sizeBtn);
+    if (t.hasAttribute("data-contrast-btn")) write("hubmi-contrast", root.dataset.contrast === "high" ? "off" : "on");
+    if (t.dataset.langBtn) write("hubmi-lang", t.dataset.langBtn);
+    if (t.hasAttribute("data-example")) {
+      var ta = document.getElementById("problem");
+      ta.value = t.textContent.trim();
+      ta.dispatchEvent(new Event("input"));
+      ta.focus();
+    }
+    apply();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    apply();
+    var ta = document.getElementById("problem");
+    var count = document.getElementById("counter");
+    if (ta && count) {
+      var upd = function () { count.textContent = ta.value.length + " / 1000"; };
+      ta.addEventListener("input", upd); upd();
+    }
+    var form = document.getElementById("search-form");
+    if (form) form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var s = document.getElementById("status");
+      s.textContent = ta.value.trim().length < 3
+        ? "Opisz problem w co najmniej 3 znakach."
+        : "Makieta: tu pokażemy dopasowane rozwiązania.";
+    });
+  });
+  apply();
+})();
+
+</script>
+<script>
+var D=window.HUBMI,$=function(i){return document.getElementById(i)};
+$("chips").innerHTML=D.examples.map(function(t){return '<button type="button" class="chip" data-example>'+t+'</button>'}).join("");
+$("stats").innerHTML=D.stats.map(function(s){return '<li><strong>'+s.value+'</strong><span>'+s.label+'</span></li>'}).join("");
+$("steps").innerHTML=D.steps.map(function(s){return '<li><h3>'+s.title+'</h3><p>'+s.text+'</p></li>'}).join("");
+$("areas").innerHTML=D.areas.map(function(a){return '<li><a href="#"><b>'+a.name+'</b><span>'+a.text+'</span></a></li>'}).join("");
+$("inno").innerHTML=D.innovations.map(function(i){return '<li><article class="inno"><div class="ph" aria-hidden="true">miejsce na zdjęcie</div><div class="b"><span class="tag">'+i.category+'</span><h3>'+i.title+'</h3><p>'+i.text+'</p><a href="#">Zobacz rozwiązanie</a></div></article></li>'}).join("");
+</script>
+</body>
+</html>

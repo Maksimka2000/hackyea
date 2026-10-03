@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pl" data-size="m" data-contrast="normal">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kierunek C – Platforma (Figtree)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font:"Figtree",system-ui,sans-serif;
+  --bg:#fff; --surface:#fff; --tint:#F1F5FC; --ink:#0D1A36; --muted:#4A5A7C; --line:#D5DEEF;
+  --primary:#0E3A8C; --primary-hover:#082766; --primary-ink:#fff; --hero:#0A1F55; --hero-ink:#fff;
+  --accent:#FFC21A; --accent-ink:#0D1A36; --focus:#B85C00; --radius:14px; --border:1px; --shadow:0 18px 40px -22px rgba(10,31,85,.55);
+}
+[data-contrast="high"]{--bg:#fff;--surface:#fff;--tint:#fff;--ink:#000;--muted:#000;--line:#000;--primary:#00107A;--primary-hover:#000;--hero:#000;--accent:#FFD400;--accent-ink:#000;--focus:#000;--border:2px;--shadow:none}
+html{font-size:17px} html[data-size="l"]{font-size:19px} html[data-size="xl"]{font-size:21px}
+*{box-sizing:border-box} body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+a{color:var(--primary)} h1,h2,h3{margin:0;line-height:1.15} button{font:inherit;cursor:pointer}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.5rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;z-index:10}.skip:focus{left:1rem;top:1rem}
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);position:relative;overflow:hidden;padding-bottom:9rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.5px,transparent 1.5px);background-size:26px 26px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+[data-contrast="high"] .hero::before{display:none}
+.hero::after{content:"";position:absolute;right:-8rem;top:-8rem;width:30rem;height:30rem;border-radius:50%;border:2px solid rgba(255,255,255,.18);box-shadow:0 0 0 3rem rgba(255,255,255,.04)}
+[data-contrast="high"] .hero::after{display:none}
+.hero :focus-visible{outline-color:var(--accent)}
+.nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.3rem 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font-weight:800;font-size:1.2rem}
+.brand i{width:2.4rem;height:2.4rem;border-radius:10px;background:var(--accent);display:grid;place-items:center}
+.nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a.l{color:#fff;text-decoration:none;font-weight:600;opacity:.92;padding:.3rem 0;border-bottom:2px solid transparent}.nav a.l:hover{border-color:var(--accent);opacity:1}
+.tools{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}
+.tools button{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:8px;padding:.2rem .6rem;min-width:2.3rem}
+.tools button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.tools .sep{width:1px;height:1.4rem;background:rgba(255,255,255,.35);margin:0 .3rem}
+.intro{position:relative;z-index:1;padding:4.5rem 0 0;max-width:46rem}
+.badge{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.3rem .9rem;font-size:.85rem;font-weight:600;margin-bottom:1.4rem}
+.badge b{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent)}
+h1{font-size:3.3rem;font-weight:800;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:1.2rem;opacity:.9;margin:1.2rem 0 0;max-width:38rem}
+/* search card overlapping */
+.search{position:relative;z-index:3;margin-top:-6.5rem}
+form.card{background:var(--surface);border:var(--border) solid var(--line);border-radius:20px;padding:1.8rem;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 18rem;gap:1.8rem}
+label.big{display:block;font-weight:700;font-size:1.1rem;margin-bottom:.5rem}
+textarea{width:100%;min-height:9rem;font:inherit;color:var(--ink);background:var(--tint);border:2px solid var(--line);border-radius:12px;padding:1rem 1.1rem;resize:vertical}
+textarea:focus{border-color:var(--primary);background:#fff}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin-top:.4rem;gap:1rem}
+.side{display:flex;flex-direction:column;gap:1rem;justify-content:space-between}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--primary);color:var(--primary-ink);border:2px solid var(--primary);border-radius:12px;padding:.85rem 1.3rem;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--primary-hover)} .btn.accent{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)} .btn.ghost{background:transparent;color:var(--primary)}
+.btn.big{padding:1.1rem 1.3rem;font-size:1.1rem}
+.ex-title{font-weight:700;font-size:.9rem;margin:0 0 .5rem}
+.chips{display:flex;flex-direction:column;gap:.45rem}
+.chip{background:var(--tint);border:var(--border) solid var(--line);border-radius:10px;padding:.5rem .8rem;font-size:.86rem;color:var(--ink);text-align:left;line-height:1.35}.chip:hover{border-color:var(--primary)}
+#status{grid-column:1/-1;min-height:1.2rem;margin:-.6rem 0 0;font-weight:600;color:var(--primary)}
+/* sections */
+section.s{padding:4.5rem 0 0}
+.s h2{font-size:2rem;font-weight:800;letter-spacing:-.015em}.s .sub{color:var(--muted);margin:.5rem 0 2rem;max-width:40rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;list-style:none;padding:0;margin:2.2rem 0 0}
+.stats li{background:var(--tint);border:var(--border) solid var(--line);border-radius:var(--radius);padding:1rem 1.3rem;display:flex;align-items:baseline;gap:.7rem}
+.stats strong{font-size:2rem;font-weight:800;color:var(--primary)}.stats span{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);padding:1.4rem;counter-increment:s;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:12px;background:var(--primary);color:#fff;font-weight:800;margin-bottom:.9rem}
+.steps li:not(:last-child)::after{content:"→";position:absolute;right:-1.1rem;top:2rem;color:var(--primary);font-weight:800;z-index:2}
+.steps h3{font-size:1.2rem;margin-bottom:.35rem}.steps p{margin:0;color:var(--muted)}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;list-style:none;padding:0;margin:0}
+.areas a{display:flex;gap:.9rem;align-items:flex-start;height:100%;text-decoration:none;color:var(--ink);background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);padding:1.1rem}
+.areas a:hover{border-color:var(--primary);box-shadow:var(--shadow)}
+.areas .ic{flex:none;width:2.6rem;height:2.6rem;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--primary)}
+.areas li:nth-child(even) .ic{background:var(--hero)}
+.areas b{display:block;line-height:1.25;margin-bottom:.2rem}.areas span{font-size:.88rem;color:var(--muted);display:block;line-height:1.4}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;list-style:none;padding:0;margin:0}
+.inno{background:var(--surface);border:var(--border) solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;height:100%}
+.ph{aspect-ratio:3/2;background:linear-gradient(135deg,#DCE6F8,#EEF3FC);display:grid;place-items:center;color:var(--muted);font-size:.8rem;position:relative}
+.ph svg{opacity:.45}
+.inno .b{padding:1.2rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.tag{align-self:flex-start;background:var(--tint);border:var(--border) solid var(--line);border-radius:999px;padding:.1rem .7rem;font-size:.78rem;color:var(--primary);font-weight:700}
+.inno h3{font-size:1.2rem}.inno p{margin:0;color:var(--muted);flex:1}.inno a{font-weight:700}
+.ctab{margin:4.5rem 0;background:var(--tint);border:var(--border) solid var(--line);border-radius:22px;padding:2.4rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.ctab h2{font-size:1.9rem;font-weight:800}.ctab p{color:var(--muted);margin:.5rem 0 0;max-width:36rem}
+.ctab .row{display:flex;gap:.7rem;flex-wrap:wrap}
+footer{padding:1.8rem 0;color:var(--muted);font-size:.88rem;border-top:var(--border) solid var(--line)}
+@media (max-width:62rem){form.card{grid-template-columns:1fr}.steps,.cards3,.stats,.ctab{grid-template-columns:1fr}.areas{grid-template-columns:repeat(2,1fr)}h1{font-size:2.3rem}.steps li::after{display:none}}
+@media (max-width:34rem){.areas{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.areas a,.btn,.chip{transition:all .15s}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="hero"><div class="wrap">
+  <div class="nav">
+    <a class="brand" href="#"><i aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1A36" stroke-width="2.4"><circle cx="5" cy="12" r="2.6"/><circle cx="19" cy="5.5" r="2.6"/><circle cx="19" cy="18.5" r="2.6"/><path d="M7.4 11l9.2-4.4M7.4 13l9.2 4.4"/></svg></i>Hub Innowacji Małopolska</a>
+    <nav aria-label="Główna"><ul><li><a class="l" href="#">Rozwiązania</a></li><li><a class="l" href="#">Biblioteka</a></li><li><a class="l" href="#">Wiedza</a></li><li><a class="l" href="#">Zgłoś pomysł</a></li></ul></nav>
+    <div class="tools">
+      <div class="tools" role="group" aria-label="Rozmiar tekstu">
+        <button data-size-btn="m" aria-label="Standardowy rozmiar tekstu" style="font-size:.85rem">A</button>
+        <button data-size-btn="l" aria-label="Większy tekst" style="font-size:1.05rem">A</button>
+        <button data-size-btn="xl" aria-label="Największy tekst" style="font-size:1.3rem">A</button>
+      </div><span class="sep"></span>
+      <button data-contrast-btn aria-pressed="false" aria-label="Wysoki kontrast">◐ Kontrast</button><span class="sep"></span>
+      <div class="tools" role="group" aria-label="Język"><button data-lang-btn="pl" lang="pl">PL</button><button data-lang-btn="en" lang="en">EN</button></div>
+    </div>
+  </div>
+  <div class="intro">
+    <span class="badge"><b></b>Biblioteka ROPS Kraków · 115 sprawdzonych innowacji</span>
+    <h1 id="h1">Opisz problem. <em>Znajdź rozwiązanie</em>, które już działa.</h1>
+    <p class="lead">Wystarczy kilka zdań. Dopasujemy innowacje społeczne i pokażemy, dlaczego pasują do Twojej sytuacji.</p>
+  </div>
+</div></div>
+<main id="main">
+<div class="wrap search">
+  <form class="card" id="search-form" novalidate aria-labelledby="h1">
+    <div>
+      <label class="big" for="problem">Co się dzieje?</label>
+      <textarea id="problem" maxlength="1000" aria-describedby="hint counter" placeholder="Np. w naszej gminie młodzi ludzie nie mają dokąd pójść i czują się samotni…"></textarea>
+      <div class="meta"><span id="hint">Nie podawaj danych osobowych.</span><span id="counter">0 / 1000</span></div>
+    </div>
+    <div class="side">
+      <div><p class="ex-title">Wypróbuj przykład</p><div class="chips" id="chips"></div></div>
+      <button class="btn accent big" type="submit">Znajdź rozwiązania →</button>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+  <ul class="stats" id="stats"></ul>
+</div>
+<section class="s" aria-labelledby="h-how"><div class="wrap">
+  <h2 id="h-how">Jak to działa</h2><p class="sub">Trzy kroki, bez zakładania konta.</p>
+  <ol class="steps" id="steps"></ol>
+</div></section>
+<section class="s" aria-labelledby="h-areas"><div class="wrap">
+  <h2 id="h-areas">Przeglądaj według wyzwania</h2><p class="sub">Osiem obszarów z Mapy Wyzwań Społecznych Małopolski.</p>
+  <ul class="areas" id="areas"></ul>
+</div></section>
+<section class="s" aria-labelledby="h-inno"><div class="wrap">
+  <h2 id="h-inno">Przykłady z biblioteki</h2><p class="sub">Z opisem testu, licencją i linkiem do źródła.</p>
+  <ul class="cards3" id="inno"></ul>
+</div></section>
+<div class="wrap"><section class="ctab" aria-labelledby="h-cta">
+  <div><h2 id="h-cta">Nie znalazłeś odpowiedzi?</h2><p>Zgłoś potrzebę lub pomysł. Pracownicy ROPS odpowiedzą, a status sprawdzisz pod prywatnym linkiem.</p></div>
+  <div class="row"><a class="btn" href="#">Zgłoś potrzebę</a><a class="btn ghost" href="#">Zaproponuj pomysł</a></div>
+</section></div>
+</main>
+<footer><div class="wrap">Prototyp HackYeah 2026 · dane z publicznej Biblioteki Innowacji Społecznych ROPS Kraków, każdy wynik z linkiem do źródła.</div></footer>
+<script>
+/* Shared by all three mockups: sample content + working accessibility controls.
+   Mockup-only code. The real app keeps this logic in hooks/providers, not in the markup. */
+window.HUBMI = {
+  stats: [
+    { value: "115", label: "innowacji w bibliotece" },
+    { value: "9", label: "kategorii rozwiązań" },
+    { value: "8", label: "obszarów wyzwań Małopolski" },
+  ],
+  examples: [
+    "Starsza sąsiadka mieszka sama i czuje się samotna",
+    "W naszej gminie brakuje usług dla osób z niepełnosprawnością",
+    "Młodzi w naszej miejscowości nie radzą sobie ze stresem",
+    "Cudzoziemcy nie wiedzą, gdzie szukać pomocy",
+  ],
+  steps: [
+    { title: "Opisz problem", text: "Napisz własnymi słowami, co się dzieje. Nie musisz znać fachowych pojęć." },
+    { title: "Zobacz dopasowania", text: "Pokażemy sprawdzone innowacje i wyjaśnimy, dlaczego pasują do Twojej sytuacji." },
+    { title: "Skorzystaj lub zgłoś", text: "Przeczytaj, jak wdrożyć rozwiązanie. Jeśli nic nie pasuje, zgłoś potrzebę do ROPS." },
+  ],
+  areas: [
+    { name: "Seniorzy", text: "Samotność, opieka, samodzielność w domu" },
+    { name: "Bezdomność", text: "Kryzys mieszkaniowy i wsparcie na starcie" },
+    { name: "Niepełnosprawność", text: "Dostępność usług i przestrzeni" },
+    { name: "Ubóstwo", text: "Wykluczenie, zadłużenie, brak zasobów" },
+    { name: "Integracja cudzoziemców", text: "Język, kultura, dostęp do informacji" },
+    { name: "Zdrowie", text: "Opieka, profilaktyka, leczenie w domu" },
+    { name: "Zdrowie psychiczne", text: "Depresja, stres, wsparcie w kryzysie" },
+    { name: "Rodzina i piecza zastępcza", text: "Wsparcie rodzin i opiekunów dzieci" },
+  ],
+  innovations: [
+    { title: "Terapeuta przestrzeni", category: "Dla seniorów", text: "Usługa dla osób starszych mieszkających samodzielnie albo z rodziną." },
+    { title: "Inteligentny organizer do leków", category: "Dla zdrowia i medycyny", text: "Organizer na leki połączony z aplikacją mobilną." },
+    { title: "Centrum antydepresyjne", category: "Dla seniorów", text: "Kompleksowa pomoc osobom starszym w stanach depresyjnych." },
+  ],
+};
+
+(function () {
+  var root = document.documentElement;
+  function read(k, d) { try { return localStorage.getItem(k) || d; } catch (e) { return d; } }
+  function write(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  function apply() {
+    root.dataset.size = read("hubmi-size", "m");
+    root.dataset.contrast = read("hubmi-contrast", "off") === "on" ? "high" : "normal";
+    document.querySelectorAll("[data-size-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.sizeBtn === root.dataset.size));
+    });
+    document.querySelectorAll("[data-contrast-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(root.dataset.contrast === "high"));
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.langBtn === read("hubmi-lang", "pl")));
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-size-btn],[data-contrast-btn],[data-lang-btn],[data-example]");
+    if (!t) return;
+    if (t.dataset.sizeBtn) write("hubmi-size", t.dataset.sizeBtn);
+    if (t.hasAttribute("data-contrast-btn")) write("hubmi-contrast", root.dataset.contrast === "high" ? "off" : "on");
+    if (t.dataset.langBtn) write("hubmi-lang", t.dataset.langBtn);
+    if (t.hasAttribute("data-example")) {
+      var ta = document.getElementById("problem");
+      ta.value = t.textContent.trim();
+      ta.dispatchEvent(new Event("input"));
+      ta.focus();
+    }
+    apply();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    apply();
+    var ta = document.getElementById("problem");
+    var count = document.getElementById("counter");
+    if (ta && count) {
+      var upd = function () { count.textContent = ta.value.length + " / 1000"; };
+      ta.addEventListener("input", upd); upd();
+    }
+    var form = document.getElementById("search-form");
+    if (form) form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var s = document.getElementById("status");
+      s.textContent = ta.value.trim().length < 3
+        ? "Opisz problem w co najmniej 3 znakach."
+        : "Makieta: tu pokażemy dopasowane rozwiązania.";
+    });
+  });
+  apply();
+})();
+
+</script>
+<script>
+var D=window.HUBMI,$=function(i){return document.getElementById(i)};
+$("chips").innerHTML=D.examples.slice(0,3).map(function(t){return '<button type="button" class="chip" data-example>'+t+'</button>'}).join("");
+$("stats").innerHTML=D.stats.map(function(s){return '<li><strong>'+s.value+'</strong><span>'+s.label+'</span></li>'}).join("");
+$("steps").innerHTML=D.steps.map(function(s){return '<li><h3>'+s.title+'</h3><p>'+s.text+'</p></li>'}).join("");
+$("areas").innerHTML=D.areas.map(function(a){return '<li><a href="#"><span class="ic" aria-hidden="true">'+a.name.charAt(0)+'</span><span><b>'+a.name+'</b><span>'+a.text+'</span></span></a></li>'}).join("");
+var pic='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0E3A8C" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>';
+$("inno").innerHTML=D.innovations.map(function(i){return '<li><article class="inno"><div class="ph" aria-hidden="true">'+pic+'</div><div class="b"><span class="tag">'+i.category+'</span><h3>'+i.title+'</h3><p>'+i.text+'</p><a href="#">Zobacz rozwiązanie →</a></div></article></li>'}).join("");
+</script>
+</body>
+</html>
