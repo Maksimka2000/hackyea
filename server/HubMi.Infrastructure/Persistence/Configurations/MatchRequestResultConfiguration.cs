@@ -1,4 +1,5 @@
 using HubMi.Domain.Innovations;
+using HubMi.Domain.Matching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,7 +12,6 @@ internal sealed class MatchRequestResultConfiguration : IEntityTypeConfiguration
         builder.ToTable("match_request_result");
         builder.HasKey(r => new { r.MatchRequestId, r.InnovationId });
 
-        builder.Property(r => r.InnovationId).HasMaxLength(200);
         builder.Property(r => r.Level).HasConversion<string>().HasMaxLength(20);
 
         builder.HasOne<Innovation>()

@@ -15,7 +15,6 @@ internal sealed class InnovationConfiguration : IEntityTypeConfiguration<Innovat
         builder.ToTable("innovation");
         builder.HasKey(i => i.Id);
 
-        builder.Property(i => i.Id).HasMaxLength(200);
         builder.Property(i => i.CategoryId).HasMaxLength(100).IsRequired();
         builder.Property(i => i.Title).HasMaxLength(500).IsRequired();
         builder.Property(i => i.SourceUrl).HasMaxLength(2000).IsRequired();

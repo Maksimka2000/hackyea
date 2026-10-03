@@ -1,4 +1,5 @@
 using HubMi.Domain.Innovations;
+using HubMi.Domain.Matching;
 using Microsoft.EntityFrameworkCore;
 
 namespace HubMi.Infrastructure.Persistence;

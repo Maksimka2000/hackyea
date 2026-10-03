@@ -34,10 +34,10 @@ public sealed class RopsLibraryJsonAdapter
                 categories.Add(InnovationCategory.Create(card.CategorySlug, card.Category, categories.Count));
 
             innovations.Add(Innovation.Create(
-                card.Id,
+                DeterministicGuid.FromSlug(card.Id),
                 card.CategorySlug,
                 card.Title,
-                card.Tagline ?? FirstSentence(card.Solution),
+                string.IsNullOrWhiteSpace(card.Tagline) ? FirstSentence(card.Solution) : card.Tagline,
                 card.Solution,
                 card.Problems,
                 card.TargetGroup,

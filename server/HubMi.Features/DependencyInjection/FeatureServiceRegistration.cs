@@ -10,6 +10,7 @@ public static class FeatureServiceRegistration
             .AddApplicationPart(typeof(FeatureServiceRegistration).Assembly);
 
         services.AddMatchingFeature();
+        services.AddInnovationsFeature();
 
         return services;
     }

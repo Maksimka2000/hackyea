@@ -33,7 +33,7 @@ internal sealed class PostgresInnovationSearch(HubMiDbContext db) : IInnovationS
     }
 
     public async Task<IReadOnlyList<Innovation>> FindSimilarAsync(
-        string text, IReadOnlyCollection<string> excludeIds, int limit, CancellationToken cancellationToken)
+        string text, IReadOnlyCollection<Guid> excludeIds, int limit, CancellationToken cancellationToken)
     {
         var exclude = excludeIds.ToArray();
 
@@ -50,7 +50,7 @@ internal sealed class PostgresInnovationSearch(HubMiDbContext db) : IInnovationS
     }
 
     public async Task<IReadOnlyList<Innovation>> GetFillersAsync(
-        string? preferredCategoryId, IReadOnlyCollection<string> excludeIds, int limit, CancellationToken cancellationToken)
+        string? preferredCategoryId, IReadOnlyCollection<Guid> excludeIds, int limit, CancellationToken cancellationToken)
     {
         var exclude = excludeIds.ToArray();
         var preferred = preferredCategoryId ?? string.Empty;

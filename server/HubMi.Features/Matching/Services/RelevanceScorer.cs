@@ -1,4 +1,5 @@
 using HubMi.Domain.Innovations;
+using HubMi.Domain.Matching;
 using HubMi.Features.Matching.Ports;
 using Microsoft.Extensions.Options;
 

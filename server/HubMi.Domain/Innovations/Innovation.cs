@@ -7,7 +7,7 @@ public sealed class Innovation
     {
     }
 
-    public string Id { get; private set; } = null!;
+    public Guid Id { get; private set; }
     public string CategoryId { get; private set; } = null!;
     public string Title { get; private set; } = null!;
     public string? Tagline { get; private set; }
@@ -26,7 +26,7 @@ public sealed class Innovation
     public DateTime UpdatedAt { get; private set; }
 
     public static Innovation Create(
-        string id,
+        Guid id,
         string categoryId,
         string title,
         string? tagline,
@@ -43,7 +43,8 @@ public sealed class Innovation
         string? disseminationBadge,
         DateTime now)
     {
-        Require(id, nameof(id));
+        if (id == Guid.Empty)
+            throw new ArgumentException("Id is required.", nameof(id));
         Require(categoryId, nameof(categoryId));
         Require(title, nameof(title));
         Require(sourceUrl, nameof(sourceUrl));
@@ -51,7 +52,7 @@ public sealed class Innovation
 
         return new Innovation
         {
-            Id = id.Trim(),
+            Id = id,
             CategoryId = categoryId.Trim(),
             Title = title.Trim(),
             Tagline = Clean(tagline),
