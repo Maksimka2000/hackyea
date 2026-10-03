@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubMi.Api", "HubMi.Api\HubMi.Api.csproj", "{EEF70C4C-758B-4F1B-AF77-D6974C2D52B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubMi.Features", "HubMi.Features\HubMi.Features.csproj", "{C9FA01E4-4104-4B00-ACD4-38AF31066796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubMi.Domain", "HubMi.Domain\HubMi.Domain.csproj", "{D9EB71E3-4995-4D8B-BF6B-754456BD8674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubMi.Infrastructure", "HubMi.Infrastructure\HubMi.Infrastructure.csproj", "{37D55931-9EB3-4615-8790-DBA241FDDF34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEF70C4C-758B-4F1B-AF77-D6974C2D52B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF70C4C-758B-4F1B-AF77-D6974C2D52B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF70C4C-758B-4F1B-AF77-D6974C2D52B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF70C4C-758B-4F1B-AF77-D6974C2D52B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9FA01E4-4104-4B00-ACD4-38AF31066796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9FA01E4-4104-4B00-ACD4-38AF31066796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9FA01E4-4104-4B00-ACD4-38AF31066796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9FA01E4-4104-4B00-ACD4-38AF31066796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EB71E3-4995-4D8B-BF6B-754456BD8674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EB71E3-4995-4D8B-BF6B-754456BD8674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EB71E3-4995-4D8B-BF6B-754456BD8674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EB71E3-4995-4D8B-BF6B-754456BD8674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D55931-9EB3-4615-8790-DBA241FDDF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D55931-9EB3-4615-8790-DBA241FDDF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D55931-9EB3-4615-8790-DBA241FDDF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D55931-9EB3-4615-8790-DBA241FDDF34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
