@@ -1,3 +1,4 @@
+using HubMi.Features.Innovations.Ports;
 using HubMi.Features.Matching.Ports;
 using HubMi.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ public static class PersistenceRegistration
         services.AddScoped<IDocumentFrequencyProvider, PostgresDocumentFrequencyProvider>();
         services.AddScoped<IInnovationCategoryReader, InnovationCategoryReader>();
         services.AddScoped<IMatchRequestLog, MatchRequestLog>();
+        services.AddScoped<IInnovationDetailsReader, InnovationDetailsReader>();
 
         services.Configure<PersistenceOptions>(configuration.GetSection(PersistenceOptions.SectionName));
         services.AddHostedService<DatabaseInitializer>();

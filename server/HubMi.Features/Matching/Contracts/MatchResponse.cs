@@ -17,7 +17,7 @@ public sealed record CategoryRefDto(string Id, string Name);
 
 public sealed record MatchResultDto(
     int Rank,
-    string InnovationId,
+    Guid InnovationId,
     string Title,
     string? Tagline,
     MatchIndicatorDto Indicator,

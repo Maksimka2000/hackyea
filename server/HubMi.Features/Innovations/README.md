@@ -1,7 +1,11 @@
-# Innovations feature example
+# Innovations feature
 
 This capability owns the public catalogue and admin workflows for innovation records.
 
-When implementation begins, place a thin `InnovationsController` in `Controllers/`. Put HTTP request and response types in `Contracts/`, request validators in `Validators/`, workflow code in `Services/`, and feature-specific ports (for example, a catalogue reader or writer) in `Ports/`.
+Implemented:
 
-The `Innovation` entity and its invariant-preserving methods belong in `HubMi.Domain/Innovations`. EF mappings and source import code belong in `HubMi.Infrastructure`.
+- `GET /api/innovations/{id}` returns one published card with all its data (the official ROPS sections, category, links and licence). Unknown, unpublished or non-GUID ids give 404.
+
+Admin editing (create, update, publish) belongs here too; add writer ports separately from the reader.
+
+The `Innovation` entity and its invariant-preserving methods live in `HubMi.Domain/Innovations`. EF mappings and source import code live in `HubMi.Infrastructure`.

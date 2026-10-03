@@ -9,8 +9,8 @@ public interface IInnovationSearch
     Task<IReadOnlyList<Innovation>> FindCandidatesAsync(IReadOnlyCollection<string> prefixes, int limit, CancellationToken cancellationToken);
 
     /// <summary>Typo-tolerant fallback on title and tagline for texts that share no exact word prefixes.</summary>
-    Task<IReadOnlyList<Innovation>> FindSimilarAsync(string text, IReadOnlyCollection<string> excludeIds, int limit, CancellationToken cancellationToken);
+    Task<IReadOnlyList<Innovation>> FindSimilarAsync(string text, IReadOnlyCollection<Guid> excludeIds, int limit, CancellationToken cancellationToken);
 
     /// <summary>Last-resort cards so a result list is never short: the preferred (or largest) category first.</summary>
-    Task<IReadOnlyList<Innovation>> GetFillersAsync(string? preferredCategoryId, IReadOnlyCollection<string> excludeIds, int limit, CancellationToken cancellationToken);
+    Task<IReadOnlyList<Innovation>> GetFillersAsync(string? preferredCategoryId, IReadOnlyCollection<Guid> excludeIds, int limit, CancellationToken cancellationToken);
 }

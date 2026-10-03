@@ -1,4 +1,5 @@
 using HubMi.Domain.Innovations;
+using HubMi.Domain.Matching;
 using HubMi.Features.Matching.Contracts;
 using HubMi.Features.Matching.Ports;
 using HubMi.Features.Matching.Validators;
@@ -42,7 +43,7 @@ public sealed class MatchingService(
             .Where(s => s.HasMatch)
             .OrderByDescending(s => s.Score)
             .ThenBy(s => s.Innovation.Title, StringComparer.Ordinal)
-            .ThenBy(s => s.Innovation.Id, StringComparer.Ordinal)
+            .ThenBy(s => s.Innovation.Id)
             .ToList();
 
         var picked = matched.Take(_options.ResultCount).ToList();
@@ -90,7 +91,7 @@ public sealed class MatchingService(
         picked.AddRange(fillers.Select(card => scorer.Score(card, query, statistics)));
     }
 
-    private static List<string> Ids(IEnumerable<ScoredInnovation> cards) => cards.Select(s => s.Innovation.Id).ToList();
+    private static List<Guid> Ids(IEnumerable<ScoredInnovation> cards) => cards.Select(s => s.Innovation.Id).ToList();
 
     private CategoryMatchDto? ResolveCategory(IReadOnlyList<ScoredInnovation> ranked, IReadOnlyList<InnovationCategory> allCategories)
     {
@@ -173,7 +174,7 @@ public sealed class MatchingService(
             evidence ?? "Brak opisu testu w bibliotece ROPS.",
             card.VideoUrl,
             card.SourceUrl,
-            string.Format(_options.CardUrlTemplate, Uri.EscapeDataString(card.Id)));
+            string.Format(_options.CardUrlTemplate, card.Id));
     }
 
     private static string LevelCode(MatchLevel level) => level switch

@@ -1,4 +1,4 @@
-using HubMi.Domain.Innovations;
+using HubMi.Domain.Matching;
 using HubMi.Features.Matching.Ports;
 
 namespace HubMi.Infrastructure.Persistence.Repositories;
