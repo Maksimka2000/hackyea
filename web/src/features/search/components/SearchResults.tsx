@@ -1,7 +1,7 @@
 "use client";
 
 import { useMatchSearch } from "../hooks/useMatchSearch";
-import { useSavedProblem } from "../hooks/useSavedProblem";
+import { useSavedProblem } from "@/shared/hooks/useSavedProblem";
 
 import { EmptySearch } from "./EmptySearch";
 import { NoMatchState } from "./NoMatchState";

@@ -7,7 +7,7 @@ import { PROBLEM_MAX_LENGTH, PROBLEM_MIN_LENGTH } from "@/shared/constants/probl
 import { saveProblemText } from "@/shared/lib/problem-session";
 import { isProblemErrorKey, problemSchema, type ProblemFormValues } from "@/shared/validation/problemSchema";
 
-import { useSavedProblem } from "./useSavedProblem";
+import { useSavedProblem } from "@/shared/hooks/useSavedProblem";
 
 const PROBLEM_FIELD = "problem";
 

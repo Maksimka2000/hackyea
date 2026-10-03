@@ -79,41 +79,7 @@
     },
     "areas": {
       "title": "Przeglądaj według wyzwania",
-      "description": "Osiem obszarów z Mapy Wyzwań Społecznych Małopolski.",
-      "items": {
-        "seniors": {
-          "name": "Seniorzy",
-          "text": "Samotność, opieka, samodzielność w domu"
-        },
-        "homelessness": {
-          "name": "Bezdomność",
-          "text": "Kryzys mieszkaniowy i wsparcie na starcie"
-        },
-        "disability": {
-          "name": "Niepełnosprawność",
-          "text": "Dostępność usług i przestrzeni"
-        },
-        "poverty": {
-          "name": "Ubóstwo",
-          "text": "Wykluczenie, zadłużenie, brak zasobów"
-        },
-        "foreigners": {
-          "name": "Integracja cudzoziemców",
-          "text": "Język, kultura, dostęp do informacji"
-        },
-        "health": {
-          "name": "Zdrowie",
-          "text": "Opieka, profilaktyka, leczenie w domu"
-        },
-        "mentalHealth": {
-          "name": "Zdrowie psychiczne",
-          "text": "Depresja, stres, wsparcie w kryzysie"
-        },
-        "family": {
-          "name": "Rodzina i piecza zastępcza",
-          "text": "Wsparcie rodzin i opiekunów dzieci"
-        }
-      }
+      "description": "Osiem obszarów z Mapy Wyzwań Społecznych Małopolski."
     },
     "featured": {
       "title": "Przykłady z biblioteki",
@@ -249,6 +215,187 @@
       "title": "Nie znaleźliśmy tego rozwiązania",
       "text": "Link może być nieaktualny albo rozwiązanie zostało usunięte z biblioteki.",
       "library": "Przeglądaj bibliotekę",
+      "home": "Strona główna"
+    }
+  },
+  "ChallengeAreas": {
+    "seniors": {
+      "name": "Seniorzy",
+      "text": "Samotność, opieka, samodzielność w domu"
+    },
+    "homelessness": {
+      "name": "Bezdomność",
+      "text": "Kryzys mieszkaniowy i wsparcie na starcie"
+    },
+    "disability": {
+      "name": "Niepełnosprawność",
+      "text": "Dostępność usług i przestrzeni"
+    },
+    "poverty": {
+      "name": "Ubóstwo",
+      "text": "Wykluczenie, zadłużenie, brak zasobów"
+    },
+    "foreigners": {
+      "name": "Integracja cudzoziemców",
+      "text": "Język, kultura, dostęp do informacji"
+    },
+    "health": {
+      "name": "Zdrowie",
+      "text": "Opieka, profilaktyka, leczenie w domu"
+    },
+    "mentalHealth": {
+      "name": "Zdrowie psychiczne",
+      "text": "Depresja, stres, wsparcie w kryzysie"
+    },
+    "family": {
+      "name": "Rodzina i piecza zastępcza",
+      "text": "Wsparcie rodzin i opiekunów dzieci"
+    }
+  },
+  "Submit": {
+    "header": {
+      "need": {
+        "title": "Zgłoś potrzebę",
+        "lead": "Opisz problem, dla którego nie znaleźliśmy rozwiązania. Pracownicy ROPS przeczytają zgłoszenie i odpowiedzą."
+      },
+      "idea": {
+        "title": "Zaproponuj pomysł",
+        "lead": "Podziel się pomysłem na innowację społeczną – także takim, który jest dopiero na początku drogi."
+      }
+    },
+    "typeSwitch": {
+      "label": "Rodzaj zgłoszenia",
+      "need": "Potrzeba",
+      "idea": "Pomysł"
+    },
+    "fields": {
+      "description": {
+        "need": "Opisz problem",
+        "idea": "Opisz pomysł"
+      },
+      "descriptionHint": "Nie podawaj danych osobowych, np. imion i nazwisk innych osób.",
+      "counter": "{count} / {max}",
+      "area": {
+        "label": "Obszar (opcjonalnie)",
+        "empty": "Nie wiem / pomiń"
+      },
+      "place": {
+        "label": "Miejscowość / gmina (opcjonalnie)",
+        "hint": "Na przykład: Nowy Targ."
+      },
+      "submitter": {
+        "label": "Kim jesteś? (opcjonalnie)",
+        "empty": "Wolę nie podawać",
+        "options": {
+          "resident": "Mieszkaniec lub mieszkanka",
+          "ngo": "Organizacja pozarządowa",
+          "government": "Jednostka samorządu",
+          "expert": "Ekspert lub ekspertka",
+          "other": "Inna osoba lub instytucja"
+        }
+      },
+      "title": {
+        "label": "Tytuł pomysłu"
+      },
+      "targetGroup": {
+        "label": "Dla kogo jest ten pomysł?",
+        "hint": "Na przykład: samotni seniorzy na wsi."
+      },
+      "stage": {
+        "legend": "Na jakim etapie jest pomysł?",
+        "options": {
+          "concept": "Sam pomysł",
+          "preparing": "W przygotowaniu",
+          "tested": "Przetestowany na małą skalę",
+          "running": "Już działa"
+        }
+      },
+      "email": {
+        "label": "Adres e-mail (opcjonalnie)",
+        "hint": "Wyślemy tam link do zgłoszenia. Bez adresu zapisz link, który pokażemy po wysłaniu.",
+        "consent": "Zgadzam się, aby ROPS Kraków wysłał link do zgłoszenia na ten adres e-mail."
+      }
+    },
+    "errors": {
+      "descriptionTooShort": "Opisz sprawę w co najmniej {descriptionMin} znakach.",
+      "descriptionTooLong": "Opis może mieć najwyżej {descriptionMax} znaków.",
+      "titleTooShort": "Tytuł powinien mieć co najmniej {titleMin} znaki.",
+      "titleTooLong": "Tytuł może mieć najwyżej {titleMax} znaków.",
+      "targetGroupTooShort": "Napisz, dla kogo jest pomysł (co najmniej {targetGroupMin} znaki).",
+      "targetGroupTooLong": "Ten opis może mieć najwyżej {targetGroupMax} znaków.",
+      "stageRequired": "Wybierz etap, na którym jest pomysł.",
+      "placeTooLong": "Nazwa miejsca może mieć najwyżej {placeMax} znaków.",
+      "emailInvalid": "Podaj poprawny adres e-mail albo zostaw pole puste.",
+      "consentRequired": "Zaznacz zgodę albo usuń adres e-mail."
+    },
+    "honeypotLabel": "Nie wypełniaj tego pola",
+    "submit": "Wyślij zgłoszenie",
+    "sending": "Wysyłanie…",
+    "sendError": {
+      "generic": {
+        "title": "Nie udało się wysłać zgłoszenia",
+        "text": "Spróbuj ponownie za chwilę. Twój opis został w formularzu."
+      },
+      "rateLimited": {
+        "title": "Zbyt wiele zgłoszeń",
+        "text": "Wysłano zbyt wiele zgłoszeń w krótkim czasie. Odczekaj chwilę i spróbuj ponownie."
+      }
+    },
+    "nextSteps": {
+      "title": "Co stanie się dalej?",
+      "steps": {
+        "read": "Pracownik ROPS Kraków czyta zgłoszenie.",
+        "reply": "Może odpowiedzieć albo poprosić o szczegóły.",
+        "track": "Odpowiedź zobaczysz pod prywatnym linkiem, bez logowania."
+      },
+      "privacy": "Zgłoszenie trafia do pracowników ROPS Kraków."
+    }
+  },
+  "SubmissionStatus": {
+    "metaTitle": "Status zgłoszenia",
+    "header": {
+      "title": "Twoje zgłoszenie",
+      "reference": "Numer zgłoszenia: {reference}"
+    },
+    "type": {
+      "need": "Potrzeba",
+      "idea": "Pomysł"
+    },
+    "created": {
+      "title": "Zgłoszenie przyjęte",
+      "text": "Dziękujemy. To prywatna strona Twojego zgłoszenia. Tu zobaczysz odpowiedź ROPS Kraków.",
+      "warning": "Zapisz ten link. Bez niego (i bez podanego adresu e-mail) nie wrócisz do zgłoszenia.",
+      "copy": "Skopiuj link",
+      "copied": "Skopiowano"
+    },
+    "timeline": {
+      "title": "Status",
+      "steps": {
+        "received": "Przyjęte",
+        "in-review": "W analizie",
+        "answered": "Odpowiedź",
+        "closed": "Zamknięte"
+      },
+      "state": {
+        "done": "zakończony etap",
+        "current": "aktualny etap",
+        "upcoming": "kolejny etap"
+      }
+    },
+    "reply": {
+      "title": "Odpowiedź ROPS Kraków",
+      "repliedOn": "Odpowiedź z dnia {date}",
+      "none": "Nie ma jeszcze odpowiedzi. Wróć na tę stronę później, korzystając z zapisanego linku."
+    },
+    "summary": {
+      "title": "Twoje zgłoszenie",
+      "sentOn": "Wysłano {date}"
+    },
+    "newSubmission": "Wyślij kolejne zgłoszenie",
+    "notFound": {
+      "title": "Nie znaleźliśmy tego zgłoszenia",
+      "text": "Sprawdź, czy link jest kompletny. Jeśli go zgubiłeś, możesz wysłać nowe zgłoszenie.",
+      "cta": "Zgłoś potrzebę",
       "home": "Strona główna"
     }
   }

@@ -2,7 +2,7 @@ import { innovationSectionKeys } from "../constants/section-keys";
 import type { InnovationDto } from "../schemas/innovationDtoSchema";
 import type { InnovationDetail, RelatedInnovation } from "../types/innovation-detail";
 
-import { splitParagraphs } from "./splitParagraphs";
+import { splitParagraphs } from "@/shared/lib/split-paragraphs";
 
 export function mapInnovationDetail(dto: InnovationDto): InnovationDetail {
   const texts: Record<(typeof innovationSectionKeys)[number], string | null> = {
