@@ -9,7 +9,7 @@ export function SiteHeader() {
     <header>
       <UtilityBar />
       <div className="on-dark bg-hero text-hero-foreground">
-        <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-5">
+        <Container className="relative z-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-5">
           <SiteBrand />
           <MainNavigation />
         </Container>
