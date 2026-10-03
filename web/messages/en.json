@@ -1,13 +1,13 @@
 {
   "Metadata": {
-    "siteName": "Social Innovation Hub",
+    "siteName": "HubMI",
     "title": "Find a proven social solution",
     "description": "Describe a problem in your own words and we will point you to proven social innovations from the ROPS Kraków library."
   },
   "Layout": {
     "skipToContent": "Skip to content",
-    "brandName": "Innovation Hub",
-    "brandRegion": "Małopolska",
+    "brandName": "HubMI",
+    "brandDescriptor": "Social innovation · Małopolska",
     "mainNavigation": "Main navigation",
     "nav": {
       "findSolution": "Find a solution",
@@ -33,7 +33,7 @@
     }
   },
   "Footer": {
-    "tagline": "The Social Innovation Hub connects the needs of Małopolska residents with proven solutions.",
+    "tagline": "HubMI connects the needs of Małopolska residents with proven solutions.",
     "linksTitle": "Quick links",
     "accessibilityDeclaration": "Accessibility statement",
     "ropsSite": "ROPS Kraków",

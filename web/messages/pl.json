@@ -1,13 +1,13 @@
 {
   "Metadata": {
-    "siteName": "Hub Innowacji Społecznych",
+    "siteName": "HubMI",
     "title": "Znajdź sprawdzone rozwiązanie społeczne",
     "description": "Opisz problem własnymi słowami, a wskażemy sprawdzone innowacje społeczne z biblioteki ROPS Kraków."
   },
   "Layout": {
     "skipToContent": "Przejdź do treści",
-    "brandName": "Hub Innowacji",
-    "brandRegion": "Małopolska",
+    "brandName": "HubMI",
+    "brandDescriptor": "Innowacje społeczne · Małopolska",
     "mainNavigation": "Nawigacja główna",
     "nav": {
       "findSolution": "Znajdź rozwiązanie",
@@ -33,7 +33,7 @@
     }
   },
   "Footer": {
-    "tagline": "Hub Innowacji Społecznych łączy potrzeby mieszkańców Małopolski ze sprawdzonymi rozwiązaniami.",
+    "tagline": "HubMI łączy potrzeby mieszkańców Małopolski ze sprawdzonymi rozwiązaniami.",
     "linksTitle": "Na skróty",
     "accessibilityDeclaration": "Deklaracja dostępności",
     "ropsSite": "ROPS Kraków",
