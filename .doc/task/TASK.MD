@@ -52,10 +52,31 @@ SOCIAL MATCHMAKING MODULE
 
 The jury tests it this way (§6): "Czy narzędzie skutecznie sugeruje istniejące innowacje na podstawie słów kluczowych wpisanych w opisie potrzeb użytkownika?" That is, do the right innovations come up from the keywords in the description. Relevance is judged on the quality of the top results.
 
+
+
+new REQUIRMETNS 
 - This beats Google-style keyword matching on vague descriptions.
 - Show why each card matched (KEYWORDS)
 - HANDLE THE TYPOS. colloquial wording and short phrases.
 - SHOW INOVATION CARD TO THE RETURN 
 - IDENTIFY THE CATEGORY CORRECTLY : 9 categories: seniors, children/youth/family, limited mobility, sensory disability, health, labour market, foreigners, homelessness, intellectual disability
-- ONLY POLISH SEARCH AND POLISH LANGUAGE ONLY 
+- ONLY POLISH SEARCH AND POLISH LANGUAGE ONLY . No other language support.
 - UNDERSTAND THE PARAPHRASINGS AND SYNONIMS 
+- WE CANT USE THE LLM 
+- WE DONT WRITE THE SYNONIMS BY OUR OWN BECASUE CARDS ARE REGULARY ADDED.
+- IT MUST UNDERSTAND THE POLISH SYMBOLS ("Ł" IS THE SAME AS TEH "L")
+- algorithm must be relatively fast and not heavy. 
+- some of the innovation cards can be added so the search must be adapted instatly even if the card is updated with different text 
+- easy deploy on the azure. 
+- scalable 
+- minimum cost for the resources 
+- minimum cost, 0$ 
+
+
+
+- HOW EFFICIENT IS THAT FOR HTE SERVER SEARCH THIS ALGORITHM? 
+- HOW IS THAT DEPLOYABLE FOR THE AZURE, IS THERE NO PROBELM FOR THE ONNX RUNTIME IN .NET FOR HTE 
+- WHAT FUNCTIONALITY OF THE CURRENT ALGORITHM SHOULD BE REMOVED 
+- WHAT THE CURRENT ALGORITHM SHOULD BE EXTENDED
+- WOULD IT COVER ALL THE REQUIRMETNS ?
+- 
