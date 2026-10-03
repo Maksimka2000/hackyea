@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Figtree } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -6,7 +7,7 @@ import type { ReactNode } from "react";
 
 import { resolveLocale } from "@/i18n/resolve-locale";
 import { routing } from "@/i18n/routing";
-import { accessibilityInitScript } from "@/shared/lib/accessibility/accessibility-init-script";
+import { ACCESSIBILITY_COOKIE, parseAccessibilitySettings } from "@/shared/lib/accessibility/accessibility-settings";
 import { AppProviders } from "@/shared/providers/AppProviders";
 
 import "../globals.css";
@@ -41,11 +42,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   setRequestLocale(locale);
 
+  // Saved text size and contrast come from a cookie, so the first paint already uses them (no script, no flash).
+  const { contrast, textSize } = parseAccessibilitySettings((await cookies()).get(ACCESSIBILITY_COOKIE)?.value);
+
   return (
-    <html className={figtree.variable} data-contrast="normal" data-text-size="md" lang={locale} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: accessibilityInitScript }} />
-      </head>
+    <html className={figtree.variable} data-contrast={contrast} data-text-size={textSize} lang={locale}>
       <body>
         <NextIntlClientProvider>
           <AppProviders>{children}</AppProviders>

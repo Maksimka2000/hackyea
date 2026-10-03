@@ -56,12 +56,7 @@
         "senior": "An older neighbour lives alone and feels lonely",
         "disability": "Our municipality lacks services for people with disabilities",
         "youth": "Young people in our town struggle with stress"
-      },
-      "errors": {
-        "tooShort": "Describe the problem in at least {min} characters.",
-        "tooLong": "The description can have at most {max} characters."
-      },
-      "placeholderNotice": "Matching will be available soon."
+      }
     },
     "libraryNote": "ROPS Kraków library · {count} proven innovations",
     "howItWorks": {
@@ -130,6 +125,131 @@
       "text": "Report a need or an idea. ROPS staff will reply, and you can check the status through a private link.",
       "needCta": "Report a need",
       "ideaCta": "Propose an idea"
+    }
+  },
+  "Validation": {
+    "problem": {
+      "tooShort": "Describe the problem in at least {min} characters.",
+      "tooLong": "The description can have at most {max} characters."
+    }
+  },
+  "Search": {
+    "metaTitle": "Search results",
+    "header": {
+      "title": "Solutions for your problem",
+      "lead": "Proven social innovations from the ROPS Kraków library, best matches first."
+    },
+    "sidebarLabel": "Your description and guidance",
+    "refine": {
+      "label": "Your description",
+      "counter": "{count} / {max}",
+      "submit": "Search again"
+    },
+    "status": {
+      "loading": "Looking for solutions…",
+      "found": "{count, plural, one {Found # solution} other {Found # solutions}}",
+      "empty": "No matches",
+      "error": "The search failed"
+    },
+    "strength": {
+      "strong": {
+        "label": "Strong match"
+      },
+      "possible": {
+        "label": "Possible match"
+      },
+      "related": {
+        "label": "Related"
+      }
+    },
+    "card": {
+      "evidenceTitle": "Does it work?",
+      "noEvidence": "The ROPS library has no description of a test.",
+      "viewSolution": "View solution",
+      "source": "Source: ROPS Kraków",
+      "opensInNewTab": "opens in a new tab"
+    },
+    "noMatch": {
+      "title": "We did not find a close match",
+      "text": "The library has no solution that clearly fits this description. You can report the need to ROPS or browse the library.",
+      "submitNeed": "Report a need",
+      "browseLibrary": "Browse the library"
+    },
+    "error": {
+      "generic": {
+        "title": "Something went wrong",
+        "text": "We could not load the results. Please try again in a moment."
+      },
+      "rateLimited": {
+        "title": "Too many requests",
+        "text": "Too many requests were sent in a short time. Wait a moment and try again."
+      },
+      "retry": "Try again"
+    },
+    "emptySearch": {
+      "title": "Describe the problem first",
+      "text": "There is no description to search for yet. Go back to the home page and describe what is happening.",
+      "cta": "Describe the problem"
+    },
+    "submitPrompt": {
+      "title": "Nothing fits?",
+      "text": "Report a need and ROPS staff will reply.",
+      "cta": "Report a need"
+    }
+  },
+  "InnovationDetail": {
+    "metaNotFound": "Solution not found",
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "library": "Innovation library"
+    },
+    "sections": {
+      "solution": "What is the solution?",
+      "problems": "Which problems does it address?",
+      "targetGroup": "Who is it for?",
+      "beneficiaries": "Who can use it?",
+      "evidence": "Does it work?"
+    },
+    "missingSection": "The ROPS library has no description here.",
+    "missingEvidence": "The ROPS library has no description of a test.",
+    "panel": {
+      "title": "Materials and source",
+      "source": "View in the ROPS library",
+      "opensInNewTab": "opens in a new tab",
+      "resources": {
+        "video": {
+          "label": "Video about the solution",
+          "hint": "Opens on YouTube"
+        },
+        "materials": {
+          "label": "Materials to download",
+          "hint": "ZIP file"
+        },
+        "detailsPdf": {
+          "label": "Detailed description",
+          "hint": "PDF document"
+        },
+        "license": {
+          "label": "Licence and terms of use",
+          "hint": "Document"
+        }
+      }
+    },
+    "cta": {
+      "title": "Have a need of your own?",
+      "text": "If this solution does not fit, report the need to ROPS.",
+      "cta": "Report a need"
+    },
+    "related": {
+      "title": "Similar solutions",
+      "description": "From the same library category.",
+      "viewSolution": "View solution"
+    },
+    "notFound": {
+      "title": "We could not find this solution",
+      "text": "The link may be outdated or the solution was removed from the library.",
+      "library": "Browse the library",
+      "home": "Home page"
     }
   }
 }

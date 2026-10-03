@@ -18,8 +18,8 @@ const ERROR_ID = "problem-error";
 
 export function ProblemSearchForm() {
   const t = useTranslations("Home.search");
-  const { applyExample, characterCount, errorKey, isSubmitted, maxLength, minLength, onSubmit, problemField } =
-    useProblemForm();
+  const tValidation = useTranslations("Validation.problem");
+  const { applyExample, characterCount, errorKey, maxLength, minLength, onSubmit, problemField } = useProblemForm();
 
   return (
     <Card className="rounded-panel p-6 shadow-card sm:p-8">
@@ -42,7 +42,7 @@ export function ProblemSearchForm() {
           </div>
           {errorKey ? (
             <p className="font-semibold text-danger" id={ERROR_ID} role="alert">
-              {t(`errors.${errorKey}`, { min: minLength, max: maxLength })}
+              {tValidation(errorKey, { min: minLength, max: maxLength })}
             </p>
           ) : null}
         </div>
@@ -54,9 +54,6 @@ export function ProblemSearchForm() {
               {t("submit")}
               <ArrowRight aria-hidden="true" className="size-5" />
             </Button>
-            <p aria-live="polite" className="min-h-6 text-sm font-semibold text-primary" role="status">
-              {isSubmitted ? t("placeholderNotice") : null}
-            </p>
           </div>
         </div>
       </form>

@@ -12,6 +12,7 @@
   --foreground: #0d1a36;
   --muted: #4a5a7c;
   --border: #d5def0;
+  --border-strong: #aebcd9;
 
   /* brand */
   --primary: #0e3a8c;
@@ -30,6 +31,7 @@
   /* shape and depth */
   --line-width: 1px;
   --elevation-card: 0 18px 40px -22px rgb(10 31 85 / 0.55);
+  --elevation-soft: 0 1px 2px rgb(10 31 85 / 0.08), 0 10px 22px -14px rgb(10 31 85 / 0.35);
 }
 
 /* Text size: every size in the UI is in rem, so changing the root size scales the whole page. */
@@ -54,6 +56,7 @@ html[data-contrast="high"] {
   --foreground: #000000;
   --muted: #000000;
   --border: #000000;
+  --border-strong: #000000;
 
   --primary: #00107a;
   --primary-strong: #000000;
@@ -67,6 +70,7 @@ html[data-contrast="high"] {
 
   --line-width: 2px;
   --elevation-card: none;
+  --elevation-soft: none;
 }
 
 @theme inline {
@@ -79,6 +83,7 @@ html[data-contrast="high"] {
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-primary: var(--primary);
   --color-primary-strong: var(--primary-strong);
   --color-primary-foreground: var(--primary-foreground);
@@ -91,6 +96,7 @@ html[data-contrast="high"] {
   --color-focus: var(--focus);
 
   --shadow-card: var(--elevation-card);
+  --shadow-soft: var(--elevation-soft);
 }
 
 @theme {

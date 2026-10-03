@@ -48,6 +48,9 @@ Scope: everything under `web/`. Backend rules live in `server/AGENTS.md`. Compon
 - When the real contract changes, edit the DTO schema and mapper. Do not change components for a renamed field.
 - `NEXT_PUBLIC_API_MODE=mock` (default) serves fixtures from `api/*Mock.ts`, parsed through the same DTO schema as live data. `live` calls the backend through `NEXT_PUBLIC_API_BASE_URL`.
 - Mark guessed endpoints and shapes as PLACEHOLDER/PROPOSED in a comment.
+- Never put the user's problem description (or any free text they typed) in a URL or query string; it may contain personal details. Pass it between pages through `shared/lib/problem-session.ts`.
+- Validation messages are translation keys resolved in the UI (`Validation.*` namespace for messages shared by several features).
+- The matching search does not use an LLM in v1; do not build UI that assumes generated explanations.
 
 ## Hygiene
 

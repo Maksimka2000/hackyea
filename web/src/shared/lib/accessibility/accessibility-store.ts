@@ -1,5 +1,6 @@
 import {
-  ACCESSIBILITY_STORAGE_KEY,
+  ACCESSIBILITY_COOKIE,
+  ACCESSIBILITY_COOKIE_MAX_AGE_SECONDS,
   DEFAULT_ACCESSIBILITY_SETTINGS,
   isContrastMode,
   isTextSize,
@@ -8,8 +9,8 @@ import {
 
 /*
   Tiny external store for text size and contrast mode.
-  The <html> data attributes are the source of truth (CSS reads them), localStorage persists them,
-  and React reads them through useSyncExternalStore (see useAccessibilitySettings).
+  The <html> data attributes are the source of truth (CSS reads them), a cookie persists them (the server
+  renders the attributes from it on the first paint), and React reads them through useSyncExternalStore.
 */
 
 const listeners = new Set<() => void>();
@@ -25,11 +26,8 @@ function readFromDocument(): AccessibilitySettings {
 }
 
 function persist(settings: AccessibilitySettings) {
-  try {
-    window.localStorage.setItem(ACCESSIBILITY_STORAGE_KEY, JSON.stringify(settings));
-  } catch {
-    // Storage can be blocked (private mode); the settings still apply for this visit.
-  }
+  const value = encodeURIComponent(JSON.stringify(settings));
+  document.cookie = `${ACCESSIBILITY_COOKIE}=${value}; path=/; max-age=${ACCESSIBILITY_COOKIE_MAX_AGE_SECONDS}; samesite=lax`;
 }
 
 export function getServerAccessibilitySnapshot(): AccessibilitySettings {

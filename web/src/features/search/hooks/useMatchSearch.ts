@@ -1,0 +1,46 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
+
+import { ApiError } from "@/shared/lib/api-error";
+
+import { findMatches } from "../api/findMatches";
+import type { SearchViewState } from "../types/search-view-state";
+
+const RATE_LIMITED_STATUS = 429;
+
+function isRateLimited(error: unknown) {
+  return error instanceof ApiError && error.status === RATE_LIMITED_STATUS;
+}
+
+/** Runs the search for the saved problem text and reduces the query to one view state. */
+export function useMatchSearch(problem: string | null | undefined): SearchViewState {
+  const text = problem?.trim() ?? "";
+  const hasProblem = text.length > 0;
+
+  const query = useQuery({
+    queryKey: ["matches", text],
+    queryFn: () => findMatches(text),
+    enabled: hasProblem,
+    // Retrying a rate-limited request would only make it worse.
+    retry: (failureCount, error) => !isRateLimited(error) && failureCount < 1,
+  });
+
+  if (problem === undefined) {
+    return { kind: "loading" };
+  }
+
+  if (!hasProblem) {
+    return { kind: "no-problem" };
+  }
+
+  if (query.isError) {
+    return { kind: "error", isRateLimited: isRateLimited(query.error), retry: () => void query.refetch() };
+  }
+
+  if (query.isSuccess) {
+    return query.data.length > 0 ? { kind: "results", items: query.data } : { kind: "empty" };
+  }
+
+  return { kind: "loading" };
+}

@@ -56,12 +56,7 @@
         "senior": "Starsza sąsiadka mieszka sama i czuje się samotna",
         "disability": "W naszej gminie brakuje usług dla osób z niepełnosprawnością",
         "youth": "Młodzi w naszej miejscowości nie radzą sobie ze stresem"
-      },
-      "errors": {
-        "tooShort": "Opisz problem w co najmniej {min} znakach.",
-        "tooLong": "Opis może mieć najwyżej {max} znaków."
-      },
-      "placeholderNotice": "Wyszukiwanie dopasowań będzie dostępne wkrótce."
+      }
     },
     "libraryNote": "Biblioteka ROPS Kraków · {count} sprawdzonych innowacji",
     "howItWorks": {
@@ -130,6 +125,131 @@
       "text": "Zgłoś potrzebę lub pomysł. Pracownicy ROPS odpowiedzą, a status sprawdzisz pod prywatnym linkiem.",
       "needCta": "Zgłoś potrzebę",
       "ideaCta": "Zaproponuj pomysł"
+    }
+  },
+  "Validation": {
+    "problem": {
+      "tooShort": "Opisz problem w co najmniej {min} znakach.",
+      "tooLong": "Opis może mieć najwyżej {max} znaków."
+    }
+  },
+  "Search": {
+    "metaTitle": "Wyniki wyszukiwania",
+    "header": {
+      "title": "Rozwiązania dla Twojego problemu",
+      "lead": "Sprawdzone innowacje społeczne z biblioteki ROPS Kraków, od najlepiej dopasowanych."
+    },
+    "sidebarLabel": "Opis problemu i wskazówki",
+    "refine": {
+      "label": "Twój opis",
+      "counter": "{count} / {max}",
+      "submit": "Szukaj ponownie"
+    },
+    "status": {
+      "loading": "Szukamy rozwiązań…",
+      "found": "{count, plural, one {Znaleziono # rozwiązanie} few {Znaleziono # rozwiązania} many {Znaleziono # rozwiązań} other {Znaleziono # rozwiązania}}",
+      "empty": "Brak dopasowań",
+      "error": "Nie udało się wyszukać"
+    },
+    "strength": {
+      "strong": {
+        "label": "Mocne dopasowanie"
+      },
+      "possible": {
+        "label": "Możliwe dopasowanie"
+      },
+      "related": {
+        "label": "Powiązane"
+      }
+    },
+    "card": {
+      "evidenceTitle": "Czy to działa?",
+      "noEvidence": "Brak opisu testu w bibliotece ROPS.",
+      "viewSolution": "Zobacz rozwiązanie",
+      "source": "Źródło: ROPS Kraków",
+      "opensInNewTab": "otwiera się w nowej karcie"
+    },
+    "noMatch": {
+      "title": "Nie znaleźliśmy bliskiego dopasowania",
+      "text": "W bibliotece nie ma rozwiązania, które wyraźnie pasuje do opisu. Możesz zgłosić potrzebę do ROPS albo przejrzeć bibliotekę.",
+      "submitNeed": "Zgłoś potrzebę",
+      "browseLibrary": "Przeglądaj bibliotekę"
+    },
+    "error": {
+      "generic": {
+        "title": "Coś poszło nie tak",
+        "text": "Nie udało się pobrać wyników. Spróbuj ponownie za chwilę."
+      },
+      "rateLimited": {
+        "title": "Zbyt wiele zapytań",
+        "text": "Wysłano zbyt wiele zapytań w krótkim czasie. Odczekaj chwilę i spróbuj ponownie."
+      },
+      "retry": "Spróbuj ponownie"
+    },
+    "emptySearch": {
+      "title": "Najpierw opisz problem",
+      "text": "Nie mamy jeszcze opisu do wyszukania. Wróć na stronę główną i opisz, co się dzieje.",
+      "cta": "Opisz problem"
+    },
+    "submitPrompt": {
+      "title": "Żadne nie pasuje?",
+      "text": "Zgłoś potrzebę, a pracownicy ROPS odpowiedzą.",
+      "cta": "Zgłoś potrzebę"
+    }
+  },
+  "InnovationDetail": {
+    "metaNotFound": "Nie znaleziono rozwiązania",
+    "breadcrumb": {
+      "label": "Ścieżka nawigacji",
+      "library": "Biblioteka innowacji"
+    },
+    "sections": {
+      "solution": "Na czym polega rozwiązanie?",
+      "problems": "Jakich problemów dotyczy?",
+      "targetGroup": "Dla kogo jest?",
+      "beneficiaries": "Kto może z niego skorzystać?",
+      "evidence": "Czy to działa?"
+    },
+    "missingSection": "Brak opisu w bibliotece ROPS.",
+    "missingEvidence": "Brak opisu testu w bibliotece ROPS.",
+    "panel": {
+      "title": "Materiały i źródło",
+      "source": "Zobacz w bibliotece ROPS",
+      "opensInNewTab": "otwiera się w nowej karcie",
+      "resources": {
+        "video": {
+          "label": "Film o rozwiązaniu",
+          "hint": "Otwiera się w serwisie YouTube"
+        },
+        "materials": {
+          "label": "Materiały do pobrania",
+          "hint": "Plik ZIP"
+        },
+        "detailsPdf": {
+          "label": "Opis szczegółowy",
+          "hint": "Dokument PDF"
+        },
+        "license": {
+          "label": "Licencja i zasady wykorzystania",
+          "hint": "Dokument"
+        }
+      }
+    },
+    "cta": {
+      "title": "Masz własną potrzebę?",
+      "text": "Jeśli to rozwiązanie nie pasuje, zgłoś potrzebę do ROPS.",
+      "cta": "Zgłoś potrzebę"
+    },
+    "related": {
+      "title": "Podobne rozwiązania",
+      "description": "Z tej samej kategorii biblioteki.",
+      "viewSolution": "Zobacz rozwiązanie"
+    },
+    "notFound": {
+      "title": "Nie znaleźliśmy tego rozwiązania",
+      "text": "Link może być nieaktualny albo rozwiązanie zostało usunięte z biblioteki.",
+      "library": "Przeglądaj bibliotekę",
+      "home": "Strona główna"
     }
   }
 }

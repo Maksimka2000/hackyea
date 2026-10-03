@@ -1,11 +1,10 @@
 import { useTranslations } from "next-intl";
 
+import { InnovationCard } from "@/shared/ui/composite/InnovationCard";
 import { Container } from "@/shared/ui/primitives/Container";
 import { SectionHeading } from "@/shared/ui/primitives/SectionHeading";
 
 import type { FeaturedInnovation } from "../types/featured-innovation";
-
-import { InnovationCard } from "./InnovationCard";
 
 type FeaturedInnovationsProps = Readonly<{
   innovations: FeaturedInnovation[];
@@ -21,7 +20,7 @@ export function FeaturedInnovations({ innovations }: FeaturedInnovationsProps) {
         <ul className="grid gap-6 md:grid-cols-3">
           {innovations.map((innovation) => (
             <li key={innovation.id}>
-              <InnovationCard innovation={innovation} />
+              <InnovationCard {...innovation} viewLabel={t("viewSolution")} />
             </li>
           ))}
         </ul>

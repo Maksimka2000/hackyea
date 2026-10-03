@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { ApiError } from "./api-error";
+
 type FetchJsonOptions<TSchema extends z.ZodTypeAny | undefined> = RequestInit & {
   schema?: TSchema;
 };
@@ -12,7 +14,7 @@ export async function fetchJson<TSchema extends z.ZodTypeAny | undefined>(
   const response = await fetch(input, requestInit);
 
   if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}.`);
+    throw new ApiError(response.status);
   }
 
   const data: unknown = await response.json();

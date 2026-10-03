@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { PROBLEM_MAX_LENGTH, PROBLEM_MIN_LENGTH } from "../constants/problem-limits";
+import { PROBLEM_MAX_LENGTH, PROBLEM_MIN_LENGTH } from "@/shared/constants/problem-limits";
 
 /** Validation messages are translation keys (`Home.search.errors.<key>`), resolved in the UI. */
 export const problemErrorKeys = ["tooShort", "tooLong"] as const;
