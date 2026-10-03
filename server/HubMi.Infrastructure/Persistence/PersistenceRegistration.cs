@@ -25,6 +25,7 @@ public static class PersistenceRegistration
         services.AddScoped<IInnovationCategoryReader, InnovationCategoryReader>();
         services.AddScoped<IMatchRequestLog, MatchRequestLog>();
         services.AddScoped<IInnovationDetailsReader, InnovationDetailsReader>();
+        services.AddScoped<IInnovationListReader, InnovationListReader>();
 
         services.Configure<PersistenceOptions>(configuration.GetSection(PersistenceOptions.SectionName));
         services.AddHostedService<DatabaseInitializer>();

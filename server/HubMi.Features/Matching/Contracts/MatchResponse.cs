@@ -20,6 +20,7 @@ public sealed record MatchResultDto(
     Guid InnovationId,
     string Title,
     string? Tagline,
+    CategoryRefDto Category,
     MatchIndicatorDto Indicator,
     string Reason,
     string? TargetGroup,

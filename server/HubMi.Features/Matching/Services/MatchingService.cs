@@ -50,6 +50,7 @@ public sealed class MatchingService(
         await FillAsync(picked, request.Text, query, statistics, matched, cancellationToken);
 
         var allCategories = await categories.GetAllAsync(cancellationToken);
+        var categoryNames = allCategories.ToDictionary(c => c.Id, c => c.Name, StringComparer.Ordinal);
         // With no matching word at all, any category would be a guess; show none rather than a misleading header.
         var category = matched.Count > 0 ? ResolveCategory(matched, allCategories) : null;
 
@@ -63,7 +64,7 @@ public sealed class MatchingService(
             request.Text,
             query.Words,
             category,
-            picked.Select((s, i) => ToDto(s, i + 1)).ToList());
+            picked.Select((s, i) => ToDto(s, i + 1, categoryNames)).ToList());
     }
 
     /// <summary>Never return a short list: typo-tolerant matches first, then cards from the best (or largest) category.</summary>
@@ -151,7 +152,7 @@ public sealed class MatchingService(
         }
     }
 
-    private MatchResultDto ToDto(ScoredInnovation scored, int rank)
+    private MatchResultDto ToDto(ScoredInnovation scored, int rank, Dictionary<string, string> categoryNames)
     {
         var card = scored.Innovation;
         var evidence = Shorten(card.Evidence, _options.EvidenceMaxLength);
@@ -161,6 +162,7 @@ public sealed class MatchingService(
             card.Id,
             card.Title,
             card.Tagline,
+            new CategoryRefDto(card.CategoryId, NameOf(categoryNames, card.CategoryId)),
             new MatchIndicatorDto(
                 scored.Percent,
                 LevelCode(scored.Level),

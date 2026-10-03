@@ -16,7 +16,9 @@ export function mapMatchResponse(dto: MatchResponseDto): MatchOutcome {
       id: result.innovationId,
       title: result.title,
       summary: result.tagline ?? "",
+      categoryName: result.category?.name ?? null,
       strength: strengthByLevel[result.indicator.level],
+      matchedWords: result.indicator.matchedWords,
       // The backend fills `evidence` with a Polish placeholder when there is none; the card shows a translated one.
       evidenceNote: result.hasEvidence ? result.evidence : null,
       sourceUrl: result.sourceUrl,

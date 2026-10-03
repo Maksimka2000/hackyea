@@ -8,6 +8,7 @@ public static class InnovationsServiceRegistration
     public static IServiceCollection AddInnovationsFeature(this IServiceCollection services)
     {
         services.AddScoped<InnovationDetailsService>();
+        services.AddScoped<InnovationListService>();
 
         return services;
     }

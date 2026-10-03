@@ -3,10 +3,12 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
+import { Tag } from "@/shared/ui/primitives/Tag";
 
 import { matchStrengthStyles } from "../constants/match-strengths";
 import type { MatchResult } from "../types/match-result";
 
+import { MatchedWords } from "./MatchedWords";
 import { StrengthBadge } from "./StrengthBadge";
 
 type MatchCardProps = Readonly<{
@@ -33,7 +35,10 @@ export function MatchCard({ result }: MatchCardProps) {
         className={cn("absolute inset-y-0 left-0 w-2", matchStrengthStyles[result.strength].accentClassName)}
       />
 
-      <StrengthBadge strength={result.strength} />
+      <div className="flex flex-wrap items-center gap-3">
+        <StrengthBadge strength={result.strength} />
+        {result.categoryName ? <Tag>{result.categoryName}</Tag> : null}
+      </div>
 
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl leading-tight font-extrabold text-foreground">
@@ -47,6 +52,8 @@ export function MatchCard({ result }: MatchCardProps) {
         </h2>
         {result.summary ? <p className="line-clamp-2 text-lg leading-snug text-foreground">{result.summary}</p> : null}
       </div>
+
+      <MatchedWords words={result.matchedWords} />
 
       <div className="flex gap-3 rounded-control bg-tint p-4 text-sm">
         <FlaskConical aria-hidden="true" className="mt-0.5 size-5 flex-none text-primary" />

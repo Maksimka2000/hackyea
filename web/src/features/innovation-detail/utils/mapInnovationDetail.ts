@@ -18,6 +18,7 @@ export function mapInnovationDetail(dto: InnovationDto): InnovationDetail {
     title: dto.title,
     summary: dto.tagline ?? "",
     category: dto.category,
+    badge: dto.disseminationBadge ?? null,
     sections: innovationSectionKeys.map((key) => ({ key, paragraphs: splitParagraphs(texts[key]) })),
     sourceUrl: dto.sourceUrl,
     resources: {

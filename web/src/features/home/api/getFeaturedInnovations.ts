@@ -9,7 +9,7 @@ import { getFeaturedInnovationsMock } from "./featuredInnovationsMock";
 
 export async function getFeaturedInnovations(): Promise<FeaturedInnovation[]> {
   const dtos =
-    apiModeFor("innovations") === "mock"
+    apiModeFor("innovationList") === "mock"
       ? await getFeaturedInnovationsMock()
       : // PLACEHOLDER endpoint: replace with the real route when the backend defines it.
         await fetchJson(`${apiBaseUrl}/innovations/featured`, { schema: featuredInnovationListDtoSchema });

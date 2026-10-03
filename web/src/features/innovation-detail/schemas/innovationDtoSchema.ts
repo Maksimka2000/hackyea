@@ -23,6 +23,10 @@ export const innovationDtoSchema = z.object({
   materialsUrl: z.string().nullable(),
   detailsPdfUrl: z.string().nullable(),
   licenseUrl: z.string().nullable(),
+  /** Added by the backend (the "Inkubator Włączenia Społecznego" mark). Optional so older mock data still parses. */
+  disseminationBadge: z.string().nullable().optional(),
+  /** ISO date of the last change; not shown yet. */
+  updatedAt: z.string().optional(),
 });
 
 export const innovationListDtoSchema = z.array(innovationDtoSchema);

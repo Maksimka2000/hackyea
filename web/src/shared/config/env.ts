@@ -2,8 +2,14 @@ import { apiOrigin } from "./api-origin";
 
 export type ApiMode = "mock" | "live";
 
-/** Each feature can be switched on its own, so finished backend endpoints go live while the rest stay mocked. */
-export type ApiFeature = "matching" | "innovations" | "submissions";
+/**
+ * Each backend capability can be switched on its own, so finished endpoints go live while the rest stay mocked:
+ * - matching: POST /api/match
+ * - innovationDetail: GET /api/innovations/{id}
+ * - innovationList: lists of innovation cards (home examples, related solutions); no backend endpoint yet
+ * - submissions: needs and ideas; no backend endpoint yet
+ */
+export type ApiFeature = "matching" | "innovationDetail" | "innovationList" | "submissions";
 
 function parseMode(value: string | undefined): ApiMode | undefined {
   return value === "live" || value === "mock" ? value : undefined;
@@ -14,7 +20,8 @@ const defaultMode = parseMode(process.env.NEXT_PUBLIC_API_MODE) ?? "mock";
 // NEXT_PUBLIC_ variables must be written out literally so Next.js can inline them in browser code.
 const featureModes: Record<ApiFeature, ApiMode | undefined> = {
   matching: parseMode(process.env.NEXT_PUBLIC_API_MODE_MATCHING),
-  innovations: parseMode(process.env.NEXT_PUBLIC_API_MODE_INNOVATIONS),
+  innovationDetail: parseMode(process.env.NEXT_PUBLIC_API_MODE_INNOVATION_DETAIL),
+  innovationList: parseMode(process.env.NEXT_PUBLIC_API_MODE_INNOVATION_LIST),
   submissions: parseMode(process.env.NEXT_PUBLIC_API_MODE_SUBMISSIONS),
 };
 

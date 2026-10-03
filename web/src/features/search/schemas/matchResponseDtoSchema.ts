@@ -22,6 +22,8 @@ export const matchResultDtoSchema = z.object({
   innovationId: z.string(),
   title: z.string(),
   tagline: z.string().nullable(),
+  /** Category of the card. Optional here only so mock data written before the backend added it still parses. */
+  category: z.object({ id: z.string(), name: z.string() }).optional(),
   indicator: matchIndicatorDtoSchema,
   /** Polish sentence built from the matched words; not used yet. */
   reason: z.string(),

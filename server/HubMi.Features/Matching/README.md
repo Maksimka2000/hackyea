@@ -1,6 +1,6 @@
 # Matching
 
-Public workflow (`POST /api/match`, anonymous, rate limited): accept a description of a social need, find relevant innovations, and return the top 3 with a match indicator, a category header and source links. Keep the persistence implementations in Infrastructure.
+Public workflow (`POST /api/match`, anonymous, rate limited): accept a description of a social need, find relevant innovations, and return the top 3 with a match indicator, the category of each card, a category header for the whole result and source links. Keep the persistence implementations in Infrastructure.
 
 How it works:
 

@@ -9,7 +9,7 @@ import { getRelatedInnovationsMock } from "./innovationMock";
 
 export async function getRelatedInnovations(id: string): Promise<RelatedInnovation[]> {
   const dtos =
-    apiModeFor("innovations") === "mock"
+    apiModeFor("innovationList") === "mock"
       ? await getRelatedInnovationsMock(id)
       : // PLACEHOLDER endpoint: replace when the backend defines it.
         await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}/related`, {

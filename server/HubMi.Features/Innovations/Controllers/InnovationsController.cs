@@ -7,7 +7,7 @@ namespace HubMi.Features.Innovations.Controllers;
 
 [ApiController]
 [Route("api/innovations")]
-public sealed class InnovationsController(InnovationDetailsService details) : ControllerBase
+public sealed class InnovationsController(InnovationDetailsService details, InnovationListService lists) : ControllerBase
 {
     /// <summary>Public and anonymous: one innovation card with all its data. The id is the innovation's GUID, as returned by matching.</summary>
     [HttpGet("{id:guid}")]
@@ -18,4 +18,16 @@ public sealed class InnovationsController(InnovationDetailsService details) : Co
         var innovation = await details.GetAsync(id, cancellationToken);
         return innovation is null ? NotFound() : innovation;
     }
+
+    /// <summary>Public and anonymous: a few cards to show on the home page.</summary>
+    [HttpGet("featured")]
+    [ProducesResponseType<IReadOnlyList<InnovationSummaryResponse>>(StatusCodes.Status200OK)]
+    public async Task<IReadOnlyList<InnovationSummaryResponse>> GetFeatured(CancellationToken cancellationToken) =>
+        await lists.GetFeaturedAsync(cancellationToken);
+
+    /// <summary>Public and anonymous: other cards from the same category. Empty for an unknown id.</summary>
+    [HttpGet("{id:guid}/related")]
+    [ProducesResponseType<IReadOnlyList<InnovationSummaryResponse>>(StatusCodes.Status200OK)]
+    public async Task<IReadOnlyList<InnovationSummaryResponse>> GetRelated(Guid id, CancellationToken cancellationToken) =>
+        await lists.GetRelatedAsync(id, cancellationToken);
 }

@@ -1,4 +1,5 @@
 import { Container } from "@/shared/ui/primitives/Container";
+import { Tag } from "@/shared/ui/primitives/Tag";
 
 import type { InnovationDetail } from "../types/innovation-detail";
 
@@ -20,6 +21,7 @@ export function DetailHeader({ innovation }: DetailHeaderProps) {
         <h1 className="max-w-4xl text-3xl font-extrabold tracking-tight text-balance sm:text-4xl" id="innovation-title">
           {innovation.title}
         </h1>
+        {innovation.badge ? <Tag>{innovation.badge}</Tag> : null}
         {innovation.summary ? <p className="max-w-3xl text-lg opacity-90">{innovation.summary}</p> : null}
       </Container>
     </section>

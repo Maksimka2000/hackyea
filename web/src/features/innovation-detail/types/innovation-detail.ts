@@ -19,6 +19,8 @@ export type InnovationDetail = {
   title: string;
   summary: string;
   category: { id: string; name: string };
+  /** Mark of cards chosen for wider dissemination; null when the card has none. */
+  badge: string | null;
   sections: InnovationSection[];
   sourceUrl: string;
   resources: InnovationResources;

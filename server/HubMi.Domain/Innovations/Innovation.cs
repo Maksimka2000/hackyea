@@ -54,7 +54,7 @@ public sealed class Innovation
         {
             Id = id,
             CategoryId = categoryId.Trim(),
-            Title = title.Trim(),
+            Title = Clean(title)!,
             Tagline = Clean(tagline),
             Solution = Clean(solution),
             Problems = Clean(problems),
@@ -78,5 +78,24 @@ public sealed class Innovation
             throw new ArgumentException($"{name} is required.", name);
     }
 
-    private static string? Clean(string? value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+    /// <summary>
+    /// Trims the text and removes the invisible characters the ROPS export contains: non-breaking spaces become normal
+    /// spaces (so words wrap), zero-width characters are dropped. Line breaks are kept: they separate paragraphs.
+    /// </summary>
+    private static string? Clean(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return null;
+
+        var cleaned = value
+            .Replace(' ', ' ')
+            .Replace(' ', ' ')
+            .Replace("​", string.Empty)
+            .Replace("‌", string.Empty)
+            .Replace("‍", string.Empty)
+            .Replace("﻿", string.Empty)
+            .Trim();
+
+        return cleaned.Length == 0 ? null : cleaned;
+    }
 }

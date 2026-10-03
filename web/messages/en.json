@@ -134,7 +134,8 @@
       "noEvidence": "The ROPS library has no description of a test.",
       "viewSolution": "View solution",
       "source": "Source: ROPS Kraków",
-      "opensInNewTab": "opens in a new tab"
+      "opensInNewTab": "opens in a new tab",
+      "matchedWords": "Found in your description:"
     },
     "noMatch": {
       "title": "We did not find a close match",

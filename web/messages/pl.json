@@ -134,7 +134,8 @@
       "noEvidence": "Brak opisu testu w bibliotece ROPS.",
       "viewSolution": "Zobacz rozwiązanie",
       "source": "Źródło: ROPS Kraków",
-      "opensInNewTab": "otwiera się w nowej karcie"
+      "opensInNewTab": "otwiera się w nowej karcie",
+      "matchedWords": "Znaleziono w opisie:"
     },
     "noMatch": {
       "title": "Nie znaleźliśmy bliskiego dopasowania",
