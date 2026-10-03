@@ -8,6 +8,7 @@ Typed options and configuration validation for the API composition root. Keep se
 | `Persistence__MigrateOnStartup`, `Persistence__SeedSampleLibrary` | environment / appsettings | Apply migrations and load the sample library into an empty database. On in Development and in the compose file. |
 | `Matching` section | `search-config.json` | Thresholds, stop words, synonyms, irregular forms. Tune without code changes. |
 | `Swagger__Enabled` | appsettings / environment | Swagger UI at `/swagger`. On in Development and in the compose file (override with `HUBMI_SWAGGER_ENABLED=false`); keep it off in production. |
+| `ForwardedHeaders__KnownProxies__N`, `ForwardedHeaders__KnownNetworks__N`, `ForwardedHeaders__ForwardLimit` | environment | Proxies whose `X-Forwarded-For` is trusted (CIDR ranges for networks). Required behind the Next.js proxy or Azure ingress, otherwise every visitor shares one rate-limit bucket. Set `ForwardLimit` to the number of trusted hops; every hop must be listed. Untrusted callers cannot spoof the header. |
 | `RateLimiting__Match__PermitLimit` / `WindowSeconds` | appsettings / environment | Per-client limit for `POST /api/match` (default 20 per 60 s). |
 
 ## Run everything in Docker

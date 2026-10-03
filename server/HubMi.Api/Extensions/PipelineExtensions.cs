@@ -6,6 +6,8 @@ public static class PipelineExtensions
 {
     public static WebApplication UseApiPipeline(this WebApplication app)
     {
+        // First: everything below (rate limiting, logging) must see the real client address.
+        app.UseForwardedHeaders();
         app.UseExceptionHandler();
 
         if (app.Configuration.GetValue<bool>(SwaggerRegistration.EnabledSetting))
