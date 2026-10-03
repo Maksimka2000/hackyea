@@ -9,6 +9,7 @@
     "brandName": "HubMI",
     "brandDescriptor": "Social innovation · Małopolska",
     "mainNavigation": "Main navigation",
+    "menu": "Menu",
     "nav": {
       "findSolution": "Find a solution",
       "library": "Innovation library",
@@ -79,7 +80,8 @@
     },
     "categories": {
       "title": "Browse by category",
-      "description": "The nine categories of the ROPS Kraków Social Innovation Library (their names stay in Polish)."
+      "description": "{count, plural, one {# category} other {# categories}} of the ROPS Kraków Social Innovation Library.",
+      "count": "{count, plural, one {# solution} other {# solutions}}"
     },
     "featured": {
       "title": "Examples from the library",
@@ -401,6 +403,36 @@
     "breadcrumb": {
       "label": "Breadcrumb",
       "library": "Innovation library"
+    },
+    "filters": {
+      "queryLabel": "Search the list",
+      "queryPlaceholder": "E.g. senior, game, housing",
+      "togglesLegend": "Filters",
+      "onlyBadge": "Selected for dissemination",
+      "onlyVideo": "With a video",
+      "onlyEvidence": "With a test description",
+      "summary": "Found {count} of {total}",
+      "noResultsTitle": "No results",
+      "noResultsText": "No solution matches these filters. Change the search words or clear the filters.",
+      "reset": "Clear filters"
+    },
+    "markers": {
+      "video": "Video",
+      "evidence": "Test description"
+    }
+  },
+  "Errors": {
+    "notFound": {
+      "title": "Page not found",
+      "text": "The address may be out of date, or the page has moved.",
+      "home": "Back to the home page",
+      "library": "Browse the library"
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "text": "This page could not be shown. Please try again in a moment.",
+      "retry": "Try again",
+      "home": "Back to the home page"
     }
   }
 }

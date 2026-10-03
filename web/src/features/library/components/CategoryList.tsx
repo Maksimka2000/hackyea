@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
 
-import type { LibraryCategory } from "../types/library";
+import type { LibraryCategory } from "@/shared/library/library-category";
 
 type CategoryListProps = Readonly<{
   categories: LibraryCategory[];

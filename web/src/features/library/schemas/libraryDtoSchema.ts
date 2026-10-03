@@ -1,14 +1,6 @@
 import { z } from "zod";
 
-/* Backend: GET /api/categories (InnovationCategorySummaryResponse) and GET /api/innovations?categoryId= (InnovationSummaryResponse). */
-export const libraryCategoryDtoSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  innovationCount: z.number(),
-});
-
-export const libraryCategoryListDtoSchema = z.array(libraryCategoryDtoSchema);
-
+/* Backend: GET /api/innovations?categoryId= (InnovationSummaryResponse). Categories live in `shared/library`. */
 export const libraryInnovationDtoSchema = z.object({
   id: z.string(),
   title: z.string(),
@@ -18,9 +10,10 @@ export const libraryInnovationDtoSchema = z.object({
     name: z.string(),
   }),
   disseminationBadge: z.string().nullable().optional(),
+  hasVideo: z.boolean(),
+  hasEvidence: z.boolean(),
 });
 
 export const libraryInnovationListDtoSchema = z.array(libraryInnovationDtoSchema);
 
-export type LibraryCategoryDto = z.infer<typeof libraryCategoryDtoSchema>;
 export type LibraryInnovationDto = z.infer<typeof libraryInnovationDtoSchema>;

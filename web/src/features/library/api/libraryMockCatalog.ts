@@ -1,5 +1,5 @@
 /*
-  Short form of every ROPS library card (id, title, tagline, category, badge), generated from the full mock catalog.
+  Short form of every ROPS library card (id, title, tagline, category, badge, markers), generated from the full mock catalog.
   Mock-only and server-only: delete this file once nothing runs in mock mode.
 */
 export const mockLibraryCatalog: unknown = [
@@ -11,7 +11,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dialog-ponad-kulturami",
@@ -21,7 +23,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "wortal-informacyjny",
@@ -31,7 +35,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dialog-ponad-kulturami-1",
@@ -41,7 +47,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "health-guide-pl",
@@ -51,7 +59,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "zrozum-moja-kulture-zrozum-mnie",
@@ -61,7 +71,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-cudzoziemcow",
       "name": "Dla cudzoziemców"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "komix-zyciowy",
@@ -71,7 +83,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "patryk-i-kropka",
@@ -81,7 +95,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "edki-kredki-terapeutyczne",
@@ -91,7 +107,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "rodzina-adopcyjna-dorasta",
@@ -101,7 +119,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "puzzle-3d",
@@ -111,7 +131,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "hop-hop-mobilny-plac-zabaw",
@@ -121,7 +143,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "mobilny-pomocnik-dydaktyczno-sensoryczny-dla-uczniowstudentow-ze-spektrum-autyzmu",
@@ -131,7 +155,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "przewodnik-dla-osob-z-asd-moje-potrzeby-gdzie-i-jak-je-realizowac",
@@ -141,7 +167,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "bez-presji-z-depresji",
@@ -151,7 +179,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "bez-stresu-do-sukcesu-terapia-neurologiczna-przyjazna-dziecku",
@@ -161,7 +191,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "uwaznione-rodzienstwo",
@@ -171,7 +203,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "brzuszkole-brzuszek-zostaje-w-przedszkolu",
@@ -181,7 +215,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "to-nie-koniec-swiata-to-poczatek-swiata",
@@ -191,7 +227,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "jezykolamacz",
@@ -201,7 +239,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "piosenki-uczestniczace",
@@ -211,7 +251,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "moj-pomocny-virtual-world",
@@ -221,7 +263,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "mobilna-pomoc-terapeutyczna",
@@ -231,7 +275,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "marimbaza",
@@ -241,7 +287,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "nasz-wspolny-rodzinny-swiat-poznaje-ucze-reaguje",
@@ -251,7 +299,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "mpatyk",
@@ -261,7 +311,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "czas-na-aktywnosc",
@@ -271,7 +323,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-dzieci-mlodziezy-i-rodziny",
       "name": "Dla dzieci, młodzieży i rodziny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "uniodziez",
@@ -281,7 +335,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "zakupy-na-jednym-wozku-z-dzieckiem-z-niepelnosprawnoscia-ruchowa",
@@ -291,7 +347,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "kompleksowa-pomoc-dla-osob-po-amputacji-konczyny-dolnej",
@@ -301,7 +359,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "puzzles-ramp",
@@ -311,7 +371,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "chlap-pro",
@@ -321,7 +383,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "marina-pai",
@@ -331,7 +395,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "zakupy-bez-barier",
@@ -341,7 +407,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "nakreceni-na-aktywnosc",
@@ -351,7 +419,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "moduly-niezaleznosci",
@@ -361,7 +431,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "biustspinka",
@@ -371,7 +443,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "szablony-piekna",
@@ -381,7 +455,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "ev-modul-do-wozkow-inwalidzkich",
@@ -391,7 +467,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dostepny-stol-targowy",
@@ -401,7 +479,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "cloudleg",
@@ -411,7 +491,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "lekki-wozek-aktywny",
@@ -421,7 +503,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "wozek-szermierczy",
@@ -431,7 +515,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dostepna-szermierka",
@@ -441,7 +527,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "innotextil",
@@ -451,7 +539,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-o-ograniczonej-mobilnosci",
       "name": "Dla osób o ograniczonej mobilności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "szlakiem-ludzi-bezdomnych",
@@ -461,7 +551,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-w-kryzysie-bezdomnosci",
       "name": "Dla osób w kryzysie bezdomności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "wiejski-program-pomocy-osobom-w-kryzysie-bezdomnosci-sciezka-feniksa",
@@ -471,7 +563,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-w-kryzysie-bezdomnosci",
       "name": "Dla osób w kryzysie bezdomności"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "urzedowy-ambaras",
@@ -481,7 +575,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "stop-otylosci-innowacyjna-metoda-pracy-z-osobami-niepelnosprawnymi-intelektualnie",
@@ -491,7 +587,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "pelna-wokanda",
@@ -501,7 +599,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "pelnia-zdrowia",
@@ -511,7 +611,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "niepelnosprawnosc-szansa-na-pelnosprawnosc-w-pracy-i-zyciu",
@@ -521,7 +623,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dostepna-polska",
@@ -531,7 +635,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "zalatw-to-sam",
@@ -541,7 +647,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "go-ahead-mow-smialo",
@@ -551,7 +659,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "autyzm-i-ja",
@@ -561,7 +671,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "podroz-poza-domem-w-wirtualnej-rzeczywistosci",
@@ -571,7 +683,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "ta-sciezka-terapeutyczna-sciezka-kulturowa-dla-dzieci-i-doroslych-z-autyzmem",
@@ -581,7 +695,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "osa-i-eco-puzzle",
@@ -591,7 +707,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "rodzinny-system-wzajemnej-pomocy",
@@ -601,7 +719,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "mix-ar-i-vr-dla-koordynacji-ruchowej",
@@ -611,7 +731,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-intelektualna",
       "name": "Dla osób z niepełnosprawnością intelektualną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "straznik",
@@ -621,7 +743,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "wsparcie-imprez-masowych-dla-osob-z-niepelnosprawnoscia-wzroku",
@@ -631,7 +755,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "teleasystent",
@@ -641,7 +767,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "hear-it",
@@ -651,7 +779,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "gluchy-czytelnik-w-bibliotece",
@@ -661,7 +791,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "blue-sea-eye",
@@ -671,7 +803,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "osoby-niewidome-i-niedowidzace-jako-nauczyciele-jezyka-polskiego",
@@ -681,7 +815,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "ngoz-nawigacja-glosowa-osob-zaleznych",
@@ -691,7 +827,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "wibraap",
@@ -701,7 +839,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "my-way-to-culture",
@@ -711,7 +851,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "glucha-ankieta",
@@ -721,7 +863,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dostepny-wniosek-dla-ggluchych",
@@ -731,7 +875,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "czytamoda",
@@ -741,7 +887,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "dostepny-transport-publiczny",
@@ -751,7 +899,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "turystyka-gorskawspinaczka-dostepna-dla-wszystkich",
@@ -761,7 +911,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "zdobadz-swoje-szczyty",
@@ -771,7 +923,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "spotkania-kulturlove",
@@ -781,7 +935,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "zmysly-w-ruchu-model-choreografii-dla-osob-niewidomych",
@@ -791,7 +947,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "kaski-binauralne",
@@ -801,7 +959,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "wielodziedzinowy-slownik-terminow-specjalistycznych-pl-pjm",
@@ -811,7 +971,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
       "name": "Dla osób z niepełnosprawnością sensoryczną"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "agencja-pracy-incydentalnej",
@@ -821,7 +983,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-rynku-pracy",
       "name": "Dla rynku pracy"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "niewypaleni",
@@ -831,7 +995,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-rynku-pracy",
       "name": "Dla rynku pracy"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "konsultant-etr",
@@ -841,7 +1007,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-rynku-pracy",
       "name": "Dla rynku pracy"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "mobilna-gielda-pracy",
@@ -851,7 +1019,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-rynku-pracy",
       "name": "Dla rynku pracy"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "oddawacze",
@@ -861,7 +1031,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-rynku-pracy",
       "name": "Dla rynku pracy"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "bawita",
@@ -871,7 +1043,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "senior-cuder",
@@ -881,7 +1055,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "merkury",
@@ -891,7 +1067,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "organizator-kompleksowej-opieki-w-miejscu-zamieszkania",
@@ -901,7 +1079,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "przenosne-modularne-lazienki",
@@ -911,7 +1091,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "terapeuta-przestrzeni",
@@ -921,7 +1103,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "talerze-zdrowia",
@@ -931,7 +1115,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "therapy-set",
@@ -941,7 +1127,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": false
   },
   {
     "id": "sciezka-treningu-umyslu",
@@ -951,7 +1139,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "edu-gra-hahaha",
@@ -961,7 +1151,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": false
   },
   {
     "id": "obu-obuwie-po-domu",
@@ -971,7 +1163,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "centrum-antydepresyjne",
@@ -981,7 +1175,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": false
   },
   {
     "id": "zeglowanie-w-wyobrazni-czyli-sposob-na-strachy-na-wodzie",
@@ -991,7 +1187,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "stworzenie-narzedzia-ulatwiajacego-seniorom-prawidlowe-regulowanie-spraw-spadkowych",
@@ -1001,7 +1199,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "mobilne-centrum-pomocy-dla-osob-starszych",
@@ -1011,7 +1211,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": false
   },
   {
     "id": "kody-qr-na-pomoc-seniorom",
@@ -1021,7 +1223,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "e-rzecznik-konsumenta-seniora",
@@ -1031,7 +1235,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "sciezka-motosensoryczna",
@@ -1041,7 +1247,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "korytarz-wspomnien",
@@ -1051,7 +1259,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "wirtualne-izby-pamieci",
@@ -1061,7 +1271,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-seniorow",
       "name": "Dla seniorów"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "paszport-pacjenta-z-choroba-rzadka",
@@ -1071,7 +1283,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "himalaje-autyzmu",
@@ -1081,7 +1295,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "gra-o-zdrowie",
@@ -1091,7 +1307,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": true,
+    "hasEvidence": true
   },
   {
     "id": "telerehabilitacja-oddechowa",
@@ -1101,7 +1319,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "inteligentny-organizer-do-lekow",
@@ -1111,7 +1331,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "drogowskazy-ajkum",
@@ -1121,7 +1343,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "cold-box",
@@ -1131,7 +1355,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "pacjent-pro",
@@ -1141,7 +1367,9 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   },
   {
     "id": "oncotriada",
@@ -1151,6 +1379,8 @@ export const mockLibraryCatalog: unknown = [
       "id": "dla-zdrowia-i-medycyny",
       "name": "Dla zdrowia i medycyny"
     },
-    "disseminationBadge": null
+    "disseminationBadge": null,
+    "hasVideo": false,
+    "hasEvidence": true
   }
 ];

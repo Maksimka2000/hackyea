@@ -1,3 +1,4 @@
+import { getLibraryCategories } from "@/shared/library/getLibraryCategories";
 import { Container } from "@/shared/ui/primitives/Container";
 
 import { getFeaturedInnovations } from "../api/getFeaturedInnovations";
@@ -11,17 +12,18 @@ import { ProblemSearchForm } from "./ProblemSearchForm";
 import { SubmitCallout } from "./SubmitCallout";
 
 export async function HomePage() {
-  const featuredInnovations = await getFeaturedInnovations();
+  const [featuredInnovations, categories] = await Promise.all([getFeaturedInnovations(), getLibraryCategories()]);
+  const innovationCount = categories.reduce((sum, category) => sum + category.count, 0);
 
   return (
     <>
       <HomeHero />
       <Container className="relative z-10 -mt-24">
         <ProblemSearchForm />
-        <LibraryNote />
+        <LibraryNote count={innovationCount} />
       </Container>
       <HowItWorks />
-      <LibraryCategories />
+      <LibraryCategories categories={categories} />
       <FeaturedInnovations innovations={featuredInnovations} />
       <SubmitCallout />
     </>

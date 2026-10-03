@@ -1,4 +1,4 @@
-import { Accessibility, Briefcase, Brain, Ear, Globe, HandHeart, House, Stethoscope, Users, type LucideIcon } from "lucide-react";
+import { Accessibility, Library, Briefcase, Brain, Ear, Globe, HandHeart, House, Stethoscope, Users, type LucideIcon } from "lucide-react";
 
 type LibraryCategory = {
   /** The category id used by the backend (the slug of the ROPS library category). */
@@ -24,3 +24,8 @@ export const libraryCategories: ReadonlyArray<LibraryCategory> = [
   { id: "dla-seniorow", name: "Dla seniorów", icon: HandHeart },
   { id: "dla-zdrowia-i-medycyny", name: "Dla zdrowia i medycyny", icon: Stethoscope },
 ];
+
+/** The icon of a category; a generic one for ids the frontend does not know yet. */
+export function libraryCategoryIcon(id: string): LucideIcon {
+  return libraryCategories.find((category) => category.id === id)?.icon ?? Library;
+}

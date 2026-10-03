@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { CategoryList } from "./CategoryList";
-import type { LibraryCategory } from "../types/library";
+import type { LibraryCategory } from "@/shared/library/library-category";
 
 type CategorySidebarProps = Readonly<{
   categories: LibraryCategory[];

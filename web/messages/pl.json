@@ -9,6 +9,7 @@
     "brandName": "HubMI",
     "brandDescriptor": "Innowacje społeczne · Małopolska",
     "mainNavigation": "Nawigacja główna",
+    "menu": "Menu",
     "nav": {
       "findSolution": "Znajdź rozwiązanie",
       "library": "Biblioteka innowacji",
@@ -79,7 +80,8 @@
     },
     "categories": {
       "title": "Przeglądaj według kategorii",
-      "description": "Dziewięć kategorii Biblioteki Innowacji Społecznych ROPS Kraków."
+      "description": "{count, plural, one {# kategoria} few {# kategorie} many {# kategorii} other {# kategorii}} Biblioteki Innowacji Społecznych ROPS Kraków.",
+      "count": "{count, plural, one {# rozwiązanie} few {# rozwiązania} many {# rozwiązań} other {# rozwiązania}}"
     },
     "featured": {
       "title": "Przykłady z biblioteki",
@@ -401,6 +403,36 @@
     "breadcrumb": {
       "label": "Ścieżka nawigacji",
       "library": "Biblioteka innowacji"
+    },
+    "filters": {
+      "queryLabel": "Szukaj na liście",
+      "queryPlaceholder": "Np. senior, gra, mieszkanie",
+      "togglesLegend": "Filtry",
+      "onlyBadge": "Wybrane do upowszechniania",
+      "onlyVideo": "Z filmem",
+      "onlyEvidence": "Z opisem testu",
+      "summary": "Znaleziono {count} z {total}",
+      "noResultsTitle": "Brak wyników",
+      "noResultsText": "Żadne rozwiązanie nie pasuje do tych filtrów. Zmień wyszukiwane słowa lub wyczyść filtry.",
+      "reset": "Wyczyść filtry"
+    },
+    "markers": {
+      "video": "Film",
+      "evidence": "Opis testu"
+    }
+  },
+  "Errors": {
+    "notFound": {
+      "title": "Nie znaleziono strony",
+      "text": "Adres może być nieaktualny albo strona została przeniesiona.",
+      "home": "Wróć na stronę główną",
+      "library": "Przeglądaj bibliotekę"
+    },
+    "generic": {
+      "title": "Coś poszło nie tak",
+      "text": "Nie udało się wyświetlić tej strony. Spróbuj ponownie za chwilę.",
+      "retry": "Spróbuj ponownie",
+      "home": "Wróć na stronę główną"
     }
   }
 }

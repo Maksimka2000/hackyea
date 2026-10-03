@@ -1,11 +1,6 @@
 import { libraryCategories } from "@/shared/constants/library-categories";
 
-import {
-  libraryCategoryListDtoSchema,
-  libraryInnovationListDtoSchema,
-  type LibraryCategoryDto,
-  type LibraryInnovationDto,
-} from "../schemas/libraryDtoSchema";
+import { libraryInnovationListDtoSchema, type LibraryInnovationDto } from "../schemas/libraryDtoSchema";
 
 import { mockLibraryCatalog } from "./libraryMockCatalog";
 
@@ -18,16 +13,6 @@ function sortedCatalog(): LibraryInnovationDto[] {
   return [...catalog].sort(
     (a, b) =>
       (categoryOrder.get(a.category.id) ?? 0) - (categoryOrder.get(b.category.id) ?? 0) || a.title.localeCompare(b.title, "pl"),
-  );
-}
-
-export async function getLibraryCategoriesMock(): Promise<LibraryCategoryDto[]> {
-  return libraryCategoryListDtoSchema.parse(
-    libraryCategories.map((category) => ({
-      id: category.id,
-      name: category.name,
-      innovationCount: catalog.filter((card) => card.category.id === category.id).length,
-    })),
   );
 }
 

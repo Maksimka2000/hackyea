@@ -1,12 +1,15 @@
-import type { LibraryCategoryDto, LibraryInnovationDto } from "../schemas/libraryDtoSchema";
-import type { LibraryCategory, LibraryGroup, LibraryItem } from "../types/library";
-
-export function mapLibraryCategory(dto: LibraryCategoryDto): LibraryCategory {
-  return { id: dto.id, name: dto.name, count: dto.innovationCount };
-}
+import type { LibraryInnovationDto } from "../schemas/libraryDtoSchema";
+import type { LibraryGroup, LibraryItem } from "../types/library";
 
 function mapLibraryItem(dto: LibraryInnovationDto): LibraryItem {
-  return { id: dto.id, title: dto.title, summary: dto.tagline ?? "", badge: dto.disseminationBadge ?? null };
+  return {
+    id: dto.id,
+    title: dto.title,
+    summary: dto.tagline ?? "",
+    badge: dto.disseminationBadge ?? null,
+    hasVideo: dto.hasVideo,
+    hasEvidence: dto.hasEvidence,
+  };
 }
 
 /** Groups the cards by category, keeping the order in which the backend sent them. */

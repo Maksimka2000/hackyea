@@ -6,7 +6,9 @@ public sealed record InnovationSummaryResponse(
     string Title,
     string? Tagline,
     InnovationCategoryDto Category,
-    string? DisseminationBadge);
+    string? DisseminationBadge,
+    bool HasVideo,
+    bool HasEvidence);
 
 /// <summary>A library category with the number of published cards in it.</summary>
 public sealed record InnovationCategorySummaryResponse(string Id, string Name, int InnovationCount);

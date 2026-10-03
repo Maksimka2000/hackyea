@@ -40,6 +40,8 @@ public sealed class InnovationListService(IInnovationListReader reader)
                 row.Innovation.Title,
                 row.Innovation.Tagline,
                 new InnovationCategoryDto(row.Category.Id, row.Category.Name),
-                row.Innovation.DisseminationBadge))
+                row.Innovation.DisseminationBadge,
+                !string.IsNullOrWhiteSpace(row.Innovation.VideoUrl),
+                !string.IsNullOrWhiteSpace(row.Innovation.Evidence)))
             .ToList();
 }

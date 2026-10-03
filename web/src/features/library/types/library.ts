@@ -1,16 +1,12 @@
-/** A category with its number of cards. Independent of the backend's field names. */
-export type LibraryCategory = {
-  id: string;
-  name: string;
-  count: number;
-};
-
 export type LibraryItem = {
   id: string;
   title: string;
   summary: string;
   /** Mark of cards chosen for wider dissemination; null when the card has none. */
   badge: string | null;
+  hasVideo: boolean;
+  /** True when the library describes how the solution was tested. */
+  hasEvidence: boolean;
 };
 
 /** The cards of one category, in the order the library shows them. */

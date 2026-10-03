@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation";
 
+import { getLibraryCategories } from "@/shared/library/getLibraryCategories";
 import { Container } from "@/shared/ui/primitives/Container";
 
-import { getLibraryCategories } from "../api/getLibraryCategories";
 import { getLibraryGroups } from "../api/getLibraryGroups";
 
 import { CategorySidebar } from "./CategorySidebar";
-import { LibraryEmpty } from "./LibraryEmpty";
-import { LibraryGroupSection } from "./LibraryGroupSection";
+import { LibraryBrowser } from "./LibraryBrowser";
 import { LibraryHeader } from "./LibraryHeader";
 
 type LibraryPageProps = Readonly<{
@@ -29,13 +28,7 @@ export async function LibraryPage({ categoryId }: LibraryPageProps) {
       <LibraryHeader categoryName={selected?.name} count={selected ? selected.count : totalCount} />
       <Container className="mt-8 grid gap-8 lg:grid-cols-[16rem_1fr] lg:items-start lg:gap-12">
         <CategorySidebar activeId={selected?.id} categories={categories} totalCount={totalCount} />
-        <div className="flex min-w-0 flex-col gap-12">
-          {groups.length > 0 ? (
-            groups.map((group) => <LibraryGroupSection group={group} key={group.category.id} showHeading={!selected} />)
-          ) : (
-            <LibraryEmpty />
-          )}
-        </div>
+        <LibraryBrowser groups={groups} showGroupHeadings={!selected} />
       </Container>
     </>
   );
