@@ -5,6 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\HubMi.Features\HubMi.Features.csproj" />
     <ProjectReference Include="..\HubMi.Infrastructure\HubMi.Infrastructure.csproj" />
   </ItemGroup>

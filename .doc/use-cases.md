@@ -18,44 +18,55 @@ Sources: ROPS criteria, contest rules, Mapa Wyzwań Społecznych, ROPS Innovatio
 
 ---
 
+
+
 ## Users
 
-| Role | In the demo |
-|---|---|
-| **Mieszkaniec / NGO** | Reports problems and ideas, browses knowledge, rates solutions. |
+
+| Role                                       | In the demo                                                          |
+| ------------------------------------------ | -------------------------------------------------------------------- |
+| **Mieszkaniec / NGO**                      | Reports problems and ideas, browses knowledge, rates solutions.      |
 | **Instytucja** (gmina, OPS, CUS, DPS, NGO) | Looks for solutions, reports local challenges, adapts an innovation. |
-| **ROPS** (admin) | Receives submissions, replies, edits cards, sees trends. |
-| **Ekspert** | Answers questions assigned by ROPS. |
+| **ROPS** (admin)                           | Receives submissions, replies, edits cards, sees trends.             |
+| **Ekspert**                                | Answers questions assigned by ROPS.                                  |
+
 
 ---
+
+
 
 ## Use cases
 
-| # | Use case | Role | Module |
-|---|---|---|---|
-| UC1 | Describe a problem, get solutions | Mieszkaniec, Instytucja | I Matchmaking (mandatory) |
-| UC2 | Nothing fits → send the problem to ROPS | Mieszkaniec, Instytucja | I Matchmaking |
-| UC3 | Browse knowledge | Everyone | II Knowledge base |
-| UC4 | Submit an idea card | Mieszkaniec | III Idea creator |
-| UC5 | Rate a solution, sign up to test | Mieszkaniec, Instytucja | IV Tester |
-| UC6 | Ask a question, follow my submissions | Mieszkaniec, Instytucja | V Communication |
-| UC7 | Admin inbox: see new submission, reply | ROPS | VI Admin panel |
-| UC8 | Admin edits an innovation card | ROPS | VI Admin panel |
-| UC9 | Admin sees trends | ROPS | II Knowledge base |
-| UC10 | Expert answers a question | Ekspert | V Communication |
-| UC11 | Adapt an innovation to my institution | Instytucja | VII Middleman |
+
+| #    | Use case                                | Role                    | Module                    |
+| ---- | --------------------------------------- | ----------------------- | ------------------------- |
+| UC1  | Describe a problem, get solutions       | Mieszkaniec, Instytucja | I Matchmaking (mandatory) |
+| UC2  | Nothing fits → send the problem to ROPS | Mieszkaniec, Instytucja | I Matchmaking             |
+| UC3  | Browse knowledge                        | Everyone                | II Knowledge base         |
+| UC4  | Submit an idea card                     | Mieszkaniec             | III Idea creator          |
+| UC5  | Rate a solution, sign up to test        | Mieszkaniec, Instytucja | IV Tester                 |
+| UC6  | Ask a question, follow my submissions   | Mieszkaniec, Instytucja | V Communication           |
+| UC7  | Admin inbox: see new submission, reply  | ROPS                    | VI Admin panel            |
+| UC8  | Admin edits an innovation card          | ROPS                    | VI Admin panel            |
+| UC9  | Admin sees trends                       | ROPS                    | II Knowledge base         |
+| UC10 | Expert answers a question               | Ekspert                 | V Communication           |
+| UC11 | Adapt an innovation to my institution   | Instytucja              | VII Middleman             |
+
 
 ---
 
+
+
 ### UC1. Describe a problem, get solutions
+
 **Who:** resident or institution. **Module I (mandatory).**
 
 1. User opens the home page and sees one field: *Opisz problem własnymi słowami*.
 2. User types (or dictates) the problem. Short keywords also work, e.g. *samotność senior leki*.
 3. User clicks **Znajdź rozwiązania**.
 4. System shows:
-   - **Co wiemy o tym problemie** — the matching Challenge Map area (e.g. *Seniorzy*): 2–3 sentences and key challenges.
-   - **Proponowane rozwiązania** — 3–5 innovation cards. Each shows: name, one sentence, **Dlaczego pasuje**, and the official **Czy to działa?** summary.
+  - **Co wiemy o tym problemie** — the matching Challenge Map area (e.g. *Seniorzy*): 2–3 sentences and key challenges.
+  - **Proponowane rozwiązania** — 3–5 innovation cards. Each shows: name, one sentence, **Dlaczego pasuje**, and the official **Czy to działa?** summary.
 5. User clicks a card to see the full card (UC3).
 6. Under the results: **Żadne nie pasuje? Wyślij zgłoszenie do ROPS** → UC2.
 
@@ -66,7 +77,10 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC2. Nothing fits → send the problem to ROPS
+
 **Who:** resident, or institution reporting a local challenge. **Module I.**
 
 1. User clicks **Wyślij zgłoszenie do ROPS**.
@@ -80,29 +94,35 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC3. Browse knowledge
+
 **Who:** everyone. **Module II.**
 
 1. User clicks **Wiedza**.
 2. User picks one of three tabs:
-   - **Mapa wyzwań** — 8 areas. Click an area → definition, key challenges, persona, report links.
-   - **Biblioteka innowacji** — cards from the ROPS library. Filter by category (9). Search by word.
-   - **Materiały** — list of educational materials and reports (links).
+  - **Mapa wyzwań** — 8 areas. Click an area → definition, key challenges, persona, report links.
+  - **Biblioteka innowacji** — cards from the ROPS library. Filter by category (9). Search by word.
+  - **Materiały** — list of educational materials and reports (links).
 3. User opens an innovation card and sees the official sections: *Na czym polega · Jaki problem · Grupa docelowa · Kto może skorzystać · Czy to działa · Autor (organizacja)*, plus video (if any, with its text description), materials link, link to the ROPS original.
 
 **Result:** the user finds clear information about a social issue and what already works.
 
 ---
 
+
+
 ### UC4. Submit an idea card
+
 **Who:** resident or NGO. **Module III.**
 
 1. User clicks **Zgłoś pomysł**.
 2. User fills a short card:
-   - **Na czym polega pomysł?**
-   - **Dla kogo?**
-   - **Jaki problem rozwiązuje?**
-   - **Etap:** pomysł / przetestowany w małej skali / działa
+  - **Na czym polega pomysł?**
+  - **Dla kogo?**
+  - **Jaki problem rozwiązuje?**
+  - **Etap:** pomysł / przetestowany w małej skali / działa
 3. Optional: user clicks **Popraw z AI** — the assistant suggests a clearer description and 2–3 ideas to develop it. User accepts or ignores.
 4. System shows **Podobne innowacje** from the library (so the user can check it is new).
 5. User clicks **Wyślij**.
@@ -112,7 +132,10 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC5. Rate a solution, sign up to test
+
 **Who:** resident or institution. **Module IV.**
 
 1. On any innovation card the user clicks **Oceń rozwiązanie**.
@@ -125,7 +148,10 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC6. Ask a question, follow my submissions
+
 **Who:** resident or institution. **Module V.**
 
 1. On any page the user clicks **Zapytaj ROPS** and writes a question.
@@ -138,23 +164,29 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC7. Admin inbox: see new submission, reply
+
 **Who:** ROPS. **Module VI.**
 
 1. Admin switches to **ROPS**. The menu shows **Skrzynka** with a counter of new items (this is the notification).
 2. Admin sees a list: type (potrzeba / pomysł / pytanie / ocena / test), short summary, suggested area, gmina, date.
 3. Admin opens an item. The system shows matching innovations next to it.
 4. Admin chooses one action:
-   - **Odpowiedz** — writes a reply (can start from **Szkic AI**), clicks **Wyślij**.
-   - **Przekaż ekspertowi** — picks an expert (UC10).
-   - **Zamknij**.
+  - **Odpowiedz** — writes a reply (can start from **Szkic AI**), clicks **Wyślij**.
+  - **Przekaż ekspertowi** — picks an expert (UC10).
+  - **Zamknij**.
 5. The status changes for the user (UC6).
 
 **Result:** every submission gets an answer and the user sees it. *(This is the "admin notification → answer to the author" path the jury tests.)*
 
 ---
 
+
+
 ### UC8. Admin edits an innovation card
+
 **Who:** ROPS. **Module VI.**
 
 1. Admin opens a card in the library and clicks **Edytuj**.
@@ -166,22 +198,28 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC9. Admin sees trends
+
 **Who:** ROPS only. **Module II.**
 
 1. Admin opens **Trendy**.
 2. Admin sees simple charts:
-   - number of submissions per Challenge Map area,
-   - number of submissions per gmina/powiat,
-   - submissions over time,
-   - top-rated innovations.
+  - number of submissions per Challenge Map area,
+  - number of submissions per gmina/powiat,
+  - submissions over time,
+  - top-rated innovations.
 3. Admin clicks an area → sees the list of submissions in it.
 
 **Result:** ROPS sees which problems people report most. Not visible to other roles.
 
 ---
 
+
+
 ### UC10. Expert answers a question
+
 **Who:** expert. **Module V.**
 
 1. Expert switches to **Ekspert** and sees **Przypisane do mnie** with a counter.
@@ -193,15 +231,18 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
+
+
 ### UC11. Adapt an innovation to my institution
+
 **Who:** any institution (gmina, OPS, CUS, DPS, NGO). **Module VII.**
 
 1. On an innovation card the user clicks **Dostosuj do mojej instytucji**.
 2. User answers 4 short questions:
-   - **Typ instytucji** (gmina, OPS, CUS, DPS, NGO…)
-   - **Wielkość** (np. liczba mieszkańców / podopiecznych)
-   - **Ilu pracowników możesz zaangażować?**
-   - **Budżet:** mały / średni / duży
+  - **Typ instytucji** (gmina, OPS, CUS, DPS, NGO…)
+  - **Wielkość** (np. liczba mieszkańców / podopiecznych)
+  - **Ilu pracowników możesz zaangażować?**
+  - **Budżet:** mały / średni / duży
 3. User clicks **Przygotuj propozycję**.
 4. AI shows a one-page plan: how the service would work here, first steps, people needed, risks (taken from the card's *Czy to działa?*).
 5. User can **Pobierz** (print/PDF) or **Zapytaj eksperta** (UC6).
@@ -210,57 +251,3 @@ Example (official data): *„Mam 73 lata, mieszkam sama, czuję się samotna i b
 
 ---
 
-## Demo flow for the jury (3 minutes)
-
-1. **Mieszkaniec** types Janina's problem → sees the *Seniorzy* area info and 3 real innovations (UC1).
-2. Clicks *Żadne nie pasuje* → sends the problem (UC2).
-3. Switch to **ROPS** → inbox counter shows 1 new → opens it → replies (UC7).
-4. Switch back to **Mieszkaniec** → *Moje zgłoszenia* shows *Odpowiedź* (UC6).
-5. **Instytucja** opens *Mobilne centrum pomocy dla osób starszych* → *Dostosuj* → gets a plan (UC11).
-6. **ROPS** opens *Trendy* (UC9).
-7. Quick look: idea card (UC4), rating (UC5), library (UC3).
-
----
-
-## Rules coverage checklist
-
-| Requirement | Where |
-|---|---|
-| Matchmaking: similar information + ready solutions | UC1 |
-| Knowledge base: Map, Library with videos, materials, fast updates | UC3, UC8 |
-| Trends visible only to admin | UC9 |
-| Idea card (essence, for whom, stage) + AI help | UC4 |
-| Tester: sign up, rate, feedback, improvements | UC5 |
-| Communication: ROPS ↔ users, mentors | UC6, UC7, UC10 |
-| Admin panel: edit, verify, publish | UC7, UC8 |
-| Middleman for the requesting institution | UC11 |
-| Institutions can report challenges | UC2 |
-| Admin notification and answer path to author | UC7 → UC6 |
-| Keyword matching works | UC1 rule |
-| No real personal data | Ground rule 2 |
-| WCAG 2.1 AA | Ground rule 4 |
-| Polish | Ground rule 1 |
-
-All 7 modules working → 10% + 6 × 5% = full 40% for challenge completion.
-
----
-
-## Not in the MVP (mockup or pitch only)
-
-- Grant application generator during open calls (module III extra).
-- Canvas of social innovation and image generation in the AI assistant.
-- Real login (login.gov.pl), e-mail/SMS notifications.
-- Public board of needs with support votes, polls, rating of replies (ideas from єДумка).
-- Integration with the ROPS grant database.
-
----
-
-## Deliverables (rules § 4.9, criteria section 4) — due 4 Oct 2026, 11:00, HackTribe, in Polish
-
-- [ ] Project title, team ID, description
-- [ ] PDF presentation, max 10 slides
-- [ ] MP4 video, max 3 minutes
-- [ ] Link to working demo
-- [ ] UX/UI mockups (incl. the "not in MVP" features)
-- [ ] Estimated running cost and resources needed
-- [ ] Code repository with run instructions (kept private / shared with the jury)
