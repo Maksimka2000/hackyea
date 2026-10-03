@@ -1,0 +1,30 @@
+:root {
+  --font-sans: "Segoe UI", system-ui, sans-serif;
+  --background: oklch(0.985 0.004 95);
+  --foreground: oklch(0.22 0.02 260);
+  --muted-foreground: oklch(0.48 0.02 255);
+  --surface: oklch(0.995 0.002 95);
+  --surface-strong: oklch(0.965 0.006 95);
+  --border: oklch(0.89 0.01 95);
+  --accent: oklch(0.63 0.16 188);
+  --accent-strong: oklch(0.57 0.17 188);
+  --accent-foreground: oklch(0.99 0.01 188);
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 20px 60px -36px rgb(15 23 42 / 0.35);
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
