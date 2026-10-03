@@ -29,7 +29,7 @@ export function SearchResults() {
         </div>
       ) : null}
       {state.kind === "empty" ? <NoMatchState /> : null}
-      {state.kind === "error" ? <SearchError isRateLimited={state.isRateLimited} onRetry={state.retry} /> : null}
+      {state.kind === "error" ? <SearchError reason={state.reason} onRetry={state.retry} /> : null}
     </div>
   );
 }

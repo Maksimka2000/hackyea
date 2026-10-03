@@ -152,7 +152,11 @@
         "title": "Too many requests",
         "text": "Too many requests were sent in a short time. Wait a moment and try again."
       },
-      "retry": "Try again"
+      "retry": "Try again",
+      "invalid": {
+        "title": "This description cannot be searched",
+        "text": "The description is too short or contains only markup. Change it in the form and search again."
+      }
     },
     "emptySearch": {
       "title": "Describe the problem first",

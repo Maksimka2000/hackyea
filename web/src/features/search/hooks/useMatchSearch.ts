@@ -5,12 +5,21 @@ import { useQuery } from "@tanstack/react-query";
 import { ApiError } from "@/shared/lib/api-error";
 
 import { findMatches } from "../api/findMatches";
-import type { SearchViewState } from "../types/search-view-state";
+import type { SearchErrorReason, SearchViewState } from "../types/search-view-state";
 
 const RATE_LIMITED_STATUS = 429;
+const INVALID_INPUT_STATUS = 400;
 
 function isRateLimited(error: unknown) {
   return error instanceof ApiError && error.status === RATE_LIMITED_STATUS;
+}
+
+function errorReason(error: unknown): SearchErrorReason {
+  if (isRateLimited(error)) {
+    return "rateLimited";
+  }
+
+  return error instanceof ApiError && error.status === INVALID_INPUT_STATUS ? "invalid" : "generic";
 }
 
 /** Runs the search for the saved problem text and reduces the query to one view state. */
@@ -22,8 +31,8 @@ export function useMatchSearch(problem: string | null | undefined): SearchViewSt
     queryKey: ["matches", text],
     queryFn: () => findMatches(text),
     enabled: hasProblem,
-    // Retrying a rate-limited request would only make it worse.
-    retry: (failureCount, error) => !isRateLimited(error) && failureCount < 1,
+    // Retrying a rate-limited or rejected request would not help.
+    retry: (failureCount, error) => errorReason(error) === "generic" && failureCount < 1,
   });
 
   if (problem === undefined) {
@@ -35,7 +44,7 @@ export function useMatchSearch(problem: string | null | undefined): SearchViewSt
   }
 
   if (query.isError) {
-    return { kind: "error", isRateLimited: isRateLimited(query.error), retry: () => void query.refetch() };
+    return { kind: "error", reason: errorReason(query.error), retry: () => void query.refetch() };
   }
 
   if (query.isSuccess) {

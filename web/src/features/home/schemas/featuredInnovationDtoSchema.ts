@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 /*
-  PROPOSED contract: what the backend is expected to send for featured innovations.
-  Update this file and `mapFeaturedInnovation` when the real response shape is agreed.
+  Backend: GET /api/innovations/featured (InnovationSummaryResponse). Update this file and `mapFeaturedInnovation`
+  when the response changes.
 */
 export const featuredInnovationDtoSchema = z.object({
   id: z.string(),
   title: z.string(),
-  tagline: z.string(),
+  tagline: z.string().nullable(),
   category: z.object({
     id: z.string(),
     name: z.string(),

@@ -5,7 +5,7 @@ export function mapFeaturedInnovation(dto: FeaturedInnovationDto): FeaturedInnov
   return {
     id: dto.id,
     title: dto.title,
-    summary: dto.tagline,
+    summary: dto.tagline ?? "",
     categoryName: dto.category.name,
   };
 }

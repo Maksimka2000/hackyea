@@ -29,6 +29,12 @@ export const innovationDtoSchema = z.object({
   updatedAt: z.string().optional(),
 });
 
+/** Backend: GET /api/innovations/{id}/related (InnovationSummaryResponse); the full DTO satisfies it too (mock). */
+export const relatedInnovationDtoSchema = innovationDtoSchema.pick({ id: true, title: true, tagline: true, category: true });
+
+export const relatedInnovationListDtoSchema = z.array(relatedInnovationDtoSchema);
+
 export const innovationListDtoSchema = z.array(innovationDtoSchema);
 
 export type InnovationDto = z.infer<typeof innovationDtoSchema>;
+export type RelatedInnovationDto = z.infer<typeof relatedInnovationDtoSchema>;

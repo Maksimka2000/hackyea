@@ -1,5 +1,5 @@
 import { innovationSectionKeys } from "../constants/section-keys";
-import type { InnovationDto } from "../schemas/innovationDtoSchema";
+import type { InnovationDto, RelatedInnovationDto } from "../schemas/innovationDtoSchema";
 import type { InnovationDetail, RelatedInnovation } from "../types/innovation-detail";
 
 import { splitParagraphs } from "@/shared/lib/split-paragraphs";
@@ -30,7 +30,7 @@ export function mapInnovationDetail(dto: InnovationDto): InnovationDetail {
   };
 }
 
-export function mapRelatedInnovation(dto: InnovationDto): RelatedInnovation {
+export function mapRelatedInnovation(dto: RelatedInnovationDto): RelatedInnovation {
   return {
     id: dto.id,
     title: dto.title,

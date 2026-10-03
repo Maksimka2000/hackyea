@@ -1,7 +1,7 @@
 import { apiModeFor, serverApiBaseUrl } from "@/shared/config/env";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
-import { innovationListDtoSchema } from "../schemas/innovationDtoSchema";
+import { relatedInnovationListDtoSchema } from "../schemas/innovationDtoSchema";
 import type { RelatedInnovation } from "../types/innovation-detail";
 import { mapRelatedInnovation } from "../utils/mapInnovationDetail";
 
@@ -11,9 +11,8 @@ export async function getRelatedInnovations(id: string): Promise<RelatedInnovati
   const dtos =
     apiModeFor("innovationList") === "mock"
       ? await getRelatedInnovationsMock(id)
-      : // PLACEHOLDER endpoint: replace when the backend defines it.
-        await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}/related`, {
-          schema: innovationListDtoSchema,
+      : await fetchJson(`${serverApiBaseUrl}/innovations/${encodeURIComponent(id)}/related`, {
+          schema: relatedInnovationListDtoSchema,
         });
 
   return dtos.map(mapRelatedInnovation);

@@ -152,7 +152,11 @@
         "title": "Zbyt wiele zapytań",
         "text": "Wysłano zbyt wiele zapytań w krótkim czasie. Odczekaj chwilę i spróbuj ponownie."
       },
-      "retry": "Spróbuj ponownie"
+      "retry": "Spróbuj ponownie",
+      "invalid": {
+        "title": "Nie można wyszukać tego opisu",
+        "text": "Opis jest za krótki albo zawiera tylko znaczniki. Zmień opis w formularzu i wyszukaj ponownie."
+      }
     },
     "emptySearch": {
       "title": "Najpierw opisz problem",

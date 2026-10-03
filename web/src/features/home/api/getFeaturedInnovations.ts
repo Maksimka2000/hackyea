@@ -1,4 +1,4 @@
-import { apiBaseUrl, apiModeFor } from "@/shared/config/env";
+import { apiModeFor, serverApiBaseUrl } from "@/shared/config/env";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
 import { featuredInnovationListDtoSchema } from "../schemas/featuredInnovationDtoSchema";
@@ -11,8 +11,7 @@ export async function getFeaturedInnovations(): Promise<FeaturedInnovation[]> {
   const dtos =
     apiModeFor("innovationList") === "mock"
       ? await getFeaturedInnovationsMock()
-      : // PLACEHOLDER endpoint: replace with the real route when the backend defines it.
-        await fetchJson(`${apiBaseUrl}/innovations/featured`, { schema: featuredInnovationListDtoSchema });
+      : await fetchJson(`${serverApiBaseUrl}/innovations/featured`, { schema: featuredInnovationListDtoSchema });
 
   return dtos.map(mapFeaturedInnovation);
 }
