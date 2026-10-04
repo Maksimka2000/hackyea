@@ -1,0 +1,90 @@
+name: Deploy HubMi demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: hubmi-demo-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sign in to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Read provisioned HubMi resource names
+        env:
+          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+        run: |
+          set -euo pipefail
+          for output in registryName apiName webName apiUrl webUrl; do
+            value=$(az deployment group show \
+              --resource-group "$RESOURCE_GROUP" \
+              --name hubmi-demo \
+              --query "properties.outputs.${output}.value" \
+              --output tsv)
+            if [ -z "$value" ]; then
+              echo "Missing Bicep deployment output: $output" >&2
+              exit 1
+            fi
+            printf '%s=%s\n' "$output" "$value" >> "$GITHUB_ENV"
+          done
+
+      - name: Build and push API image
+        run: |
+          set -euo pipefail
+          az acr login --name "$registryName"
+          image="${registryName}.azurecr.io/hubmi-api:${GITHUB_SHA}"
+          docker build --tag "$image" --file server/HubMi.Api/Dockerfile server
+          docker push "$image"
+          echo "API_IMAGE=$image" >> "$GITHUB_ENV"
+
+      - name: Deploy API image
+        env:
+          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+        run: |
+          set -euo pipefail
+          az webapp config container set \
+            --resource-group "$RESOURCE_GROUP" \
+            --name "$apiName" \
+            --container-image-name "$API_IMAGE"
+          az webapp restart --resource-group "$RESOURCE_GROUP" --name "$apiName"
+          curl --fail --retry 30 --retry-delay 5 --retry-connrefused "$apiUrl/api/categories" --output /dev/null
+
+      - name: Build and push web image
+        run: |
+          set -euo pipefail
+          image="${registryName}.azurecr.io/hubmi-web:${GITHUB_SHA}"
+          docker build \
+            --tag "$image" \
+            --build-arg "API_ORIGIN=$apiUrl" \
+            --file web/Dockerfile web
+          docker push "$image"
+          echo "WEB_IMAGE=$image" >> "$GITHUB_ENV"
+
+      - name: Deploy web image
+        env:
+          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+        run: |
+          set -euo pipefail
+          az webapp config container set \
+            --resource-group "$RESOURCE_GROUP" \
+            --name "$webName" \
+            --container-image-name "$WEB_IMAGE"
+          az webapp restart --resource-group "$RESOURCE_GROUP" --name "$webName"
+          curl --fail --retry 30 --retry-delay 5 --retry-connrefused "$webUrl/pl" --output /dev/null
