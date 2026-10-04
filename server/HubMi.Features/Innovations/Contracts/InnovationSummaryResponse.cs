@@ -8,7 +8,9 @@ public sealed record InnovationSummaryResponse(
     InnovationCategoryDto Category,
     string? DisseminationBadge,
     bool HasVideo,
-    bool HasEvidence);
+    bool HasEvidence,
+    double? AverageRating,
+    int RatingCount);
 
 /// <summary>A library category with the number of published cards in it.</summary>
 public sealed record InnovationCategorySummaryResponse(string Id, string Name, int InnovationCount);

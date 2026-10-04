@@ -1,6 +1,6 @@
-export const ideaStages = ["concept", "preparing", "tested", "running"] as const;
+import { ideaStages, type IdeaStage } from "@/shared/submissions/submissionModel";
 
-export type IdeaStage = (typeof ideaStages)[number];
+export { ideaStages, type IdeaStage };
 
 export function isIdeaStage(value: unknown): value is IdeaStage {
   return ideaStages.some((stage) => stage === value);

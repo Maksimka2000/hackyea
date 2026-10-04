@@ -6,7 +6,7 @@ Scope: `server/HubMi.Api`, `server/HubMi.Features`, `server/HubMi.Domain`, `serv
 
 - `HubMi.Api` is the composition root. Keep startup, configuration binding, middleware, security policy registration, health endpoints, and controller discovery here. Do not put business workflows here.
 - Keep `Program.cs` a short composition sequence. Put service registration in focused extension methods and HTTP middleware/endpoint ordering in `UseApiPipeline`. Add infrastructure registration and startup tasks only when they have real work to perform; do not create empty setup hooks.
-- `HubMi.Features` owns application workflows grouped by capability (`Innovations`, `Matching`, `Needs`, `Admin`). Each capability may contain `Controllers`, `Contracts`, `Validators`, `Services`, and `Ports`. Keep code local to the capability until another capability genuinely needs it.
+- `HubMi.Features` owns application workflows grouped by capability (`Innovations`, `Matching`, `Submissions`, `Notifications`, `Knowledge`, `Testing`, `Canvases`, `Accounts`, `Admin`). Each capability may contain `Controllers`, `Contracts`, `Validators`, `Services`, and `Ports`. Keep code local to the capability until another capability genuinely needs it.
 - `HubMi.Domain` owns entities, value objects, and invariant-preserving behavior. Model meaningful state changes as methods on domain objects; avoid public setters that let workflows bypass rules. It must not depend on HTTP, EF Core, identity providers, or OpenAI.
 - `HubMi.Infrastructure` implements ports required by Features. Keep EF Core in `Persistence`, admin account storage in `Identity`, OpenAI calls in `OpenAI`, and external/sample data readers in `Imports`.
 - Project references must point inward: `Features -> Domain`, `Infrastructure -> Features + Domain`, and `Api -> Features + Infrastructure`. Never make Domain depend on another HubMI project.
@@ -21,7 +21,11 @@ Scope: `server/HubMi.Api`, `server/HubMi.Features`, `server/HubMi.Domain`, `serv
 
 ## Product and integration boundaries
 
-- Public catalogue and matching endpoints work without a user account. Admin write endpoints require an authenticated admin. Do not add public registration unless the team changes this decision.
+- Public catalogue, matching and knowledge-read endpoints work without a user account.
+- Sending a submission, following its status, rating innovations and canvases require a signed-in resident, NGO or JST (`AccountRoles.Submitters`); staff endpoints under `api/admin` require `AccountRoles.Admin`. Accounts are seeded (`Imports/SampleData/demo-accounts.json`); do not add public registration, refresh tokens or a permission cache unless the team changes this decision.
+- Authorization is role-only (`[Authorize(Roles = ...)]`); the JWT carries `sub`, `email`, `jti` and `role`. Read the caller with `User.GetCurrentUser()`.
+- Notifications are in-app and fetched by polling; there is no e-mail, WebSocket or webhook delivery.
+- Feature services commit through `IUnitOfWork` once per workflow; business-rule refusals throw `DomainException`, which the API returns as 400.
 - Keep the OpenAI API key on the server, supplied through environment configuration or secret storage. Never commit it or send it to the browser. Features depend on a port, not the OpenAI SDK.
 - Keep matching tied to stored innovation records and return source links. Do not present generated text as an invented ROPS innovation.
 - The ROPS data format and access method are undecided. Import adapters convert available sample or approved source data to the internal model; core workflows must not depend on a specific ROPS API, scraper, or file format.

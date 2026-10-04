@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 
 import { Container } from "@/shared/ui/primitives/Container";
 
@@ -14,9 +15,11 @@ import { VideoThumbnail } from "./VideoThumbnail";
 
 type InnovationDetailPageProps = Readonly<{
   id: string;
+  /** Extra side-panel content owned by another feature (the Innovation Tester), composed by the route. */
+  panelExtra?: ReactNode;
 }>;
 
-export async function InnovationDetailPage({ id }: InnovationDetailPageProps) {
+export async function InnovationDetailPage({ id, panelExtra }: InnovationDetailPageProps) {
   const innovation = await getInnovation(id);
 
   if (!innovation) {
@@ -35,7 +38,7 @@ export async function InnovationDetailPage({ id }: InnovationDetailPageProps) {
           {videoUrl && thumbnailUrl ? <VideoThumbnail thumbnailUrl={thumbnailUrl} title={innovation.title} videoUrl={videoUrl} /> : null}
           <InnovationSections sections={innovation.sections} />
         </div>
-        <InnovationSidePanel innovation={innovation} />
+        <InnovationSidePanel extra={panelExtra} innovation={innovation} />
       </Container>
       {related.length > 0 ? <RelatedInnovations items={related} /> : null}
     </>

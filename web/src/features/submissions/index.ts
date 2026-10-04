@@ -1,5 +1,4 @@
-export { getSubmissionStatus } from "./api/getSubmissionStatus";
 export { parseSubmissionType, type SubmissionType } from "./constants/submission-types";
-export { SubmissionNotFound } from "./components/SubmissionNotFound";
-export { SubmissionStatusPage } from "./components/SubmissionStatusPage";
+export { MySubmissionPage } from "./components/MySubmissionPage";
+export { MySubmissionsPage } from "./components/MySubmissionsPage";
 export { SubmitPage } from "./components/SubmitPage";

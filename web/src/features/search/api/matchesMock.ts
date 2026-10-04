@@ -11,9 +11,11 @@ const NO_EVIDENCE_TEXT = "Brak opisu testu w bibliotece ROPS.";
 type MockEntry = { id: (typeof mockCatalog)[number]["id"]; level: MatchLevel; percent: number };
 
 /* Which example problems return which results. Like the backend, a text without a match gets low confidence. */
-const mockResultSets: ReadonlyArray<{ pattern: RegExp; entries: MockEntry[] }> = [
+const mockResultSets: ReadonlyArray<{ pattern: RegExp; categoryId: string; categoryName: string; entries: MockEntry[] }> = [
   {
     pattern: /senior|starsz|samotn|sąsiad|opiek/i,
+    categoryId: "dla-seniorow",
+    categoryName: "Dla seniorów",
     entries: [
       { id: "terapeuta-przestrzeni", level: "good", percent: 82 },
       { id: "inteligentny-organizer-do-lekow", level: "partial", percent: 48 },
@@ -22,6 +24,8 @@ const mockResultSets: ReadonlyArray<{ pattern: RegExp; entries: MockEntry[] }> =
   },
   {
     pattern: /niepełnospr|dostęp|usług/i,
+    categoryId: "dla-osob-o-ograniczonej-mobilnosci",
+    categoryName: "Dla osób o ograniczonej mobilności",
     entries: [
       { id: "kompleksowa-pomoc-dla-osob-po-amputacji-konczyny-dolnej", level: "good", percent: 74 },
       { id: "urzedowy-ambaras", level: "partial", percent: 52 },
@@ -30,6 +34,8 @@ const mockResultSets: ReadonlyArray<{ pattern: RegExp; entries: MockEntry[] }> =
   },
   {
     pattern: /młod|stres|dzieci|nastol|rodzin/i,
+    categoryId: "dla-dzieci-mlodziezy-i-rodziny",
+    categoryName: "Dla dzieci, młodzieży i rodziny",
     entries: [
       { id: "komix-zyciowy", level: "good", percent: 68 },
       { id: "rodzina-adopcyjna-dorasta", level: "partial", percent: 44 },
@@ -56,7 +62,17 @@ function recognizedTermsOf(problem: string) {
     .slice(0, 6);
 }
 
-function toResultDto(entry: MockEntry, rank: number) {
+/* Marks the user's words (4+ letters, matched by their first 4 letters) inside the card's short description, like the backend does. */
+function toWhyDto(tagline: string, problem: string) {
+  const prefixes = recognizedTermsOf(problem).map((word) => word.slice(0, 4));
+  const highlights = [...tagline.matchAll(/\p{L}+/gu)]
+    .filter((match) => prefixes.some((prefix) => match[0].toLowerCase().startsWith(prefix)))
+    .map((match) => ({ start: match.index, length: match[0].length }));
+
+  return { field: "problem" as const, excerpt: tagline, highlights, byMeaning: highlights.length === 0 };
+}
+
+function toResultDto(entry: MockEntry, rank: number, problem: string) {
   const card = mockCatalog.find((candidate) => candidate.id === entry.id);
 
   if (!card) {
@@ -83,6 +99,7 @@ function toResultDto(entry: MockEntry, rank: number) {
     videoUrl: null,
     sourceUrl: card.sourceUrl,
     cardUrl: `/biblioteka/${card.id}`,
+    why: toWhyDto(card.tagline ?? "", problem),
   };
 }
 
@@ -112,7 +129,7 @@ export async function findMatchesMock(problem: string): Promise<MatchResponseDto
     confidence: resultSet ? "ok" : "low",
     text: problem,
     recognizedTerms: recognizedTermsOf(problem),
-    category: null,
-    results: entries.map((entry, index) => toResultDto(entry, index + 1)),
+    category: resultSet ? { id: resultSet.categoryId, name: resultSet.categoryName, sharePercent: 70, alsoRelated: [] } : null,
+    results: entries.map((entry, index) => toResultDto(entry, index + 1, problem)),
   });
 }

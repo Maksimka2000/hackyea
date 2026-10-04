@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { getInnovation, InnovationDetailPage } from "@/features/innovation-detail";
+import { InnovationTester } from "@/features/tester";
 import { resolveLocale } from "@/i18n/resolve-locale";
 
 type PageProps = Readonly<{
@@ -25,5 +26,8 @@ export default async function Page({ params }: PageProps) {
   const { id, locale } = await params;
   setRequestLocale(resolveLocale(locale));
 
-  return <InnovationDetailPage id={id} />;
+  const innovation = await getInnovation(id);
+  const tester = innovation ? <InnovationTester innovationId={innovation.id} innovationTitle={innovation.title} /> : null;
+
+  return <InnovationDetailPage id={id} panelExtra={tester} />;
 }

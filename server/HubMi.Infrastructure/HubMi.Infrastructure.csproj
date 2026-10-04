@@ -10,13 +10,20 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.30.0" />
+    <PackageReference Include="Microsoft.ML.Tokenizers" Version="2.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Imports\SampleData\library.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Imports\SampleData\synthetic-sentences.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Imports\SampleData\demo-accounts.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Imports\SampleData\canvas-templates.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Imports\SampleData\knowledge.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

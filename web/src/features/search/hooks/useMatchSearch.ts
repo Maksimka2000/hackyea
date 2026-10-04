@@ -48,8 +48,8 @@ export function useMatchSearch(problem: string | null | undefined): SearchViewSt
   }
 
   if (query.isSuccess) {
-    const { isLowConfidence, items } = query.data;
-    return items.length > 0 ? { kind: "results", items, isLowConfidence } : { kind: "empty" };
+    const { category, isLowConfidence, items } = query.data;
+    return items.length > 0 ? { kind: "results", items, category, isLowConfidence } : { kind: "empty" };
   }
 
   return { kind: "loading" };

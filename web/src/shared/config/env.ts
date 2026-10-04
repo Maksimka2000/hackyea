@@ -7,9 +7,11 @@ export type ApiMode = "mock" | "live";
  * - matching: POST /api/match
  * - innovationDetail: GET /api/innovations/{id}
  * - innovationList: lists of innovation cards (home examples, related solutions, the library page, categories)
- * - submissions: needs and ideas; no backend endpoint yet
+ *
+ * Signed-in features (submissions, notifications, canvases, the innovation tester, the ROPS panel) are always live:
+ * they need a real account and token.
  */
-export type ApiFeature = "matching" | "innovationDetail" | "innovationList" | "submissions";
+export type ApiFeature = "matching" | "innovationDetail" | "innovationList";
 
 function parseMode(value: string | undefined): ApiMode | undefined {
   return value === "live" || value === "mock" ? value : undefined;
@@ -22,7 +24,6 @@ const featureModes: Record<ApiFeature, ApiMode | undefined> = {
   matching: parseMode(process.env.NEXT_PUBLIC_API_MODE_MATCHING),
   innovationDetail: parseMode(process.env.NEXT_PUBLIC_API_MODE_INNOVATION_DETAIL),
   innovationList: parseMode(process.env.NEXT_PUBLIC_API_MODE_INNOVATION_LIST),
-  submissions: parseMode(process.env.NEXT_PUBLIC_API_MODE_SUBMISSIONS),
 };
 
 /** "mock" serves fixtures shaped like the agreed contract; "live" calls the backend. */

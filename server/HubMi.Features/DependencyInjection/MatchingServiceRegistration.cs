@@ -9,6 +9,7 @@ public static class MatchingServiceRegistration
     public static IServiceCollection AddMatchingFeature(this IServiceCollection services)
     {
         services.AddSingleton(TimeProvider.System);
+        services.AddSingleton<MatchAnswerCache>();
         services.AddSingleton<QueryAnalyzer>();
         services.AddSingleton<RelevanceScorer>();
         services.AddSingleton<MatchRequestValidator>();

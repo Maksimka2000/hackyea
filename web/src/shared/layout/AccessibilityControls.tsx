@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 
 import { ContrastToggle } from "./ContrastToggle";
-import { LanguageSwitcher } from "./LanguageSwitcher";
 import { TextSizeControl } from "./TextSizeControl";
 
 function Divider() {
@@ -16,8 +15,6 @@ export function AccessibilityControls() {
       <TextSizeControl />
       <Divider />
       <ContrastToggle />
-      <Divider />
-      <LanguageSwitcher />
     </div>
   );
 }

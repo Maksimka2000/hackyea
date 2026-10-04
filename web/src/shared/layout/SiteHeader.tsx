@@ -1,3 +1,4 @@
+import { AccountControls } from "@/shared/account/AccountControls";
 import { Container } from "@/shared/ui/primitives/Container";
 
 import { MainNavigation } from "./MainNavigation";
@@ -13,6 +14,7 @@ export function SiteHeader() {
         <Container className="relative z-10 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 py-5">
           <SiteBrand />
           <MainNavigation />
+          <AccountControls />
           <MobileMenu />
         </Container>
       </div>

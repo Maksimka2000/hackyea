@@ -1,0 +1,40 @@
+{
+  "_comment": "Demo accounts for local runs and the hackathon demo. Fictional people and organisations; no real personal data. Change the passwords for any shared deployment.",
+  "password": "Demo2026!",
+  "accounts": [
+    {
+      "id": "6f1d9a52-0c1e-4c55-9a0e-000000000001",
+      "login": "admin@rops.demo",
+      "password": "Admin2026!",
+      "role": "Admin",
+      "displayName": "Anna Nowak (ROPS)"
+    },
+    {
+      "id": "6f1d9a52-0c1e-4c55-9a0e-000000000002",
+      "login": "jan.kowalski@demo.pl",
+      "role": "Resident",
+      "displayName": "Jan Kowalski"
+    },
+    {
+      "id": "6f1d9a52-0c1e-4c55-9a0e-000000000003",
+      "login": "ewa.zielinska@demo.pl",
+      "role": "Resident",
+      "displayName": "Ewa Zielińska"
+    },
+    {
+      "id": "6f1d9a52-0c1e-4c55-9a0e-000000000004",
+      "login": "fundacja.razem@demo.pl",
+      "role": "Ngo",
+      "displayName": "Katarzyna Wójcik",
+      "organizationName": "Fundacja Razem dla Seniora"
+    },
+    {
+      "id": "6f1d9a52-0c1e-4c55-9a0e-000000000005",
+      "login": "gmina.zielonadolina@demo.pl",
+      "role": "Jst",
+      "displayName": "Piotr Mazur",
+      "organizationName": "Urząd Gminy Zielona Dolina",
+      "municipality": "Zielona Dolina"
+    }
+  ]
+}

@@ -71,6 +71,19 @@ new REQUIRMETNS
 - scalable 
 - minimum cost for the resources 
 - minimum cost, 0$ 
+- no python , only the .net 
+- innovations are fixed and have only this content in the db "TITLE : Przewodnik dla osób z ASD "Moje potrzeby - gdzie i jak je realizować?"
+DESCRIPTION : Słowno-graficzny przewodnik dla młodzieży i dorosłych osób z zaburzeniami ze spektrum autyzmu (dalej jako ASD) dotyczący miejsc i sposobów realizacji codziennych i podstawowych potrzeb realizowanych poza domem. 
+Na czym polega rozwiązanie  : Innowację stanowi słowno-graficzny przewodnik dla młodzieży i dorosłych osób z zaburzeniami ze spektrum autyzmu (dalej jako ASD) dotyczący miejsc i sposobów realizacji codziennych i podstawowych potrzeb realizowanych poza domem. Jego główne części składowe to: plan aktywności (pokazujący co po kolei należy wykonać), skrypty behawioralne (podpowiadające co i kiedy masz powiedzieć) oraz AAC – alternatywne i wspomagające metody komunikacji (znaki graficzne).
+Jakich problemów dotyczy innowacja? : Innowacja stanowi odpowiedź na niski poziom kompetencji społecznych i specyficznych trudności w uczeniu się zachowań wymagających odwoływania się do specjalnych procedur uczenia behawioralnego przez osoby z ASD (tj. nie wiedzą jak się zachować, mają trudności w odróżnieniu właściwych i niewłaściwych form zachowań, nie wiedzą co i kiedy należy powiedzieć itp.). 
+ Grupa docelowa : Osoby posiadające diagnozę ASD (autyzm lub zespół Aspergera) w okresie dojrzewania (do 13 r.ż) lub dorosłości oraz posiadające umiejętność czytania i elementarną umiejętność komunikowania się.
+Kto może skorzystać z innowacji?  : Szkoły specjalne, szkoły publiczne z klasami specjalnymi, szkoły niepubliczne, placówki wsparcia osób z ASD.  
+" + "dowiedz
+się więcej	zobacz
+film	pobierz
+materiały	sprawdź zasady
+wykorzystania	otwórz
+w telefonie"  
 
 
 

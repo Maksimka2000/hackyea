@@ -1,9 +1,9 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["pl", "en"],
+  // Polish only: the brief allows no other language. Texts still live in messages/pl.json, never in code.
+  locales: ["pl"],
   defaultLocale: "pl",
-  // Polish is the primary language: do not switch by browser language, the visitor picks EN explicitly.
   localeDetection: false,
 });
 

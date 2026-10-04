@@ -10,6 +10,7 @@ import type { MatchResult } from "../types/match-result";
 
 import { MatchedWords } from "./MatchedWords";
 import { StrengthBadge } from "./StrengthBadge";
+import { WhyMatched } from "./WhyMatched";
 
 type MatchCardProps = Readonly<{
   result: MatchResult;
@@ -53,6 +54,7 @@ export function MatchCard({ result }: MatchCardProps) {
         {result.summary ? <p className="line-clamp-2 text-lg leading-snug text-foreground">{result.summary}</p> : null}
       </div>
 
+      {result.why ? <WhyMatched why={result.why} /> : null}
       <MatchedWords words={result.matchedWords} />
 
       <div className="flex gap-3 rounded-control bg-tint p-4 text-sm">

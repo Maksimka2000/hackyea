@@ -1,7 +1,7 @@
 # Admin Group
 
-Staff-only area of the product (submissions inbox, content editing). Requires an authenticated admin.
+ROPS staff panel: overview, submissions inbox and detail (reply, status, moderation, links, publish as card),
+knowledge editing (innovations, challenges, materials), Innovation Tester feedback and the trend dashboard.
 
-Routes live here under `[locale]`, for example `src/app/[locale]/(admin)/admin/page.tsx`. Feature code lives in `src/features/admin`, not here.
-
-This group gets its own layout (admin chrome), separate from the public site header and footer.
+`layout.tsx` renders `AdminShell` from `src/features/admin`, which has its own header and navigation and shows a sign-in
+prompt unless the session belongs to an `Admin` account. Staff sign in at `/admin/login` (`(auth)` group).

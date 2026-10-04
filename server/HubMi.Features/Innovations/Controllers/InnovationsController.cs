@@ -1,11 +1,13 @@
 using HubMi.Features.Innovations.Contracts;
 using HubMi.Features.Innovations.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HubMi.Features.Innovations.Controllers;
 
 [ApiController]
+[AllowAnonymous]
 [Route("api/innovations")]
 public sealed class InnovationsController(InnovationDetailsService details, InnovationListService lists) : ControllerBase
 {

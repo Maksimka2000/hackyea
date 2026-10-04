@@ -17,6 +17,8 @@ public sealed record InnovationDetailsResponse(
     string? MaterialsUrl,
     string? DetailsPdfUrl,
     string LicenseUrl,
-    DateTime UpdatedAt);
+    DateTime UpdatedAt,
+    double? AverageRating,
+    int RatingCount);
 
 public sealed record InnovationCategoryDto(string Id, string Name);

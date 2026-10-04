@@ -42,6 +42,10 @@ services:
       ForwardedHeaders__KnownNetworks__2: 192.168.0.0/16
       Persistence__MigrateOnStartup: "true"
       Persistence__SeedSampleLibrary: "true"
+      # Demo accounts from Imports/SampleData/demo-accounts.json; the simulated Profil Zaufany screen lists them.
+      Persistence__SeedIdentity: ${HUBMI_SEED_DEMO_ACCOUNTS:-true}
+      Auth__ExposeDemoAccounts: ${HUBMI_SEED_DEMO_ACCOUNTS:-true}
+      Auth__Jwt__SecretKey: ${HUBMI_JWT_SECRET:?Set HUBMI_JWT_SECRET (32+ characters) in server/.env}
       Matching__ClientKeySalt: ${HUBMI_CLIENT_KEY_SALT:-}
       RateLimiting__Match__PermitLimit: ${HUBMI_MATCH_RATE_LIMIT:-20}
     ports:

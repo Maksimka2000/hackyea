@@ -17,7 +17,7 @@ export function StageField() {
   return (
     <fieldset aria-describedby={error ? ERROR_ID : undefined} className="flex flex-col gap-3">
       <legend className="mb-1 text-base font-bold text-foreground">{t("legend")}</legend>
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-3">
         {ideaStages.map((stage) => (
           <label
             className="border-line flex cursor-pointer items-center gap-3 rounded-control border-border bg-tint p-4 has-checked:border-primary has-checked:bg-surface has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus"

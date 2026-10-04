@@ -6,7 +6,9 @@ import { useFormContext } from "react-hook-form";
 import {
   DESCRIPTION_MAX_LENGTH,
   DESCRIPTION_MIN_LENGTH,
+  PILOT_SCALE_MAX_LENGTH,
   PLACE_MAX_LENGTH,
+  RESULTS_MAX_LENGTH,
   TARGET_GROUP_MAX_LENGTH,
   TARGET_GROUP_MIN_LENGTH,
   TITLE_MAX_LENGTH,
@@ -34,5 +36,7 @@ export function useSubmissionFieldError(name: keyof SubmissionFormValues): strin
     targetGroupMin: TARGET_GROUP_MIN_LENGTH,
     targetGroupMax: TARGET_GROUP_MAX_LENGTH,
     placeMax: PLACE_MAX_LENGTH,
+    pilotScaleMax: PILOT_SCALE_MAX_LENGTH,
+    resultsMax: RESULTS_MAX_LENGTH,
   });
 }

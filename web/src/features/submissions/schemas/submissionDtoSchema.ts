@@ -1,33 +1,38 @@
 import { z } from "zod";
 
-import { submissionStatuses } from "../constants/submission-statuses";
-import { submissionTypes } from "../constants/submission-types";
+import { submissionStatuses, submissionTypes } from "@/shared/submissions/submissionModel";
 
-/*
-  PROPOSED contract for the submission endpoints (simple on purpose, to be replaced by the agreed shape).
-  Update this file and the mappers in `utils/` when the backend response is final.
-*/
-export const createSubmissionResponseDtoSchema = z.object({
-  /** Unguessable value that identifies the submission in the private status link. */
-  token: z.string(),
-  /** Human-friendly number to quote when contacting ROPS. */
-  reference: z.string(),
+/** POST /api/submissions → 201. */
+export const createdSubmissionDtoSchema = z.object({
+  id: z.string(),
+  number: z.string(),
 });
 
-export const submissionStatusDtoSchema = z.object({
-  reference: z.string(),
-  type: z.enum(submissionTypes),
-  status: z.enum(submissionStatuses),
-  createdAt: z.string(),
-  title: z.string().nullable(),
-  description: z.string(),
-  reply: z
-    .object({
-      text: z.string(),
-      repliedAt: z.string(),
-    })
-    .nullable(),
+/** GET /api/submissions/mine. */
+export const submissionSummaryListDtoSchema = z.array(
+  z.object({
+    id: z.string(),
+    number: z.string(),
+    type: z.enum(submissionTypes),
+    title: z.string(),
+    status: z.enum(submissionStatuses),
+    category: z.object({ id: z.string(), name: z.string() }).nullable(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    messageCount: z.number(),
+  }),
+);
+
+/** POST /api/match, read only for the "similar innovations" hint before sending. */
+export const similarInnovationsDtoSchema = z.object({
+  results: z.array(
+    z.object({
+      innovationId: z.string(),
+      title: z.string(),
+      category: z.object({ name: z.string() }),
+    }),
+  ),
 });
 
-export type CreateSubmissionResponseDto = z.infer<typeof createSubmissionResponseDtoSchema>;
-export type SubmissionStatusDto = z.infer<typeof submissionStatusDtoSchema>;
+export type CreatedSubmissionDto = z.infer<typeof createdSubmissionDtoSchema>;
+export type SubmissionSummaryDto = z.infer<typeof submissionSummaryListDtoSchema>[number];

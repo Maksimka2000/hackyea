@@ -12,14 +12,16 @@ public sealed record ScoredInnovation(
     MatchLevel Level,
     IReadOnlyList<string> MatchedWords,
     IReadOnlyList<string> MatchedFields,
-    IReadOnlyList<string> MissingWords)
+    IReadOnlyList<string> MissingWords,
+    string? MatchedKind = null)
 {
     public bool HasMatch => MatchedWords.Count > 0;
 }
 
 /// <summary>
-/// Scores one card against the analyzed query. Score (ranking) is IDF-weighted and field-weighted with a mild length penalty.
-/// Percent (the match indicator) is coverage: the share of the query's important words the card contains.
+/// Keyword view of one card against the analyzed query: which of the user's words the card contains and in which sections.
+/// Score is IDF-weighted and field-weighted with a mild length penalty; Percent is coverage, the share of the query's important
+/// words the card contains. The keyword fallback ranks with these; with the meaning index they only explain the match.
 /// </summary>
 public sealed class RelevanceScorer(IOptions<MatchingOptions> options)
 {
@@ -44,20 +46,11 @@ public sealed class RelevanceScorer(IOptions<MatchingOptions> options)
             var best = 0.0;
             foreach (var field in fields)
             {
-                if (ContainsPrefix(field.Tokens, term.Stem) || term.Variants.Any(v => ContainsPrefix(field.Tokens, v)))
-                {
-                    best = Math.Max(best, field.Weight);
-                    matchedFields.Add(field.Name);
-                }
+                if (!ContainsPrefix(field.Tokens, term.Stem))
+                    continue;
 
-                foreach (var expansion in term.ExpansionStems)
-                {
-                    if (!ContainsPrefix(field.Tokens, expansion))
-                        continue;
-
-                    best = Math.Max(best, field.Weight * _options.SynonymWeight);
-                    matchedFields.Add(field.Name);
-                }
+                best = Math.Max(best, field.Weight);
+                matchedFields.Add(field.Name);
             }
 
             credit += idf * best;
@@ -93,8 +86,7 @@ public sealed class RelevanceScorer(IOptions<MatchingOptions> options)
         new("Opis w skrócie", _options.PrimaryFieldWeight, TextNormalizer.IndexWords(card.Tagline)),
         new("Opis problemu", _options.SecondaryFieldWeight, TextNormalizer.IndexWords(card.Problems)),
         new("Grupa docelowa", _options.SecondaryFieldWeight, TextNormalizer.IndexWords(card.TargetGroup)),
-        new("Opis rozwiązania", _options.TertiaryFieldWeight, TextNormalizer.IndexWords(card.Solution)),
-        new("Kto może skorzystać", _options.TertiaryFieldWeight, TextNormalizer.IndexWords(card.Beneficiaries))
+        new("Opis rozwiązania", _options.TertiaryFieldWeight, TextNormalizer.IndexWords(card.Solution))
     ];
 
     private sealed record Field(string Name, double Weight, string[] Tokens);
