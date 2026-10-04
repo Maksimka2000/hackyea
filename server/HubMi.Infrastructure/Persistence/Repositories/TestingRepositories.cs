@@ -25,23 +25,27 @@ internal sealed class TestingQueries(HubMiDbContext db) : ITestingQueries, IInno
 {
     public async Task<IReadOnlyList<RatedInnovation>> GetRatingOverviewAsync(CancellationToken cancellationToken)
     {
-        var rows = await (
-                from rating in db.InnovationRatings.AsNoTracking()
-                group rating by rating.InnovationId into g
-                join innovation in db.Innovations on g.Key equals innovation.Id
-                select new
-                {
-                    InnovationId = g.Key,
-                    innovation.Title,
-                    Average = g.Average(r => (double)r.Stars),
-                    Count = g.Count(),
-                    NewFeedback = db.InnovationFeedback.Count(f => f.InnovationId == g.Key && f.Status == FeedbackStatus.New)
-                })
+        var ratings = await db.InnovationRatings.AsNoTracking()
+            .GroupBy(r => r.InnovationId)
+            .Select(g => new { InnovationId = g.Key, Average = g.Average(r => (double)r.Stars), Count = g.Count() })
             .OrderByDescending(r => r.Count).ThenByDescending(r => r.Average)
             .Take(200)
             .ToListAsync(cancellationToken);
 
-        return rows.Select(r => new RatedInnovation(r.InnovationId, r.Title, Math.Round(r.Average, 1), r.Count, r.NewFeedback)).ToList();
+        var ids = ratings.Select(r => r.InnovationId).ToList();
+        var titles = await db.Innovations.AsNoTracking()
+            .Where(i => ids.Contains(i.Id))
+            .ToDictionaryAsync(i => i.Id, i => i.Title, cancellationToken);
+        var open = await db.InnovationFeedback.AsNoTracking()
+            .Where(f => f.Status == FeedbackStatus.New && ids.Contains(f.InnovationId))
+            .GroupBy(f => f.InnovationId)
+            .Select(g => new { InnovationId = g.Key, Count = g.Count() })
+            .ToDictionaryAsync(x => x.InnovationId, x => x.Count, cancellationToken);
+
+        return ratings
+            .Where(r => titles.ContainsKey(r.InnovationId))
+            .Select(r => new RatedInnovation(r.InnovationId, titles[r.InnovationId], Math.Round(r.Average, 1), r.Count, open.GetValueOrDefault(r.InnovationId)))
+            .ToList();
     }
 
     public Task<string?> GetInnovationTitleAsync(Guid innovationId, CancellationToken cancellationToken) =>

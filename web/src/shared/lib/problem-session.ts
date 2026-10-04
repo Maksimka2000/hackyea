@@ -48,3 +48,27 @@ export function saveProblemText(text: string) {
 
   listeners.forEach((listener) => listener());
 }
+
+/*
+  The ids of the library cards shown for the last search (ids only, never text). A need submitted afterwards sends them,
+  so ROPS sees which cards the person already looked at ("oglądane przy wyszukiwaniu").
+*/
+const SEEN_STORAGE_KEY = "hubmi:seen-innovations";
+const MAX_SEEN = 10;
+
+export function saveSeenInnovations(ids: readonly string[]) {
+  try {
+    window.sessionStorage.setItem(SEEN_STORAGE_KEY, JSON.stringify(ids.slice(0, MAX_SEEN)));
+  } catch {
+    // Storage blocked: the submission is simply sent without these links.
+  }
+}
+
+export function getSeenInnovations(): string[] {
+  try {
+    const parsed: unknown = JSON.parse(window.sessionStorage.getItem(SEEN_STORAGE_KEY) ?? "[]");
+    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === "string").slice(0, MAX_SEEN) : [];
+  } catch {
+    return [];
+  }
+}

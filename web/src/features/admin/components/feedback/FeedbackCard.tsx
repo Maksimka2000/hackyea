@@ -36,6 +36,11 @@ export function FeedbackCard({ isReviewing, item, onReview }: FeedbackCardProps)
         {item.innovationTitle}
       </Link>
       <p className="whitespace-pre-line text-foreground">{item.body}</p>
+      {item.reviewedAt ? (
+        <p className="text-sm text-muted">
+          {t("reviewedOn", { date: format.dateTime(new Date(item.reviewedAt), { dateStyle: "medium", timeZone: "Europe/Warsaw" }) })}
+        </p>
+      ) : null}
       <div className="flex flex-wrap items-end gap-3">
         <div className="flex min-w-64 flex-1 flex-col gap-1">
           <label className="text-sm font-bold text-foreground" htmlFor={noteId}>{t("note")}</label>

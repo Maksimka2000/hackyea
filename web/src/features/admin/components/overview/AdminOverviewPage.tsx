@@ -2,6 +2,7 @@
 
 import { useFormatter, useNow, useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { ButtonLink } from "@/shared/ui/primitives/ButtonLink";
 
 import { useAdminOverview } from "../../hooks/useAdminOverview";
@@ -32,7 +33,9 @@ export function AdminOverviewPage() {
             value={data.waitingForReply}
           />
           <StatTile hint={t("median", { value: formatHours(data.medianResponseHours) })} label={t("responseTime")} value={formatHours(data.averageResponseHours)} />
-          <StatTile label={t("newFeedback")} value={data.newFeedback} />
+          <Link className="block rounded-card" href="/admin/feedback">
+            <StatTile hint={t("toFeedback")} label={t("newFeedback")} value={data.newFeedback} />
+          </Link>
         </div>
       ) : null}
 

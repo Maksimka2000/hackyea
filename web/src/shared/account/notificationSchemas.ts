@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const notificationKinds = ["submissionCreated", "submitterMessage", "staffReply", "statusChanged", "feedbackReceived"] as const;
+export const notificationKinds = ["submissionCreated", "submitterMessage", "staffReply", "statusChanged", "feedbackReceived", "feedbackReviewed"] as const;
 
 export const notificationDtoSchema = z.object({
   id: z.string(),

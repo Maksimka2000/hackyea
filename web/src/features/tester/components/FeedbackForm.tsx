@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
+
 import { Button } from "@/shared/ui/primitives/Button";
 import { FormField } from "@/shared/ui/primitives/FormField";
 import { Textarea } from "@/shared/ui/primitives/Textarea";
@@ -68,7 +70,12 @@ export function FeedbackForm({ failed, isSending, onSend, sentKind }: FeedbackFo
       </Button>
       <p aria-live="polite" className="text-sm" role="status">
         {failed ? <span className="text-danger">{t("failed")}</span> : null}
-        {!failed && sentKind ? <span className="font-semibold text-primary">{t(`thanks.${sentKind}`)}</span> : null}
+        {!failed && sentKind ? (
+          <span className="font-semibold text-primary">
+            {t(`thanks.${sentKind}`)}{" "}
+            <Link className="underline" href="/my-feedback">{t("seeMine")}</Link>
+          </span>
+        ) : null}
       </p>
     </form>
   );

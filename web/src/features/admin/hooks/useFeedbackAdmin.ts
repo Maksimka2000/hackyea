@@ -5,13 +5,14 @@ import { useState } from "react";
 
 import { serverMessage } from "@/shared/lib/api-error";
 
-import { getFeedback, reviewFeedback } from "../api/adminApi";
+import { getFeedback, getRatingOverview, reviewFeedback } from "../api/adminApi";
 import type { FeedbackStatus } from "../schemas/adminDtoSchemas";
 
 export function useFeedbackAdmin() {
   const queryClient = useQueryClient();
-  const [filter, setFilter] = useState<{ kind?: string; status?: string }>({ status: "new" });
+  const [filter, setFilter] = useState<{ kind?: string; status?: string }>({});
   const query = useQuery({ queryKey: ["admin", "feedback", filter], queryFn: () => getFeedback(filter) });
+  const ratings = useQuery({ queryKey: ["admin", "feedback", "ratings"], queryFn: getRatingOverview });
   const review = useMutation({
     mutationFn: (input: { id: string; status: Exclude<FeedbackStatus, "new">; note: string }) => reviewFeedback(input.id, input.status, input.note),
     onSuccess: () => {
@@ -24,6 +25,7 @@ export function useFeedbackAdmin() {
     filter,
     setFilter,
     query,
+    ratings,
     review: (id: string, status: Exclude<FeedbackStatus, "new">, note: string) => review.mutate({ id, status, note }),
     isReviewing: review.isPending,
     reviewError: review.isError ? (serverMessage(review.error) ?? "generic") : undefined,

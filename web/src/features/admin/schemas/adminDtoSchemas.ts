@@ -123,6 +123,11 @@ export const feedbackListDtoSchema = z.array(
   }),
 );
 
+/** GET /api/admin/feedback/ratings: every rated card with its average, rating count and opinions still to review. */
+export const ratingOverviewDtoSchema = z.array(
+  z.object({ innovationId: z.string(), title: z.string(), average: z.number(), ratingCount: z.number(), newFeedbackCount: z.number() }),
+);
+
 const countByEnum = <T extends readonly [string, ...string[]]>(values: T) => z.partialRecord(z.enum(values), z.number());
 
 /** GET /api/admin/trends. */
@@ -161,6 +166,7 @@ export type AdminInnovation = z.infer<typeof adminInnovationDtoSchema>;
 export type AdminChallenge = z.infer<typeof challengeListDtoSchema>[number];
 export type AdminMaterial = z.infer<typeof materialListDtoSchema>[number];
 export type MaterialType = (typeof materialTypes)[number];
+export type RatedInnovation = z.infer<typeof ratingOverviewDtoSchema>[number];
 export type FeedbackItem = z.infer<typeof feedbackListDtoSchema>[number];
 export type FeedbackKind = (typeof feedbackKinds)[number];
 export type FeedbackStatus = (typeof feedbackStatuses)[number];

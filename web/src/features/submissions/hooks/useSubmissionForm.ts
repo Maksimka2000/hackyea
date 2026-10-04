@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "@/i18n/navigation";
 import { useSavedProblem } from "@/shared/hooks/useSavedProblem";
 import { isApiError, serverMessage } from "@/shared/lib/api-error";
+import { getSeenInnovations } from "@/shared/lib/problem-session";
 
 import { createSubmission } from "../api/createSubmission";
 import type { SubmissionType } from "../constants/submission-types";
@@ -15,6 +16,12 @@ import { buildSubmissionPayload } from "../utils/buildSubmissionPayload";
 import { mySubmissionKeys } from "./mySubmissionKeys";
 
 export type SendErrorState = { isRateLimited: boolean; serverMessage?: string };
+
+/** Only a need or local challenge that started from a search carries the cards seen there. */
+function seenCards(type: SubmissionType) {
+  const ids = type === "need" || type === "localChallenge" ? getSeenInnovations() : [];
+  return ids.length > 0 ? { seenInnovationIds: ids } : {};
+}
 
 export function useSubmissionForm(type: SubmissionType) {
   const router = useRouter();
@@ -54,7 +61,7 @@ export function useSubmissionForm(type: SubmissionType) {
 
   return {
     form,
-    onSubmit: form.handleSubmit((values) => mutation.mutate(buildSubmissionPayload(values))),
+    onSubmit: form.handleSubmit((values) => mutation.mutate({ ...buildSubmissionPayload(values), ...seenCards(values.type) })),
     isSending: mutation.isPending || mutation.isSuccess,
     sendError,
   };

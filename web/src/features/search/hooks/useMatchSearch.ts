@@ -1,8 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 import { ApiError } from "@/shared/lib/api-error";
+import { saveSeenInnovations } from "@/shared/lib/problem-session";
 
 import { findMatches } from "../api/findMatches";
 import type { SearchErrorReason, SearchViewState } from "../types/search-view-state";
@@ -34,6 +36,13 @@ export function useMatchSearch(problem: string | null | undefined): SearchViewSt
     // Retrying a rate-limited or rejected request would not help.
     retry: (failureCount, error) => errorReason(error) === "generic" && failureCount < 1,
   });
+
+  const shown = query.data?.items;
+  useEffect(() => {
+    if (shown) {
+      saveSeenInnovations(shown.map((item) => item.id));
+    }
+  }, [shown]);
 
   if (problem === undefined) {
     return { kind: "loading" };

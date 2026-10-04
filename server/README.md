@@ -50,7 +50,7 @@ Public accounts sign in with `POST /api/auth/login` (behind the simulated Profil
   timeline, a conversation with staff, linked innovations (matched automatically on create) and response-time statistics.
 - **Notifications** (`api/notifications`): in-app notices polled by the web app (new submission → staff; reply or status change → submitter).
 - **Knowledge** (`api/admin/innovations|challenges|materials`, public `api/challenges`, `api/materials`): draft → verified → published.
-- **Innovation Tester** (`api/innovations/{id}/rating|feedback`, `api/admin/feedback`).
+- **Innovation Tester** (`api/innovations/{id}/rating|feedback`, `api/me/feedback`, `api/admin/feedback`, `api/admin/feedback/ratings`). Reviewing an opinion notifies its author.
 - **Social Innovation Canvas** (`api/canvas-templates`, `api/canvases`): boards from the ROPS call form; a canvas can be sent as an idea.
   Templates carry `callId` / availability fields as the extension point for a future call-specific application generator.
 - **Trends** (`api/admin/trends`, `api/admin/overview`): submissions by category (all categories, including empty ones), week and role, plus unmatched searches.

@@ -437,7 +437,8 @@
         "submitterMessage": "Nowa wiadomość od zgłaszającego",
         "staffReply": "ROPS odpowiedział na Twoje zgłoszenie",
         "statusChanged": "Zmienił się status zgłoszenia",
-        "feedbackReceived": "Nowa opinia o innowacji"
+        "feedbackReceived": "Nowa opinia o innowacji",
+        "feedbackReviewed": "Twoja opinia została rozpatrzona"
       }
     },
     "menu": {
@@ -452,7 +453,8 @@
       "adminPanel": "Panel ROPS",
       "mySubmissions": "Moje zgłoszenia",
       "myCanvases": "Moje kanwy",
-      "signOut": "Wyloguj się"
+      "signOut": "Wyloguj się",
+      "myFeedback": "Moje opinie"
     }
   },
   "Auth": {
@@ -620,7 +622,8 @@
       "thanks": {
         "feedback": "Dziękujemy za opinię!",
         "improvement": "Dziękujemy za propozycję ulepszenia!"
-      }
+      },
+      "seeMine": "Zobacz moje opinie"
     }
   },
   "Canvas": {
@@ -730,7 +733,8 @@
       "median": "Mediana: {value}",
       "newFeedback": "Nowe opinie o innowacjach",
       "unseenTitle": "Nowe zgłoszenia",
-      "toInbox": "Wszystkie zgłoszenia"
+      "toInbox": "Wszystkie zgłoszenia",
+      "toFeedback": "Zobacz opinie"
     },
     "inbox": {
       "title": "Zgłoszenia",
@@ -935,7 +939,25 @@
       "empty": "Brak opinii.",
       "note": "Notatka ROPS",
       "accept": "Przyjmij",
-      "reject": "Odrzuć"
+      "reject": "Odrzuć",
+      "opinionsTitle": "Opinie i propozycje",
+      "reviewedOn": "Rozpatrzono {date}",
+      "emptyHint": "Opinie pochodzą z pola „Tester innowacji” na kartach biblioteki.",
+      "ratings": {
+        "title": "Oceny",
+        "total": "Wszystkie oceny",
+        "average": "Średnia ocena",
+        "cards": "Ocenione karty",
+        "empty": "Nikt jeszcze nie ocenił żadnej karty.",
+        "toLibrary": "Przejdź do biblioteki",
+        "caption": "Ocenione karty innowacji",
+        "columns": {
+          "card": "Karta",
+          "average": "Średnia",
+          "count": "Liczba ocen",
+          "newFeedback": "Nowe opinie"
+        }
+      }
     },
     "trends": {
       "title": "Trendy potrzeb",
@@ -984,6 +1006,23 @@
         "count": "Ile razy",
         "last": "Ostatnio"
       }
+    }
+  },
+  "MyFeedback": {
+    "title": "Moje opinie",
+    "lead": "Opinie i propozycje ulepszeń, które wysłałeś o innowacjach – wraz z decyzją ROPS.",
+    "loadError": "Nie udało się wczytać opinii. Odśwież stronę.",
+    "empty": "Nie wysłałeś jeszcze żadnej opinii.",
+    "toLibrary": "Przejdź do biblioteki innowacji",
+    "staffNote": "Notatka ROPS:",
+    "kind": {
+      "feedback": "Opinia",
+      "improvement": "Propozycja ulepszenia"
+    },
+    "status": {
+      "new": "Czeka na rozpatrzenie",
+      "accepted": "Przyjęta",
+      "rejected": "Odrzucona"
     }
   }
 }
