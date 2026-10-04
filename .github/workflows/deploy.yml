@@ -64,7 +64,7 @@ jobs:
             --name "$apiName" \
             --container-image-name "$API_IMAGE"
           az webapp restart --resource-group "$RESOURCE_GROUP" --name "$apiName"
-          curl --fail --retry 30 --retry-delay 5 --retry-connrefused "$apiUrl/api/categories" --output /dev/null
+          curl --fail --retry-all-errors --retry 60 --retry-delay 5 --max-time 15 "$apiUrl/api/categories" --output /dev/null
 
       - name: Build and push web image
         run: |
@@ -87,4 +87,4 @@ jobs:
             --name "$webName" \
             --container-image-name "$WEB_IMAGE"
           az webapp restart --resource-group "$RESOURCE_GROUP" --name "$webName"
-          curl --fail --retry 30 --retry-delay 5 --retry-connrefused "$webUrl/pl" --output /dev/null
+          curl --fail --retry-all-errors --retry 60 --retry-delay 5 --max-time 15 "$webUrl/pl" --output /dev/null
