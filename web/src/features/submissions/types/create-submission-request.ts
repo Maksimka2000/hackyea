@@ -12,4 +12,6 @@ export type CreateSubmissionRequest = {
   stage?: IdeaStage;
   pilotScale?: string;
   results?: string;
+  /** Library cards shown on the last search; sent with needs and local challenges. */
+  seenInnovationIds?: string[];
 };

@@ -77,6 +77,11 @@ export function UserMenu() {
                   </Link>
                 </li>
                 <li>
+                  <Link className={itemClasses} href="/my-feedback">
+                    {t("myFeedback")}
+                  </Link>
+                </li>
+                <li>
                   <Link className={itemClasses} href="/canvas">
                     {t("myCanvases")}
                   </Link>

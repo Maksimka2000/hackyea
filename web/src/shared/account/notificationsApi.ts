@@ -28,6 +28,8 @@ function mapNotification(dto: NotificationDto, isStaff: boolean): NotificationIt
     href = isStaff ? `/admin/submissions/${dto.submissionId}` : `/my-submissions/${dto.submissionId}`;
   } else if (dto.kind === "feedbackReceived") {
     href = "/admin/feedback";
+  } else if (dto.kind === "feedbackReviewed") {
+    href = "/my-feedback";
   }
 
   return {

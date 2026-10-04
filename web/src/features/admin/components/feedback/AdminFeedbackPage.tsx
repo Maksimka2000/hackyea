@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
+
 import { Select } from "@/shared/ui/primitives/Select";
 
 import { useFeedbackAdmin } from "../../hooks/useFeedbackAdmin";
@@ -11,15 +13,18 @@ import { QueryState } from "../shell/QueryState";
 import { ActionError } from "../submission/ActionError";
 
 import { FeedbackCard } from "./FeedbackCard";
+import { RatingsOverview } from "./RatingsOverview";
 
 /** Innovation Tester results: opinions and improvement proposals on library cards, to accept or reject. */
 export function AdminFeedbackPage() {
   const t = useTranslations("Admin.feedback");
-  const { filter, isReviewing, query, review, reviewError, setFilter } = useFeedbackAdmin();
+  const { filter, isReviewing, query, ratings, review, reviewError, setFilter } = useFeedbackAdmin();
 
   return (
     <>
       <AdminPageHeader lead={t("lead")} title={t("title")} />
+      {ratings.data ? <RatingsOverview items={ratings.data} /> : <QueryState isError={ratings.isError} isPending={ratings.isPending} />}
+      <h2 className="mb-4 text-2xl font-extrabold text-foreground">{t("opinionsTitle")}</h2>
       <div className="mb-6 flex flex-wrap gap-4">
         <div className="flex flex-col gap-1">
           <label className="text-sm font-bold text-foreground" htmlFor="feedback-status">{t("filters.status")}</label>
@@ -42,7 +47,12 @@ export function AdminFeedbackPage() {
       </div>
       <ActionError error={reviewError} />
       <QueryState isError={query.isError} isPending={query.isPending} />
-      {query.data && query.data.length === 0 ? <p className="text-muted">{t("empty")}</p> : null}
+      {query.data && query.data.length === 0 ? (
+        <p className="text-muted">
+          {t("empty")}{" "}
+          <Link className="font-semibold text-primary underline" href="/library">{t("emptyHint")}</Link>
+        </p>
+      ) : null}
       <ul className="flex flex-col gap-3">
         {(query.data ?? []).map((item) => (
           <li key={item.id}>

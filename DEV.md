@@ -119,6 +119,7 @@ The site is Polish only. Paths carry the `/pl` prefix, e.g. http://localhost:300
 | One submission: timeline, conversation with ROPS, linked innovations | `/my-submissions/{id}` |
 | My canvases / canvas editor | `/canvas` · `/canvas/{id}` |
 | Rate, give feedback, propose an improvement | the "Tester innowacji" box on `/library/{id}` |
+| My opinions and the ROPS decision (accepted / rejected, with note) | `/my-feedback` |
 | Notifications | the bell in the header (refreshes every 30 s) |
 
 ### ROPS panel (signed in as admin)
@@ -130,7 +131,7 @@ The site is Polish only. Paths carry the `/pl` prefix, e.g. http://localhost:300
 | One submission: reply, status, moderation/rejection, linked innovations, "create draft card" | `/admin/submissions/{id}` |
 | Knowledge: innovations, challenges, materials (draft → verified → published) | `/admin/knowledge?tab=innovations` · `challenges` · `materials` |
 | Edit or create an innovation card | `/admin/knowledge/innovations/{id}` · `/admin/knowledge/innovations/new` |
-| Innovation Tester feedback (accept/reject) | `/admin/feedback` |
+| Tester results: ratings per card + opinions to accept/reject (the author is notified) | `/admin/feedback` |
 | Needs trends (by category, week, submitter; unmatched searches) | `/admin/trends` |
 
 ## 6. API tools
@@ -161,7 +162,7 @@ Endpoint groups:
 - **Knowledge:**
   - `api/admin/innovations`, `api/admin/challenges` and `api/admin/materials` (staff)
   - `api/challenges` and `api/materials` (public)
-- **Innovation Tester:** `api/innovations/{id}/rating-summary|rating|feedback` and `api/admin/feedback`
+- **Innovation Tester:** `api/innovations/{id}/rating-summary|rating|feedback`, `api/me/feedback`, `api/admin/feedback` and `api/admin/feedback/ratings`
 - **Canvases:** `api/canvas-templates` and `api/canvases`
 - **Admin overview and trends:** `api/admin/overview` and `api/admin/trends`
 - **Public catalogue:** `api/match`, `api/innovations` and `api/categories`
@@ -189,7 +190,13 @@ cd server
 dotnet ef migrations add <Name> -p HubMi.Infrastructure -s HubMi.Infrastructure -o Persistence/Migrations
 ```
 
-## 8. Checks before committing
+## 8. Role check
+
+`sh server/tools/check-roles.sh [base-url]` (needs curl and jq) signs in as a resident, an NGO, a JST and the admin and calls every capability of the role matrix as visitor, resident, JST and admin. It prints the HTTP status per role and fails if anything differs from the matrix. It also verifies that residents cannot read each other's submissions, that closed submissions accept no resident messages, and that the two sign-in portals refuse the other kind of account.
+
+The API denies by default: an endpoint without `[Authorize]` or `[AllowAnonymous]` needs a signed-in user, and the public controllers are marked `[AllowAnonymous]` explicitly.
+
+## 9. Checks before committing
 
 ```bash
 cd server && dotnet build HubMi.sln
@@ -199,7 +206,7 @@ sh server/tools/eval-matching.sh http://localhost:8081   # matching quality repo
 
 There are no automated test projects (by team decision). Check flows by hand with the accounts above.
 
-## 9. Troubleshooting
+## 10. Troubleshooting
 
 | Symptom | Cause / fix |
 | --- | --- |

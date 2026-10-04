@@ -11,6 +11,7 @@ import {
   inboxPageDtoSchema,
   materialListDtoSchema,
   overviewDtoSchema,
+  ratingOverviewDtoSchema,
   publishedDraftDtoSchema,
   trendsDtoSchema,
   type FeedbackStatus,
@@ -101,6 +102,8 @@ export const saveMaterial = (id: string | null, body: Record<string, string>) =>
 
 export const getFeedback = (params: { kind?: string; status?: string }) =>
   fetchJson(`${admin}/feedback${query(params)}`, { schema: feedbackListDtoSchema });
+
+export const getRatingOverview = () => fetchJson(`${admin}/feedback/ratings`, { schema: ratingOverviewDtoSchema });
 
 export const reviewFeedback = (id: string, status: Exclude<FeedbackStatus, "new">, staffNote: string) =>
   fetchJson(`${admin}/feedback/${enc(id)}`, { method: "PUT", json: { status, staffNote: staffNote || null } });
