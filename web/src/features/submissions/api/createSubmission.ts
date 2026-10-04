@@ -1,22 +1,10 @@
-import { apiBaseUrl, apiModeFor } from "@/shared/config/env";
+import { apiBaseUrl } from "@/shared/config/env";
 import { fetchJson } from "@/shared/lib/fetch-json";
 
-import { createSubmissionResponseDtoSchema, type CreateSubmissionResponseDto } from "../schemas/submissionDtoSchema";
+import { createdSubmissionDtoSchema, type CreatedSubmissionDto } from "../schemas/submissionDtoSchema";
 import type { CreateSubmissionRequest } from "../types/create-submission-request";
 
-import { createSubmissionMock } from "./submissionsMock";
-
-/** Called from the browser (a mutation), so it uses the public API base URL. */
-export async function createSubmission(request: CreateSubmissionRequest): Promise<CreateSubmissionResponseDto> {
-  if (apiModeFor("submissions") === "mock") {
-    return createSubmissionMock(request);
-  }
-
-  // PLACEHOLDER endpoint and body: replace when the backend defines them.
-  return fetchJson(`${apiBaseUrl}/submissions`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(request),
-    schema: createSubmissionResponseDtoSchema,
-  });
+/** POST /api/submissions (signed-in resident, NGO or JST). Called from the browser, so it uses the public base URL. */
+export async function createSubmission(request: CreateSubmissionRequest): Promise<CreatedSubmissionDto> {
+  return fetchJson(`${apiBaseUrl}/submissions`, { method: "POST", json: request, schema: createdSubmissionDtoSchema });
 }

@@ -17,6 +17,20 @@ export const matchIndicatorDtoSchema = z.object({
   missingWords: z.array(z.string()),
 });
 
+export const matchWhyFields = ["problem", "solution"] as const;
+
+/*
+  Why a card matched: a sentence from the card's own text with the user's words marked (`highlights` are UTF-16 start/length
+  pairs inside `excerpt`). `byMeaning` is true when the card shares no word with the user's text; nothing is marked then.
+  Optional so mock data written before the backend added it still parses.
+*/
+export const matchWhyDtoSchema = z.object({
+  field: z.enum(matchWhyFields),
+  excerpt: z.string(),
+  highlights: z.array(z.object({ start: z.number(), length: z.number() })),
+  byMeaning: z.boolean(),
+});
+
 export const matchResultDtoSchema = z.object({
   rank: z.number(),
   innovationId: z.string(),
@@ -35,6 +49,7 @@ export const matchResultDtoSchema = z.object({
   sourceUrl: z.string(),
   /** A backend-side route template (/biblioteka/{id}); the frontend builds its own link. */
   cardUrl: z.string(),
+  why: matchWhyDtoSchema.optional(),
 });
 
 export const matchCategoryDtoSchema = z.object({

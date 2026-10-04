@@ -7,6 +7,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // A self-contained server in .next/standalone, which is what the Docker image runs.
   output: "standalone",
   // YouTube preview images on the innovation detail page.
   images: { remotePatterns: [{ protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" }] },

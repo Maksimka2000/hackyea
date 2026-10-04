@@ -8,6 +8,7 @@ public static class ApiServiceRegistration
     {
         services.AddProblemDetails();
         services.AddExceptionHandler<BadHttpRequestExceptionHandler>();
+        services.AddExceptionHandler<DomainExceptionHandler>();
         services.AddHealthChecks();
 
         return services;

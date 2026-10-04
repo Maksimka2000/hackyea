@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import type { ReactNode } from "react";
 
 import { CalloutCard } from "@/shared/ui/composite/CalloutCard";
 import { Card } from "@/shared/ui/primitives/Card";
@@ -11,9 +12,10 @@ import { SourceButton } from "./SourceButton";
 
 type InnovationSidePanelProps = Readonly<{
   innovation: InnovationDetail;
+  extra?: ReactNode;
 }>;
 
-export function InnovationSidePanel({ innovation }: InnovationSidePanelProps) {
+export function InnovationSidePanel({ extra, innovation }: InnovationSidePanelProps) {
   const t = useTranslations("InnovationDetail");
   const resourceLinks = buildResourceLinks(innovation.resources);
 
@@ -24,6 +26,7 @@ export function InnovationSidePanel({ innovation }: InnovationSidePanelProps) {
         <SourceButton href={innovation.sourceUrl} />
         {resourceLinks.length > 0 ? <ResourceList links={resourceLinks} /> : null}
       </Card>
+      {extra}
       <CalloutCard ctaLabel={t("cta.cta")} href="/submit?type=need" text={t("cta.text")} title={t("cta.title")} />
     </aside>
   );

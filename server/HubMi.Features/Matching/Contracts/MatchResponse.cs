@@ -28,7 +28,18 @@ public sealed record MatchResultDto(
     string Evidence,
     string? VideoUrl,
     string SourceUrl,
-    string CardUrl);
+    string CardUrl,
+    WhyDto Why);
+
+/// <summary>
+/// Why a card matched: a sentence cut from the card's own text (<see cref="Excerpt"/>) with the user's words marked.
+/// <see cref="Field"/> is "problem" or "solution". <see cref="ByMeaning"/> is true when the card shares no word with the user's text
+/// and matched by meaning only (nothing is marked then).
+/// </summary>
+public sealed record WhyDto(string Field, string Excerpt, IReadOnlyList<HighlightDto> Highlights, bool ByMeaning);
+
+/// <summary>A marked word: its start and length as UTF-16 positions in <see cref="WhyDto.Excerpt"/>.</summary>
+public sealed record HighlightDto(int Start, int Length);
 
 public sealed record MatchIndicatorDto(
     int Percent,

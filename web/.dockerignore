@@ -1,8 +1,10 @@
 node_modules
 .next
-.git
-.env*
+out
+.env
+.env.*
 !.env.example
-npm-debug.log
+*.tsbuildinfo
+.git
+.DS_Store
 Dockerfile
-README.md

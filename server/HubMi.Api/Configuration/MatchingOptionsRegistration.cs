@@ -18,6 +18,10 @@ public static class MatchingOptionsRegistration
             .Bind(configuration.GetSection(MatchingOptions.SectionName))
             .ValidateDataAnnotations()
             .Validate(o => o.GoodThreshold > o.PartialThreshold, "GoodThreshold must be greater than PartialThreshold.")
+            .Validate(o => o.RerankCandidates <= o.RetrievalLimit, "RerankCandidates must not exceed RetrievalLimit.")
+            .Validate(o => o.RerankCeiling > o.RerankThreshold, "RerankCeiling must be greater than RerankThreshold.")
+            .Validate(o => o.RetrievalOnlyCeiling > o.RetrievalOnlyFloor, "RetrievalOnlyCeiling must be greater than RetrievalOnlyFloor.")
+            .Validate(o => o.RetrievalOnlyFloor >= o.RetrievalFloor, "RetrievalOnlyFloor must not be lower than RetrievalFloor.")
             .ValidateOnStart();
 
         return services;

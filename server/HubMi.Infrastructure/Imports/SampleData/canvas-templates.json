@@ -1,0 +1,160 @@
+[
+  {
+    "key": "rops-inkubator",
+    "title": "Kanwa innowacji społecznej",
+    "description": "Przemyśl swój pomysł krok po kroku na tablicach zbudowanych z formularza aplikacyjnego naboru innowacji społecznych ROPS. Tablice nie wymagają danych osobowych – te podasz dopiero w prawdziwym wniosku.",
+    "source": "Formularz aplikacyjny (zał. nr 3), nabór „Inkubator Włączenia Społecznego 2.0”, ROPS w Krakowie, FERS 2021–2027, Działanie 5.1",
+    "callId": null,
+    "availableFrom": null,
+    "availableTo": null,
+    "boards": [
+      {
+        "key": "title",
+        "number": "1",
+        "title": "Tytuł innowacji",
+        "hint": "Krótki i kojarzący się z przedmiotem innowacji.",
+        "questions": ["Jak nazwiesz swoją innowację, żeby od razu było wiadomo, czego dotyczy?"],
+        "type": "text",
+        "maxLength": 200
+      },
+      {
+        "key": "description",
+        "number": "3",
+        "title": "Opis innowacji",
+        "hint": null,
+        "questions": [
+          "Na czym polega innowacja?",
+          "Jaki ma charakter: produkt, aplikacja, model pracy, rozwiązanie technologiczne?",
+          "Jak można ją krótko określić?",
+          "Jak wspiera włączenie społeczne lub przeciwdziała wykluczeniu?",
+          "Jak wpisuje się w ideę deinstytucjonalizacji?"
+        ],
+        "type": "text",
+        "maxLength": 4000
+      },
+      {
+        "key": "innovativeness",
+        "number": "4",
+        "title": "Innowacyjność rozwiązania",
+        "hint": "Pomóż zrozumieć wyjątkowość pomysłu. Sprawdź podobne karty w Bibliotece Innowacji.",
+        "questions": [
+          "Czy podobne rozwiązania są stosowane w Polsce albo na świecie?",
+          "Jaką nową wartość wnosi projekt w rozwiązanie problemu?",
+          "Czym wyróżnia się na tle innych działań w tym zakresie?"
+        ],
+        "type": "text",
+        "maxLength": 4000
+      },
+      {
+        "key": "problem",
+        "number": "5",
+        "title": "Diagnoza problemu",
+        "hint": "Odwołaj się do Mapy Wyzwań Społecznych, jeśli problem się w niej mieści.",
+        "questions": [
+          "Na jaki problem odpowiada innowacja? Jakie dane pokazują jego skalę?",
+          "Na jakich raportach lub badaniach opiera się diagnoza?",
+          "Czy problem jest zgodny z tematem z Mapy Wyzwań Społecznych – z jakim?"
+        ],
+        "type": "text",
+        "maxLength": 4000
+      },
+      {
+        "key": "recipients",
+        "number": "6",
+        "title": "Opis odbiorców",
+        "hint": null,
+        "questions": [
+          "Do kogo jest skierowana innowacja?",
+          "Co wyróżnia tę grupę i jakie ma potrzeby?",
+          "Dlaczego te osoby są wykluczone lub zagrożone wykluczeniem?"
+        ],
+        "type": "text",
+        "maxLength": 3000
+      },
+      {
+        "key": "change",
+        "number": "7",
+        "title": "Zmiana, jaką wprowadza innowacja",
+        "hint": null,
+        "questions": [
+          "Jak rozwiązanie wpłynie na opisany problem?",
+          "Co zmieni w życiu odbiorców?",
+          "Jak wpłynie na ich włączenie społeczne i dzięki czemu zapobiegnie wykluczeniu?"
+        ],
+        "type": "text",
+        "maxLength": 4000
+      },
+      {
+        "key": "future",
+        "number": "8",
+        "title": "Wizja przyszłości innowacji",
+        "hint": "Opisz łatwość stosowania i wdrażalność rozwiązania.",
+        "questions": [
+          "Czy innowacja może być stosowana na dużą skalę, dla szerokiej grupy odbiorców?",
+          "Czy można ją rozszerzyć na inne grupy, konteksty lub miejsca? W jaki sposób?",
+          "Jakie jej cechy pozwalają na takie rozszerzenie?"
+        ],
+        "type": "text",
+        "maxLength": 4000
+      },
+      {
+        "key": "plan",
+        "number": "9",
+        "title": "Plan działania i koszty",
+        "hint": "W kilku kluczowych krokach: co, kiedy i jakim kosztem trzeba zrobić, aby przygotować i przetestować innowację.",
+        "questions": [
+          "Co musisz przygotować, zanim zaczniesz test? Kogo zaangażować?",
+          "Jak będzie przebiegał test, kto w nim weźmie udział i ile osób przetestuje innowację?",
+          "Jak uzyskasz wiarygodne wyniki testowania?"
+        ],
+        "type": "plan",
+        "maxLength": null,
+        "phases": [
+          {
+            "key": "preparation",
+            "title": "Okres przygotowawczy",
+            "hint": "Np. projekt graficzny, specyfikacja techniczna, prototyp. Najwyżej 3 miesiące.",
+            "period": "preparation"
+          },
+          {
+            "key": "testPhase1",
+            "title": "Okres testowania – faza I",
+            "hint": "Np. spotkania testujące, wynagrodzenie ekspertów.",
+            "period": "testing"
+          },
+          {
+            "key": "testPhase2",
+            "title": "Okres testowania – faza II",
+            "hint": "Np. opracowanie modelu końcowego innowacji. Cały okres testowania: najwyżej 9 miesięcy.",
+            "period": "testing"
+          }
+        ],
+        "periods": [
+          { "key": "preparation", "title": "Okres przygotowawczy", "maxMonths": 3 },
+          { "key": "testing", "title": "Okres testowania", "maxMonths": 9 }
+        ]
+      },
+      {
+        "key": "grantAmount",
+        "number": "10",
+        "title": "Wnioskowana kwota grantu",
+        "hint": "Kwota powinna być równa sumie kosztów z planu działania.",
+        "questions": ["Jaka jest całkowita wnioskowana kwota grantu (zł)?"],
+        "type": "amount",
+        "maxLength": null
+      },
+      {
+        "key": "team",
+        "number": "11",
+        "title": "Zespół projektowy i jego doświadczenie",
+        "hint": "Opisz role, nie podawaj danych osobowych.",
+        "questions": [
+          "Kto będzie odpowiedzialny za zadania w projekcie?",
+          "Jakie doświadczenie w pracy z odbiorcami oraz we wdrażaniu innowacji społecznych mają te osoby lub organizacje?"
+        ],
+        "type": "text",
+        "maxLength": 3000
+      }
+    ]
+  }
+]

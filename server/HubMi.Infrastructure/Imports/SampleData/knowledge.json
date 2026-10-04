@@ -1,0 +1,73 @@
+{
+  "_comment": "Starter content of the knowledge store. Challenges summarise the eight areas of the Social Challenges Map of Małopolska (Mapa Wyzwań Społecznych). Seeded as published into an empty database; staff edit it in the admin panel.",
+  "challenges": [
+    {
+      "title": "Rodzina i piecza zastępcza",
+      "categoryId": "dla-dzieci-mlodziezy-i-rodziny",
+      "description": "Liczba dzieci w pieczy zastępczej rośnie (o 3,5% w 2023 r. względem 2022 r.), a rodzin zastępczych jest za mało. Kluczowe wyzwania: więcej zweryfikowanych kandydatów na rodziny zastępcze, nierozdzielanie rodzeństwa, lepsza współpraca powiatów i krótszy pobyt dzieci w pieczy.",
+      "source": "Mapa Wyzwań Społecznych; GUS „Piecza zastępcza w 2023 roku”; NIK 2022"
+    },
+    {
+      "title": "Bezdomność",
+      "categoryId": "dla-osob-w-kryzysie-bezdomnosci",
+      "description": "Rośnie liczba młodych osób w kryzysie bezdomności (0–25 lat). Są „niewidzialne” w statystykach, a niepełnoletność utrudnia im formalne wsparcie. Potrzebne są rozwiązania skierowane osobno do nastolatków i młodych dorosłych.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Niepełnosprawność",
+      "categoryId": "dla-osob-z-niepelnosprawnoscia-intelektualna",
+      "description": "Osoby z niepełnosprawnościami potrzebują lepszego dostępu do rynku pracy i edukacji dającej samodzielność, wsparcia w budowaniu relacji społecznych, wsparcia emocjonalnego oraz dostępności technicznej i infrastrukturalnej.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Ubóstwo",
+      "categoryId": "dla-rynku-pracy",
+      "description": "Ubóstwo dotyka szczególnie dzieci, seniorów i osoby z niepełnosprawnościami. Wyzwania to m.in. dobrej jakości wczesna opieka i edukacja dla dzieci z rodzin o niskich dochodach oraz wsparcie wychodzenia z ubóstwa przez pracę.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Integracja cudzoziemców",
+      "categoryId": "dla-cudzoziemcow",
+      "description": "Migranci potrzebują równego dostępu do usług społecznych, usług dopasowanych do ich sytuacji (tłumacz, asysta kulturowa, indywidualne programy integracji) oraz włączenia kulturowego, także dzieci i młodzieży w szkołach.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Zdrowie",
+      "categoryId": "dla-zdrowia-i-medycyny",
+      "description": "Wyzwania to edukacja w zakresie zdrowego stylu życia i profilaktyki, równy dostęp do dobrej opieki zdrowotnej oraz dostosowanie usług do potrzeb mieszkańców mniejszych miejscowości.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Zdrowie psychiczne",
+      "categoryId": "dla-zdrowia-i-medycyny",
+      "description": "Potrzebna jest edukacja prozdrowotna w zakresie zdrowia psychicznego, zwłaszcza wśród dzieci, młodzieży i seniorów, oraz wzmacnianie kompetencji rodziców w rozpoznawaniu sygnałów kryzysu psychicznego u dzieci.",
+      "source": "Mapa Wyzwań Społecznych"
+    },
+    {
+      "title": "Seniorzy",
+      "categoryId": "dla-seniorow",
+      "description": "Starzejące się społeczeństwo wymaga dostosowania usług zdrowotnych i instytucji, projektowania uniwersalnego przestrzeni i mieszkań, rozwoju mieszkalnictwa senioralnego oraz szerszej oferty aktywizacji i integracji seniorów.",
+      "source": "Mapa Wyzwań Społecznych"
+    }
+  ],
+  "materials": [
+    {
+      "title": "Czym jest innowacja społeczna?",
+      "type": "Guide",
+      "summary": "Krótko o tym, czym innowacja społeczna różni się od zwykłego projektu i kiedy warto zgłosić pomysł do ROPS.",
+      "body": "Innowacja społeczna to nowe rozwiązanie problemu społecznego – produkt, usługa, model pracy albo narzędzie – które działa lepiej niż to, co jest stosowane dotąd. Nie musi być technologiczne. Ważne, by odpowiadało na realną potrzebę konkretnej grupy, było sprawdzone w teście i dało się je powtórzyć w innym miejscu.\n\nZanim zgłosisz pomysł, sprawdź w Bibliotece Innowacji, czy podobne rozwiązanie już istnieje. Jeśli tak – może wystarczy je zaadaptować."
+    },
+    {
+      "title": "Jak zaplanować test innowacji",
+      "type": "Guide",
+      "summary": "Okres przygotowawczy, dwie fazy testu i wiarygodne wyniki – na czym polega testowanie w naborze ROPS.",
+      "body": "Test innowacji składa się z okresu przygotowawczego (najwyżej 3 miesiące: prototyp, materiały, rekrutacja uczestników) i okresu testowania (najwyżej 9 miesięcy, zwykle w dwóch fazach). Zaplanuj, kto przetestuje rozwiązanie, ile osób weźmie udział i jak zmierzysz efekty. Suma kosztów działań powinna być równa wnioskowanej kwocie grantu. Pomoże Ci w tym Kanwa innowacji społecznej."
+    },
+    {
+      "title": "Deinstytucjonalizacja w pigułce",
+      "type": "Article",
+      "summary": "Dlaczego usługi w społeczności lokalnej zamiast opieki instytucjonalnej i jak innowacja może to wspierać.",
+      "body": "Deinstytucjonalizacja to przechodzenie od opieki w dużych instytucjach do usług świadczonych w społeczności lokalnej, blisko domu i z udziałem samych odbiorców. Innowacje, które wzmacniają samodzielność, wsparcie rodzinne i sąsiedzkie oraz usługi środowiskowe, wpisują się w ten kierunek i są premiowane w naborach innowacji społecznych."
+    }
+  ]
+}

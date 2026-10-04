@@ -3,6 +3,7 @@
 import { useMatchSearch } from "../hooks/useMatchSearch";
 import { useSavedProblem } from "@/shared/hooks/useSavedProblem";
 
+import { DetectedCategory } from "./DetectedCategory";
 import { EmptySearch } from "./EmptySearch";
 import { LowConfidenceNotice } from "./LowConfidenceNotice";
 import { NoMatchState } from "./NoMatchState";
@@ -24,6 +25,7 @@ export function SearchResults() {
       {state.kind === "loading" ? <ResultsSkeleton /> : null}
       {state.kind === "results" ? (
         <div className="flex flex-col gap-6">
+          {state.category ? <DetectedCategory category={state.category} isLowConfidence={state.isLowConfidence} /> : null}
           {state.isLowConfidence ? <LowConfidenceNotice /> : null}
           <ResultList items={state.items} />
         </div>

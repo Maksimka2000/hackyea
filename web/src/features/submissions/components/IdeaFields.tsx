@@ -1,9 +1,11 @@
+import { CategorySelect } from "./CategorySelect";
 import { DescriptionField } from "./DescriptionField";
+import { SimilarInnovations } from "./SimilarInnovations";
 import { StageField } from "./StageField";
-import { SubmitterSelect } from "./SubmitterSelect";
 import { TargetGroupInput } from "./TargetGroupInput";
 import { TitleInput } from "./TitleInput";
 
+/** The idea card: essence, target group and stage, then a check against similar innovations in the library. */
 export function IdeaFields() {
   return (
     <>
@@ -11,7 +13,8 @@ export function IdeaFields() {
       <DescriptionField type="idea" />
       <TargetGroupInput />
       <StageField />
-      <SubmitterSelect />
+      <CategorySelect />
+      <SimilarInnovations />
     </>
   );
 }

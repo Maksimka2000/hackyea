@@ -9,7 +9,7 @@ import { Button } from "@/shared/ui/primitives/Button";
 import type { SubmissionType } from "../constants/submission-types";
 import { useSubmissionForm } from "../hooks/useSubmissionForm";
 
-import { ContactFields } from "./ContactFields";
+import { GoodPracticeFields } from "./GoodPracticeFields";
 import { IdeaFields } from "./IdeaFields";
 import { NeedFields } from "./NeedFields";
 import { SendError } from "./SendError";
@@ -25,18 +25,11 @@ export function SubmissionForm({ type }: SubmissionFormProps) {
   return (
     <FormProvider {...form}>
       <form className="flex flex-col gap-6" noValidate onSubmit={onSubmit}>
-        {type === "need" ? <NeedFields /> : <IdeaFields />}
-        <ContactFields />
+        {type === "idea" ? <IdeaFields /> : null}
+        {type === "goodPractice" ? <GoodPracticeFields /> : null}
+        {type === "need" || type === "localChallenge" ? <NeedFields type={type} /> : null}
 
-        {/* Honeypot: hidden from people and screen readers; bots tend to fill it. */}
-        <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-          <label>
-            {t("honeypotLabel")}
-            <input autoComplete="off" tabIndex={-1} type="text" {...form.register("website")} />
-          </label>
-        </div>
-
-        {sendError ? <SendError isRateLimited={sendError.isRateLimited} /> : null}
+        {sendError ? <SendError isRateLimited={sendError.isRateLimited} serverMessage={sendError.serverMessage} /> : null}
 
         <Button className="self-start" disabled={isSending} size="lg" type="submit">
           <Send aria-hidden="true" className="size-5" />

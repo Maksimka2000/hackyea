@@ -1,7 +1,36 @@
+# .NET build output
 **/bin/
 **/obj/
+**/out/
+*.nupkg
+*.snupkg
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# IDE (Rider / Visual Studio / VS Code)
 .idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.DotSettings.user
+
+# Local Docker volumes
 docker_data/
+
+# Secrets and local settings
 .env
 .env.*
 !.env.example
+appsettings.*.local.json
+secrets.json
+
+# Local ML models downloaded by tools/fetch-model.sh (never committed)
+**/models/
+*.onnx
+
+# Logs
+*.log
+logs/

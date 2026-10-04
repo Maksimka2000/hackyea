@@ -23,6 +23,8 @@ internal sealed class InnovationConfiguration : IEntityTypeConfiguration<Innovat
         builder.Property(i => i.MaterialsUrl).HasMaxLength(2000);
         builder.Property(i => i.DetailsPdfUrl).HasMaxLength(2000);
         builder.Property(i => i.DisseminationBadge).HasMaxLength(300);
+        builder.Property(i => i.Status).HasConversion<string>().HasMaxLength(20);
+        builder.HasIndex(i => i.Status);
 
         builder.HasOne<InnovationCategory>()
             .WithMany()

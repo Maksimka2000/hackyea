@@ -26,12 +26,7 @@
       "xl": "Największy tekst"
     },
     "contrast": "Wysoki kontrast",
-    "contrastShort": "Kontrast",
-    "languageLabel": "Język",
-    "languages": {
-      "pl": "Polski",
-      "en": "English"
-    }
+    "contrastShort": "Kontrast"
   },
   "Footer": {
     "tagline": "HubMI łączy potrzeby mieszkańców Małopolski ze sprawdzonymi rozwiązaniami.",
@@ -139,6 +134,20 @@
       "opensInNewTab": "otwiera się w nowej karcie",
       "matchedWords": "Znaleziono w opisie:"
     },
+    "why": {
+      "title": "Dlaczego pasuje",
+      "titleByMeaning": "Dlaczego pasuje: podobny sens",
+      "fromProblem": "Z opisu problemu w karcie:",
+      "fromSolution": "Z opisu rozwiązania w karcie:",
+      "byMeaningNote": "Ta innowacja nie zawiera dokładnie Twoich słów, ale dotyczy podobnego problemu."
+    },
+    "category": {
+      "label": "Rozpoznana kategoria",
+      "detected": "Rozpoznana kategoria:",
+      "probably": "Prawdopodobnie kategoria:",
+      "browse": "przeglądaj bibliotekę w tej kategorii",
+      "alsoRelated": "Może też pasować:"
+    },
     "noMatch": {
       "title": "Nie znaleźliśmy bliskiego dopasowania",
       "text": "W bibliotece nie ma rozwiązania, które wyraźnie pasuje do opisu. Możesz zgłosić potrzebę do ROPS albo przejrzeć bibliotekę.",
@@ -243,18 +252,30 @@
       },
       "idea": {
         "title": "Zaproponuj pomysł",
-        "lead": "Podziel się pomysłem na innowację społeczną – także takim, który jest dopiero na początku drogi."
+        "lead": "Karta pomysłu: na czym polega, dla kogo i na jakim jest etapie. Możesz ją wysłać w każdej chwili."
+      },
+      "goodPractice": {
+        "title": "Pokaż dobrą praktykę",
+        "lead": "Opowiedz o rozwiązaniu albo pilotażu w małej skali, które już działa – i o jego rezultatach."
+      },
+      "localChallenge": {
+        "title": "Zgłoś wyzwanie lokalne",
+        "lead": "Jako samorząd opisz wyzwanie społeczne w gminie. ROPS pomoże znaleźć rozwiązania i partnerów."
       }
     },
     "typeSwitch": {
       "label": "Rodzaj zgłoszenia",
       "need": "Potrzeba",
-      "idea": "Pomysł"
+      "idea": "Pomysł",
+      "goodPractice": "Dobra praktyka",
+      "localChallenge": "Wyzwanie lokalne"
     },
     "fields": {
       "description": {
         "need": "Opisz problem",
-        "idea": "Opisz pomysł"
+        "idea": "Na czym polega pomysł?",
+        "goodPractice": "Na czym polega praktyka?",
+        "localChallenge": "Opisz wyzwanie w gminie"
       },
       "descriptionHint": "Nie podawaj danych osobowych, np. imion i nazwisk innych osób.",
       "counter": "{count} / {max}",
@@ -262,41 +283,34 @@
         "label": "Miejscowość / gmina (opcjonalnie)",
         "hint": "Na przykład: Nowy Targ."
       },
-      "submitter": {
-        "label": "Kim jesteś? (opcjonalnie)",
-        "empty": "Wolę nie podawać",
-        "options": {
-          "resident": "Mieszkaniec lub mieszkanka",
-          "ngo": "Organizacja pozarządowa",
-          "government": "Jednostka samorządu",
-          "expert": "Ekspert lub ekspertka",
-          "other": "Inna osoba lub instytucja"
-        }
-      },
       "title": {
-        "label": "Tytuł pomysłu"
+        "label": "Tytuł",
+        "optionalLabel": "Tytuł (opcjonalnie)",
+        "optionalHint": "Bez tytułu użyjemy początku opisu."
       },
       "targetGroup": {
-        "label": "Dla kogo jest ten pomysł?",
+        "label": "Dla kogo?",
         "hint": "Na przykład: samotni seniorzy na wsi."
       },
       "stage": {
-        "legend": "Na jakim etapie jest pomysł?",
+        "legend": "Na jakim etapie?",
         "options": {
-          "concept": "Sam pomysł",
-          "preparing": "W przygotowaniu",
-          "tested": "Przetestowany na małą skalę",
-          "running": "Już działa"
+          "idea": "Pomysł",
+          "smallPilot": "Przetestowany w małej skali",
+          "working": "Działa"
         }
-      },
-      "email": {
-        "label": "Adres e-mail (opcjonalnie)",
-        "hint": "Wyślemy tam link do zgłoszenia. Bez adresu zapisz link, który pokażemy po wysłaniu.",
-        "consent": "Zgadzam się, aby ROPS Kraków wysłał link do zgłoszenia na ten adres e-mail."
       },
       "category": {
         "label": "Kategoria (opcjonalnie)",
-        "empty": "Nie wiem / pomiń"
+        "empty": "Nie wiem / dobierzemy automatycznie"
+      },
+      "pilotScale": {
+        "label": "Skala (opcjonalnie)",
+        "hint": "Na przykład: 1 gmina, 40 uczestników, 3 miesiące."
+      },
+      "results": {
+        "label": "Jakie są rezultaty?",
+        "hint": "Co się zmieniło u odbiorców? Podaj liczby, jeśli je masz."
       }
     },
     "errors": {
@@ -304,14 +318,22 @@
       "descriptionTooLong": "Opis może mieć najwyżej {descriptionMax} znaków.",
       "titleTooShort": "Tytuł powinien mieć co najmniej {titleMin} znaki.",
       "titleTooLong": "Tytuł może mieć najwyżej {titleMax} znaków.",
-      "targetGroupTooShort": "Napisz, dla kogo jest pomysł (co najmniej {targetGroupMin} znaki).",
+      "targetGroupTooShort": "Napisz, dla kogo to jest (co najmniej {targetGroupMin} znaki).",
       "targetGroupTooLong": "Ten opis może mieć najwyżej {targetGroupMax} znaków.",
-      "stageRequired": "Wybierz etap, na którym jest pomysł.",
+      "stageRequired": "Wybierz etap.",
       "placeTooLong": "Nazwa miejsca może mieć najwyżej {placeMax} znaków.",
-      "emailInvalid": "Podaj poprawny adres e-mail albo zostaw pole puste.",
-      "consentRequired": "Zaznacz zgodę albo usuń adres e-mail."
+      "pilotScaleTooLong": "Opis skali może mieć najwyżej {pilotScaleMax} znaków.",
+      "resultsRequired": "Opisz, co udało się osiągnąć.",
+      "resultsTooLong": "Opis rezultatów może mieć najwyżej {resultsMax} znaków."
     },
-    "honeypotLabel": "Nie wypełniaj tego pola",
+    "similar": {
+      "title": "Czy to nowy pomysł?",
+      "text": "Sprawdź, czy w Bibliotece Innowacji nie ma już podobnego rozwiązania.",
+      "check": "Sprawdź podobne innowacje",
+      "checking": "Sprawdzanie…",
+      "error": "Nie udało się sprawdzić. Możesz wysłać zgłoszenie mimo to.",
+      "none": "Nie znaleźliśmy podobnych innowacji."
+    },
     "submit": "Wyślij zgłoszenie",
     "sending": "Wysyłanie…",
     "sendError": {
@@ -327,59 +349,11 @@
     "nextSteps": {
       "title": "Co stanie się dalej?",
       "steps": {
-        "read": "Pracownik ROPS Kraków czyta zgłoszenie.",
-        "reply": "Może odpowiedzieć albo poprosić o szczegóły.",
-        "track": "Odpowiedź zobaczysz pod prywatnym linkiem, bez logowania."
+        "read": "Pracownik ROPS Kraków dostaje powiadomienie i czyta zgłoszenie.",
+        "reply": "Odpowiada w wątku zgłoszenia albo prosi o szczegóły.",
+        "track": "Status i odpowiedzi zobaczysz w zakładce „Moje zgłoszenia”."
       },
-      "privacy": "Zgłoszenie trafia do pracowników ROPS Kraków."
-    }
-  },
-  "SubmissionStatus": {
-    "metaTitle": "Status zgłoszenia",
-    "header": {
-      "title": "Twoje zgłoszenie",
-      "reference": "Numer zgłoszenia: {reference}"
-    },
-    "type": {
-      "need": "Potrzeba",
-      "idea": "Pomysł"
-    },
-    "created": {
-      "title": "Zgłoszenie przyjęte",
-      "text": "Dziękujemy. To prywatna strona Twojego zgłoszenia. Tu zobaczysz odpowiedź ROPS Kraków.",
-      "warning": "Zapisz ten link. Bez niego (i bez podanego adresu e-mail) nie wrócisz do zgłoszenia.",
-      "copy": "Skopiuj link",
-      "copied": "Skopiowano"
-    },
-    "timeline": {
-      "title": "Status",
-      "steps": {
-        "received": "Przyjęte",
-        "in-review": "W analizie",
-        "answered": "Odpowiedź",
-        "closed": "Zamknięte"
-      },
-      "state": {
-        "done": "zakończony etap",
-        "current": "aktualny etap",
-        "upcoming": "kolejny etap"
-      }
-    },
-    "reply": {
-      "title": "Odpowiedź ROPS Kraków",
-      "repliedOn": "Odpowiedź z dnia {date}",
-      "none": "Nie ma jeszcze odpowiedzi. Wróć na tę stronę później, korzystając z zapisanego linku."
-    },
-    "summary": {
-      "title": "Twoje zgłoszenie",
-      "sentOn": "Wysłano {date}"
-    },
-    "newSubmission": "Wyślij kolejne zgłoszenie",
-    "notFound": {
-      "title": "Nie znaleźliśmy tego zgłoszenia",
-      "text": "Sprawdź, czy link jest kompletny. Jeśli go zgubiłeś, możesz wysłać nowe zgłoszenie.",
-      "cta": "Zgłoś potrzebę",
-      "home": "Strona główna"
+      "privacy": "Zgłoszenie widzą tylko pracownicy ROPS Kraków. Twoje dane nie trafiają do biblioteki innowacji."
     }
   },
   "Library": {
@@ -433,6 +407,583 @@
       "text": "Nie udało się wyświetlić tej strony. Spróbuj ponownie za chwilę.",
       "retry": "Spróbuj ponownie",
       "home": "Wróć na stronę główną"
+    }
+  },
+  "Account": {
+    "signInPrompt": {
+      "public": {
+        "title": "Zaloguj się, aby kontynuować",
+        "text": "Zgłoszenia, kanwy i oceny są przypisane do Twojego konta. Dzięki temu widzisz status i odpowiedzi ROPS.",
+        "wrongAccount": "Ta strona jest dla mieszkańców, organizacji i samorządów. Wyloguj się z konta pracownika ROPS i zaloguj ponownie.",
+        "cta": "Zaloguj się przez Profil Zaufany"
+      },
+      "admin": {
+        "title": "Panel ROPS – zaloguj się",
+        "text": "Ta część serwisu jest dostępna tylko dla pracowników ROPS Kraków.",
+        "wrongAccount": "To konto nie ma dostępu do panelu ROPS. Wyloguj się i zaloguj kontem pracownika.",
+        "cta": "Zaloguj się do panelu"
+      }
+    },
+    "notifications": {
+      "button": "{count, plural, =0 {Powiadomienia} one {Powiadomienia, # nowe} few {Powiadomienia, # nowe} other {Powiadomienia, # nowych}}",
+      "unread": "{count, plural, one {Masz # nowe powiadomienie} few {Masz # nowe powiadomienia} other {Masz # nowych powiadomień}}",
+      "title": "Powiadomienia",
+      "markAll": "Oznacz wszystkie jako przeczytane",
+      "loading": "Wczytywanie…",
+      "empty": "Brak powiadomień.",
+      "new": "nowe",
+      "kinds": {
+        "submissionCreated": "Nowe zgłoszenie",
+        "submitterMessage": "Nowa wiadomość od zgłaszającego",
+        "staffReply": "ROPS odpowiedział na Twoje zgłoszenie",
+        "statusChanged": "Zmienił się status zgłoszenia",
+        "feedbackReceived": "Nowa opinia o innowacji"
+      }
+    },
+    "menu": {
+      "signIn": "Zaloguj się",
+      "open": "Otwórz menu konta",
+      "roles": {
+        "Resident": "Mieszkaniec",
+        "Ngo": "Organizacja pozarządowa",
+        "Jst": "Samorząd (JST)",
+        "Admin": "Pracownik ROPS"
+      },
+      "adminPanel": "Panel ROPS",
+      "mySubmissions": "Moje zgłoszenia",
+      "myCanvases": "Moje kanwy",
+      "signOut": "Wyloguj się"
+    }
+  },
+  "Auth": {
+    "fields": {
+      "login": "Login",
+      "password": "Hasło"
+    },
+    "errors": {
+      "loginRequired": "Podaj login.",
+      "passwordRequired": "Podaj hasło."
+    },
+    "signingIn": "Logowanie…",
+    "loginError": {
+      "invalid": "Nieprawidłowy login lub hasło.",
+      "wrongPortal": {
+        "public": "Konto pracownika ROPS loguje się w panelu administracyjnym.",
+        "admin": "To konto nie ma dostępu do panelu ROPS."
+      },
+      "rateLimited": "Zbyt wiele prób logowania. Odczekaj minutę i spróbuj ponownie.",
+      "generic": "Nie udało się zalogować. Spróbuj ponownie za chwilę."
+    },
+    "profilZaufany": {
+      "title": "Profil Zaufany",
+      "simulation": "Symulacja logowania – wersja demonstracyjna, konta testowe",
+      "submit": "Zaloguj się",
+      "accountsTitle": "Wybierz konto testowe",
+      "passwordHint": "Hasło do wszystkich kont testowych: Demo2026!",
+      "roles": {
+        "Resident": "Mieszkaniec",
+        "Ngo": "Organizacja pozarządowa",
+        "Jst": "Samorząd (JST)",
+        "Admin": "Pracownik ROPS"
+      }
+    },
+    "public": {
+      "title": "Zaloguj się do HubMI",
+      "lead": "Logowanie jest potrzebne, aby wysłać zgłoszenie do ROPS i śledzić odpowiedź.",
+      "benefits": {
+        "track": "Zobaczysz status każdego zgłoszenia: wysłane, w trakcie, odpowiedź.",
+        "talk": "Porozmawiasz z pracownikiem ROPS w wątku zgłoszenia.",
+        "canvas": "Zaprojektujesz pomysł na Kanwie innowacji społecznej i ocenisz rozwiązania."
+      },
+      "profilZaufany": "Zaloguj się przez Profil Zaufany",
+      "noRegistration": "Nie musisz zakładać osobnego konta w HubMI."
+    },
+    "admin": {
+      "title": "Panel ROPS – logowanie",
+      "lead": "Logowanie dla pracowników ROPS Kraków. Konta zakłada administrator.",
+      "submit": "Zaloguj się do panelu"
+    }
+  },
+  "Submission": {
+    "status": {
+      "received": "Wysłane",
+      "inReview": "W trakcie",
+      "answered": "Odpowiedź",
+      "closed": "Zamknięte",
+      "rejected": "Odrzucone"
+    },
+    "type": {
+      "need": "Potrzeba",
+      "idea": "Pomysł",
+      "goodPractice": "Dobra praktyka",
+      "localChallenge": "Wyzwanie lokalne"
+    },
+    "stage": {
+      "idea": "Pomysł",
+      "smallPilot": "Przetestowany w małej skali",
+      "working": "Działa"
+    },
+    "timeline": {
+      "title": "Status zgłoszenia",
+      "state": {
+        "done": "zakończony etap",
+        "current": "aktualny etap",
+        "upcoming": "kolejny etap"
+      },
+      "rejectionReason": "Powód odrzucenia:"
+    },
+    "thread": {
+      "empty": "Nie ma jeszcze wiadomości. Pracownik ROPS odpowie tutaj.",
+      "emptyStaff": "Nie ma jeszcze wiadomości. Napisz pierwszą odpowiedź.",
+      "staff": "ROPS Kraków",
+      "submitter": "zgłaszający"
+    },
+    "reply": {
+      "empty": "Wpisz treść wiadomości.",
+      "send": "Wyślij wiadomość",
+      "sending": "Wysyłanie…"
+    },
+    "facts": {
+      "category": "Kategoria",
+      "place": "Miejscowość / gmina",
+      "targetGroup": "Dla kogo",
+      "stage": "Etap",
+      "pilotScale": "Skala pilotażu",
+      "results": "Rezultaty",
+      "sentOn": "Wysłano {date}"
+    },
+    "linked": {
+      "title": "Powiązane innowacje z biblioteki",
+      "empty": "Nie znaleziono jeszcze powiązanych innowacji.",
+      "source": {
+        "match": "zaproponowane automatycznie",
+        "submitter": "oglądane przy wyszukiwaniu",
+        "admin": "wskazane przez ROPS"
+      }
+    }
+  },
+  "MySubmissions": {
+    "title": "Moje zgłoszenia",
+    "lead": "Wszystkie Twoje potrzeby, pomysły i praktyki wysłane do ROPS – z aktualnym statusem.",
+    "new": "Nowe zgłoszenie",
+    "loadError": "Nie udało się wczytać zgłoszeń. Odśwież stronę.",
+    "empty": "Nie masz jeszcze zgłoszeń.",
+    "sentOn": "Wysłano {date}",
+    "messages": "{count, plural, =0 {brak wiadomości} one {# wiadomość} few {# wiadomości} other {# wiadomości}}"
+  },
+  "MySubmission": {
+    "metaTitle": "Zgłoszenie",
+    "notFound": "Nie znaleźliśmy tego zgłoszenia",
+    "loadError": "Nie udało się wczytać zgłoszenia",
+    "back": "Wróć do moich zgłoszeń",
+    "number": "Nr {number}",
+    "created": {
+      "title": "Zgłoszenie przyjęte",
+      "text": "Dziękujemy! Numer zgłoszenia: {number}. Pracownicy ROPS dostali powiadomienie – odpowiedź pojawi się na tej stronie."
+    },
+    "conversation": {
+      "title": "Rozmowa z ROPS",
+      "closed": "To zgłoszenie jest zamknięte. Jeśli masz nową sprawę, wyślij kolejne zgłoszenie.",
+      "label": "Twoja wiadomość",
+      "sendError": "Nie udało się wysłać wiadomości. Spróbuj ponownie."
+    }
+  },
+  "Tester": {
+    "title": "Tester innowacji",
+    "signIn": "Zaloguj się,",
+    "signInSuffix": "aby ocenić rozwiązanie, dać opinię albo zaproponować ulepszenie.",
+    "summary": {
+      "loading": "Wczytywanie ocen…",
+      "none": "Nikt jeszcze nie ocenił tego rozwiązania.",
+      "count": "{count, plural, one {# ocena} few {# oceny} other {# ocen}}"
+    },
+    "rate": {
+      "legend": "Oceń rozwiązanie",
+      "option": "{count, plural, one {# gwiazdka} few {# gwiazdki} other {# gwiazdek}} dla: {title}",
+      "failed": "Nie udało się zapisać oceny.",
+      "yours": "{count, plural, one {Twoja ocena: # gwiazdka} few {Twoja ocena: # gwiazdki} other {Twoja ocena: # gwiazdek}}"
+    },
+    "feedback": {
+      "legend": "Co chcesz przekazać?",
+      "kinds": {
+        "feedback": "Opinia",
+        "improvement": "Propozycja ulepszenia"
+      },
+      "label": {
+        "feedback": "Twoja opinia",
+        "improvement": "Co warto ulepszyć?"
+      },
+      "tooShort": "Napisz co najmniej {min} znaków.",
+      "sending": "Wysyłanie…",
+      "send": "Wyślij do ROPS",
+      "failed": "Nie udało się wysłać. Spróbuj ponownie.",
+      "thanks": {
+        "feedback": "Dziękujemy za opinię!",
+        "improvement": "Dziękujemy za propozycję ulepszenia!"
+      }
+    }
+  },
+  "Canvas": {
+    "list": {
+      "title": "Moje kanwy",
+      "lead": "Kanwa innowacji społecznej pomaga przemyśleć pomysł krok po kroku – na tablicach z formularza naboru ROPS.",
+      "source": "Źródło tablic: {source}",
+      "new": "Nowa kanwa",
+      "loadError": "Nie udało się wczytać kanw.",
+      "empty": "Nie masz jeszcze kanw.",
+      "updated": "Zmieniono {date}",
+      "submitted": "Wysłana do ROPS",
+      "delete": "Usuń kanwę „{title}”"
+    },
+    "editor": {
+      "metaTitle": "Kanwa innowacji",
+      "loadError": "Nie udało się wczytać kanwy.",
+      "back": "Wróć do moich kanw",
+      "counter": "{count} / {max}",
+      "amountLabel": "Kwota (zł)",
+      "planTotal": "Suma kosztów w planie: {total}",
+      "titleLabel": "Nazwa kanwy",
+      "saving": "Zapisywanie…",
+      "saved": "Zapisano",
+      "saveError": "Nie udało się zapisać zmian.",
+      "warningsTitle": "Do sprawdzenia"
+    },
+    "plan": {
+      "limit": "{title}: najwyżej {months} mies.",
+      "addRow": "Dodaj działanie: {phase}",
+      "action": "Działanie {number}",
+      "from": "Od (miesiąc)",
+      "to": "Do (miesiąc)",
+      "cost": "Koszt (zł)",
+      "remove": "Usuń działanie {number}"
+    },
+    "submit": {
+      "title": "Wyślij kanwę jako pomysł",
+      "done": "Kanwa została wysłana do ROPS.",
+      "open": "Zobacz zgłoszenie",
+      "text": "Z tablic „Tytuł”, „Opis innowacji”, „Diagnoza problemu”, „Zmiana” i „Opis odbiorców” powstanie karta pomysłu dla ROPS. Kanwę możesz dalej edytować.",
+      "sending": "Wysyłanie…",
+      "send": "Wyślij do ROPS",
+      "error": "Nie udało się wysłać kanwy."
+    }
+  },
+  "Knowledge": {
+    "title": "Zasobnik wiedzy",
+    "lead": "Wyzwania społeczne Małopolski, materiały edukacyjne i narzędzia do projektowania innowacji.",
+    "tools": "Narzędzia",
+    "canvas": {
+      "title": "Kanwa innowacji społecznej",
+      "text": "Przemyśl pomysł krok po kroku, na tablicach z formularza naboru ROPS.",
+      "cta": "Otwórz kanwę"
+    },
+    "submit": {
+      "title": "Masz pomysł?",
+      "text": "Wyślij kartę pomysłu – ROPS odpowie i pomoże go rozwinąć.",
+      "cta": "Zgłoś pomysł"
+    },
+    "challenges": {
+      "title": "Wyzwania społeczne Małopolski",
+      "description": "Obszary z Mapy Wyzwań Społecznych, na które szczególnie potrzeba innowacji.",
+      "empty": "Brak opublikowanych wyzwań.",
+      "source": "Źródło: {source}"
+    },
+    "materials": {
+      "title": "Materiały edukacyjne",
+      "description": "Krótkie przewodniki i artykuły o innowacjach społecznych.",
+      "empty": "Brak opublikowanych materiałów.",
+      "types": {
+        "article": "Artykuł",
+        "video": "Wideo",
+        "guide": "Przewodnik"
+      },
+      "read": "Czytaj: {title}",
+      "open": "Otwórz: {title}"
+    }
+  },
+  "Admin": {
+    "badge": "Panel ROPS",
+    "loadError": "Nie udało się wczytać danych. Odśwież stronę.",
+    "actionError": "Nie udało się wykonać operacji. Spróbuj ponownie.",
+    "duration": {
+      "none": "—",
+      "minutes": "{value} min",
+      "hours": "{value} h",
+      "days": "{value} dni"
+    },
+    "nav": {
+      "label": "Nawigacja panelu",
+      "overview": "Pulpit",
+      "inbox": "Zgłoszenia",
+      "knowledge": "Wiedza",
+      "feedback": "Opinie",
+      "trends": "Trendy"
+    },
+    "overview": {
+      "title": "Pulpit",
+      "lead": "Nowe zgłoszenia i czas odpowiedzi. Dane odświeżają się co 30 sekund.",
+      "unseen": "Nowe, nieotwarte",
+      "unseenHint": "Zgłoszenia, których nikt jeszcze nie otworzył",
+      "waiting": "Czekają na odpowiedź",
+      "oldest": "Najstarsze: {time}",
+      "nobodyWaits": "Nikt nie czeka",
+      "responseTime": "Średni czas odpowiedzi",
+      "median": "Mediana: {value}",
+      "newFeedback": "Nowe opinie o innowacjach",
+      "unseenTitle": "Nowe zgłoszenia",
+      "toInbox": "Wszystkie zgłoszenia"
+    },
+    "inbox": {
+      "title": "Zgłoszenia",
+      "lead": "Potrzeby, pomysły, dobre praktyki i wyzwania lokalne – od najnowszych.",
+      "count": "{count, plural, =0 {Brak zgłoszeń} one {# zgłoszenie} few {# zgłoszenia} other {# zgłoszeń}}",
+      "pagination": "Strony wyników",
+      "previous": "Poprzednia",
+      "next": "Następna",
+      "page": "Strona {page} z {pages}",
+      "empty": "Brak zgłoszeń.",
+      "new": "NOWE",
+      "waiting": "czeka od {time}",
+      "columns": {
+        "submission": "Zgłoszenie",
+        "status": "Status",
+        "author": "Zgłaszający",
+        "received": "Wpłynęło",
+        "response": "Czas odpowiedzi"
+      },
+      "filters": {
+        "q": "Szukaj (numer lub treść)",
+        "status": "Status",
+        "type": "Rodzaj",
+        "category": "Kategoria",
+        "all": "Wszystkie",
+        "unseen": "Tylko nieotwarte"
+      }
+    },
+    "submission": {
+      "title": "Zgłoszenie",
+      "back": "Wróć do zgłoszeń",
+      "notFound": "Nie ma takiego zgłoszenia.",
+      "received": "Wpłynęło {date}",
+      "respondedIn": "Odpowiedź po {time}",
+      "noResponse": "Bez odpowiedzi",
+      "conversation": {
+        "title": "Rozmowa ze zgłaszającym",
+        "label": "Odpowiedź dla zgłaszającego"
+      },
+      "status": {
+        "title": "Status",
+        "label": "Nowy status",
+        "note": "Notatka (opcjonalnie, widoczna dla zgłaszającego)",
+        "save": "Zmień status"
+      },
+      "moderation": {
+        "title": "Moderacja",
+        "edit": "Edytuj treść",
+        "reject": "Odrzuć zgłoszenie",
+        "reason": "Powód odrzucenia (zobaczy go zgłaszający)",
+        "confirmReject": "Odrzuć",
+        "cancel": "Anuluj",
+        "save": "Zapisz zmiany",
+        "fields": {
+          "title": "Tytuł",
+          "description": "Opis",
+          "category": "Kategoria",
+          "noCategory": "Bez kategorii",
+          "place": "Miejscowość / gmina",
+          "targetGroup": "Dla kogo",
+          "stage": "Etap",
+          "pilotScale": "Skala pilotażu",
+          "results": "Rezultaty"
+        }
+      },
+      "links": {
+        "title": "Powiązane innowacje",
+        "empty": "Brak powiązań.",
+        "remove": "Usuń powiązanie: {title}",
+        "search": "Dodaj innowację (szukaj po tytule)",
+        "add": "Dodaj powiązanie: {title}"
+      },
+      "publish": {
+        "title": "Karta w bibliotece",
+        "text": "Utwórz z tego zgłoszenia szkic karty innowacji. Dane osobowe zgłaszającego nie trafią do karty.",
+        "needsCategory": "Najpierw przypisz zgłoszeniu kategorię (Moderacja → Edytuj treść).",
+        "cta": "Utwórz szkic karty"
+      }
+    },
+    "publication": {
+      "status": {
+        "draft": "Szkic",
+        "verified": "Zweryfikowane",
+        "published": "Opublikowane"
+      },
+      "verify": "Zweryfikuj",
+      "publish": "Opublikuj",
+      "unpublish": "Wycofaj publikację",
+      "delete": "Usuń",
+      "verifyNamed": "Zweryfikuj: {title}",
+      "publishNamed": "Opublikuj: {title}",
+      "unpublishNamed": "Wycofaj publikację: {title}",
+      "deleteNamed": "Usuń: {title}"
+    },
+    "knowledge": {
+      "title": "Wiedza",
+      "lead": "Dodawaj, edytuj, weryfikuj i publikuj innowacje, wyzwania i materiały. Publicznie widać tylko opublikowane.",
+      "tabsLabel": "Rodzaj treści",
+      "tabs": {
+        "innovations": "Innowacje",
+        "challenges": "Wyzwania",
+        "materials": "Materiały"
+      },
+      "form": {
+        "none": "Brak",
+        "save": "Zapisz",
+        "cancel": "Anuluj",
+        "draftNote": "Nowa treść zapisuje się jako szkic – zweryfikuj ją i opublikuj."
+      },
+      "innovations": {
+        "search": "Szukaj po tytule",
+        "status": "Status",
+        "all": "Wszystkie",
+        "new": "Dodaj kartę",
+        "caption": "Karty innowacji",
+        "rating": "{value} ({count, plural, one {# ocena} few {# oceny} other {# ocen}})",
+        "columns": {
+          "title": "Karta",
+          "status": "Status",
+          "rating": "Ocena",
+          "updated": "Zmieniono",
+          "actions": "Akcje"
+        }
+      },
+      "challenges": {
+        "new": "Dodaj wyzwanie",
+        "edit": "Edytuj",
+        "editTitle": "Edycja wyzwania",
+        "fields": {
+          "title": "Tytuł",
+          "description": "Opis",
+          "category": "Kategoria",
+          "source": "Źródło (raport, mapa)"
+        }
+      },
+      "materials": {
+        "new": "Dodaj materiał",
+        "edit": "Edytuj",
+        "editTitle": "Edycja materiału",
+        "types": {
+          "article": "Artykuł",
+          "video": "Wideo",
+          "guide": "Przewodnik"
+        },
+        "fields": {
+          "title": "Tytuł",
+          "type": "Rodzaj",
+          "summary": "Krótki opis",
+          "url": "Link (opcjonalnie)",
+          "body": "Treść (opcjonalnie)"
+        },
+        "urlOrBody": "Podaj link albo wpisz treść materiału."
+      },
+      "editor": {
+        "back": "Wróć do listy innowacji",
+        "title": "Karta innowacji",
+        "newTitle": "Nowa karta innowacji",
+        "newLead": "Karta zapisze się jako szkic. Po weryfikacji możesz ją opublikować.",
+        "status": "Status:",
+        "view": "Zobacz w bibliotece",
+        "flow": "Szkic → Zweryfikowane → Opublikowane. Edycja zweryfikowanej karty przywraca ją do szkicu.",
+        "urlHint": "Pełny adres zaczynający się od https://. Puste źródło i licencja zostaną uzupełnione automatycznie.",
+        "chooseCategory": "Wybierz kategorię",
+        "saving": "Zapisywanie…",
+        "save": "Zapisz kartę",
+        "saved": "Zapisano",
+        "fields": {
+          "title": "Tytuł",
+          "categoryId": "Kategoria",
+          "tagline": "Krótki opis (jedno zdanie)",
+          "problems": "Na jakie problemy odpowiada",
+          "solution": "Na czym polega rozwiązanie",
+          "targetGroup": "Grupa docelowa",
+          "beneficiaries": "Kto korzysta",
+          "evidence": "Dowody skuteczności",
+          "sourceUrl": "Źródło",
+          "videoUrl": "Wideo",
+          "materialsUrl": "Materiały",
+          "detailsPdfUrl": "Opis szczegółowy (PDF)",
+          "licenseUrl": "Licencja",
+          "disseminationBadge": "Wyróżnienie do upowszechnienia"
+        }
+      }
+    },
+    "feedback": {
+      "title": "Opinie o innowacjach",
+      "lead": "Wyniki Testera innowacji: opinie i propozycje ulepszeń kart z biblioteki.",
+      "filters": {
+        "status": "Status",
+        "kind": "Rodzaj",
+        "all": "Wszystkie"
+      },
+      "status": {
+        "new": "Nowa",
+        "accepted": "Przyjęta",
+        "rejected": "Odrzucona"
+      },
+      "kind": {
+        "feedback": "Opinia",
+        "improvement": "Propozycja ulepszenia"
+      },
+      "empty": "Brak opinii.",
+      "note": "Notatka ROPS",
+      "accept": "Przyjmij",
+      "reject": "Odrzuć"
+    },
+    "trends": {
+      "title": "Trendy potrzeb",
+      "lead": "Zgłoszenia zebrane według obszarów i w czasie. Widok tylko dla pracowników ROPS, bez danych osobowych.",
+      "filters": {
+        "from": "Od",
+        "to": "Do",
+        "type": "Rodzaj zgłoszeń",
+        "allTypes": "Wszystkie rodzaje"
+      },
+      "kpi": {
+        "categories": "Kategorie ze zgłoszeniami",
+        "categoriesHint": "Ile kategorii biblioteki dostało co najmniej jedno zgłoszenie",
+        "categoriesValue": "{covered} z {total}",
+        "submissions": "Zgłoszenia w okresie",
+        "uncategorised": "{count, plural, one {# bez kategorii} few {# bez kategorii} other {# bez kategorii}}",
+        "responseTime": "Średni czas odpowiedzi",
+        "answered": "{count, plural, =0 {brak odpowiedzi} one {z # odpowiedzi} few {z # odpowiedzi} other {z # odpowiedzi}}",
+        "waiting": "Czekają na odpowiedź"
+      },
+      "categories": {
+        "title": "Zgłoszenia według kategorii",
+        "subtitle": "Wszystkie kategorie biblioteki, także bez zgłoszeń. Najedź na wiersz, aby zobaczyć podział na rodzaje."
+      },
+      "table": {
+        "show": "Pokaż dane jako tabelę",
+        "caption": "Zgłoszenia według kategorii, rodzaju i statusu",
+        "category": "Kategoria",
+        "total": "Razem"
+      },
+      "weekly": {
+        "title": "Zgłoszenia w kolejnych tygodniach",
+        "subtitle": "Tygodnie od poniedziałku.",
+        "label": "Liczba zgłoszeń w tygodniach",
+        "empty": "Brak zgłoszeń w tym okresie.",
+        "item": "Tydzień od {date}: {count}"
+      },
+      "roles": {
+        "title": "Kto zgłasza"
+      },
+      "unmatched": {
+        "title": "Wyszukiwania bez wyników",
+        "subtitle": "Czego mieszkańcy szukali, a biblioteka nie miała odpowiedzi – kandydaci na nowe karty lub nabory.",
+        "empty": "Brak wyszukiwań bez wyników w tym okresie.",
+        "text": "Zapytanie",
+        "count": "Ile razy",
+        "last": "Ostatnio"
+      }
     }
   }
 }

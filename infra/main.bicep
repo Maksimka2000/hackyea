@@ -13,6 +13,18 @@ param postgresAdministratorPassword string
 @description('Salt used to hash client addresses in matching request logs.')
 param matchingClientKeySalt string
 
+@secure()
+@minLength(32)
+@description('Signing key for access tokens (32 or more characters). The API refuses to start without it.')
+param jwtSecretKey string
+
+@allowed(['B2', 'B3'])
+@description('App Service plan size. The API loads two local ONNX models and needs 2-3 GB of memory, so B1 (1.75 GB) is too small.')
+param appServicePlanSku string = 'B3'
+
+@description('Create the demo accounts and list them on the sign-in screen. Turn off for anything that is not a demo.')
+param seedDemoAccounts bool = true
+
 var suffix = uniqueString(subscription().id, resourceGroup().id)
 var tags = { app: 'hubmi', env: 'demo' }
 var planName = 'asp-hubmi-demo'
@@ -33,7 +45,7 @@ resource plan 'Microsoft.Web/serverfarms@2024-04-01' = {
   kind: 'linux'
   tags: tags
   sku: {
-    name: 'B1'
+    name: appServicePlanSku
     tier: 'Basic'
   }
   properties: { reserved: true }
@@ -98,6 +110,17 @@ resource database 'Microsoft.DBforPostgreSQL/flexibleServers/databases@2024-08-0
   properties: {}
 }
 
+// The first migration runs CREATE EXTENSION pg_trgm; Azure only allows extensions that are listed here.
+resource postgresExtensions 'Microsoft.DBforPostgreSQL/flexibleServers/configurations@2024-08-01' = {
+  parent: postgres
+  name: 'azure.extensions'
+  dependsOn: [database]
+  properties: {
+    value: 'PG_TRGM'
+    source: 'user-override'
+  }
+}
+
 resource api 'Microsoft.Web/sites@2024-04-01' = {
   name: apiName
   location: location
@@ -151,17 +174,32 @@ resource matchingSaltSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
   properties: { value: matchingClientKeySalt }
 }
 
+resource jwtSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: vault
+  name: 'jwt-secret-key'
+  properties: { value: jwtSecretKey }
+}
+
 resource apiSettings 'Microsoft.Web/sites/config@2024-04-01' = {
   parent: api
   name: 'appsettings'
   properties: {
     ASPNETCORE_ENVIRONMENT: 'Production'
     WEBSITES_PORT: '8080'
+    // Pulling the image, loading the matching models and migrating can take longer than the default 230 seconds.
+    WEBSITES_CONTAINER_START_TIME_LIMIT: '600'
     ConnectionStrings__HubMi: '@Microsoft.KeyVault(SecretUri=${connectionSecret.properties.secretUriWithVersion})'
     Matching__ClientKeySalt: '@Microsoft.KeyVault(SecretUri=${matchingSaltSecret.properties.secretUriWithVersion})'
     Persistence__MigrateOnStartup: 'true'
     Persistence__SeedSampleLibrary: 'true'
+    Persistence__SeedIdentity: string(seedDemoAccounts)
+    Auth__ExposeDemoAccounts: string(seedDemoAccounts)
+    Auth__Jwt__SecretKey: '@Microsoft.KeyVault(SecretUri=${jwtSecret.properties.secretUriWithVersion})'
     Swagger__Enabled: 'false'
+    // Behind the App Service front end every visitor looks like the same address, so these per-address limits are
+    // really shared by everyone: keep them high enough for a room full of people trying the demo.
+    RateLimiting__Match__PermitLimit: '300'
+    RateLimiting__Login__PermitLimit: '60'
   }
 }
 

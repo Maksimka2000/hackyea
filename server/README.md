@@ -26,3 +26,31 @@ Each capability has folders for controllers, contracts, validators, services, an
 `AGENTS.md` is the canonical backend rule set for both Codex and Claude. The repository-root `CLAUDE.md` points to it.
 
 `Program.cs` follows the ScribeRocket-style composition flow: register API services, register feature services, build the app, then apply one pipeline method. Infrastructure registration and startup tasks will be added when there are real services and database migrations to run.
+
+## Accounts and demo sign-in
+
+Accounts live in ASP.NET Core Identity tables in the HubMI database; there is no registration. With `Persistence:SeedIdentity`
+(on in Development and in `docker-compose.hubmi.yml`) the roles and the demo accounts from
+`HubMi.Infrastructure/Imports/SampleData/demo-accounts.json` are created. All of them are fictional.
+
+| Login | Password | Role |
+| --- | --- | --- |
+| `admin@rops.demo` | `Admin2026!` | Admin (ROPS staff panel, `POST /api/auth/admin/login`) |
+| `jan.kowalski@demo.pl`, `ewa.zielinska@demo.pl` | `Demo2026!` | Resident |
+| `fundacja.razem@demo.pl` | `Demo2026!` | Ngo |
+| `gmina.zielonadolina@demo.pl` | `Demo2026!` | Jst (can report local challenges) |
+
+Public accounts sign in with `POST /api/auth/login` (behind the simulated Profil Zaufany screen). Paste the returned
+`accessToken` into Swagger's "Authorize". The signing key is `Auth:Jwt:SecretKey` (32+ bytes): a dev placeholder is in
+`appsettings.Development.json`; Docker needs `HUBMI_JWT_SECRET` in `server/.env`.
+
+## Engagement capabilities
+
+- **Submissions** (`api/submissions`, `api/admin/submissions`): needs, ideas, good practices and local challenges with a status
+  timeline, a conversation with staff, linked innovations (matched automatically on create) and response-time statistics.
+- **Notifications** (`api/notifications`): in-app notices polled by the web app (new submission → staff; reply or status change → submitter).
+- **Knowledge** (`api/admin/innovations|challenges|materials`, public `api/challenges`, `api/materials`): draft → verified → published.
+- **Innovation Tester** (`api/innovations/{id}/rating|feedback`, `api/admin/feedback`).
+- **Social Innovation Canvas** (`api/canvas-templates`, `api/canvases`): boards from the ROPS call form; a canvas can be sent as an idea.
+  Templates carry `callId` / availability fields as the extension point for a future call-specific application generator.
+- **Trends** (`api/admin/trends`, `api/admin/overview`): submissions by category (all categories, including empty ones), week and role, plus unmatched searches.

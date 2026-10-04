@@ -1,3 +1,4 @@
 # Admin
 
-Admin-only application workflows, including sign-in and operations spanning multiple capabilities. Keep innovation-specific editing in the Innovations feature. Identity storage and credential verification belong in Infrastructure.
+Staff-only views spanning capabilities: the start-page overview and the trend dashboard (`TrendService`, `ITrendQueries`).
+Submission handling lives in `Submissions`, knowledge editing in `Knowledge`, feedback review in `Testing`.

@@ -1,6 +1,7 @@
 using HubMi.Features.Matching.Contracts;
 using HubMi.Features.Matching.Services;
 using HubMi.Features.Matching.Validators;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Options;
 namespace HubMi.Features.Matching.Controllers;
 
 [ApiController]
+[AllowAnonymous]
 [Route("api/match")]
 public sealed class MatchController(
     MatchRequestValidator validator,

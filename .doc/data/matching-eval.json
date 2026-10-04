@@ -1,0 +1,502 @@
+{
+  "note": "37 Polish queries used to choose and calibrate the first model (not independent) plus 22 'none' queries that must return no card (tag none, category null). Add queries nobody tuned against before trusting accuracy numbers. category = category slug of the expected best card.",
+  "queries": [
+    {
+      "query": "nikt do mnie nie dzwoni",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "centrum-antydepresyjne",
+        "terapeuta-przestrzeni",
+        "mobilne-centrum-pomocy-dla-osob-starszych",
+        "wirtualne-izby-pamieci"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "śpię na dworcu",
+      "category": "dla-osob-w-kryzysie-bezdomnosci",
+      "acceptableCards": [
+        "szlakiem-ludzi-bezdomnych",
+        "wiejski-program-pomocy-osobom-w-kryzysie-bezdomnosci-sciezka-feniksa"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "babcia nie wychodzi z domu",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "terapeuta-przestrzeni",
+        "mobilne-centrum-pomocy-dla-osob-starszych",
+        "organizator-kompleksowej-opieki-w-miejscu-zamieszkania",
+        "sciezka-motosensoryczna"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "nie mogę znaleźć roboty po 50tce",
+      "category": "dla-rynku-pracy",
+      "acceptableCards": [
+        "agencja-pracy-incydentalnej",
+        "mobilna-gielda-pracy",
+        "konsultant-etr"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "dziadek zapomina gdzie mieszka",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "kody-qr-na-pomoc-seniorom",
+        "korytarz-wspomnien",
+        "sciezka-treningu-umyslu"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "mój syn nie mówi",
+      "category": "dla-dzieci-mlodziezy-i-rodziny",
+      "acceptableCards": [
+        "jezykolamacz",
+        "piosenki-uczestniczace",
+        "go-ahead-mow-smialo"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "niewidomy nie umie trafić do urzędu",
+      "category": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
+      "acceptableCards": [
+        "ngoz-nawigacja-glosowa-osob-zaleznych",
+        "teleasystent",
+        "blue-sea-eye",
+        "dostepny-wniosek-dla-ggluchych"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "jestem głuchy",
+      "category": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
+      "acceptableCards": [
+        "straznik",
+        "hear-it",
+        "gluchy-czytelnik-w-bibliotece",
+        "wibraap",
+        "dostepny-wniosek-dla-ggluchych"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "wózek inwalidzki",
+      "category": "dla-osob-o-ograniczonej-mobilnosci",
+      "acceptableCards": [
+        "ev-modul-do-wozkow-inwalidzkich",
+        "lekki-wozek-aktywny",
+        "uniodziez",
+        "wozek-szermierczy"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "proteza nogi",
+      "category": "dla-osob-o-ograniczonej-mobilnosci",
+      "acceptableCards": [
+        "chlap-pro",
+        "cloudleg",
+        "kompleksowa-pomoc-dla-osob-po-amputacji-konczyny-dolnej"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "jestem uchodźcą nie znam polskiego",
+      "category": "dla-cudzoziemcow",
+      "acceptableCards": [
+        "wortal-informacyjny",
+        "dialog-ponad-kulturami-1",
+        "health-guide-pl",
+        "dialog-ponad-kulturami",
+        "zrozum-moja-kulture-zrozum-mnie"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "Afgańczycy",
+      "category": "dla-cudzoziemcow",
+      "acceptableCards": [
+        "wortal-informacyjny",
+        "dialog-ponad-kulturami-1"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "lekarz dla obcokrajowca",
+      "category": "dla-cudzoziemcow",
+      "acceptableCards": [
+        "health-guide-pl"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "zapominam brać leki",
+      "category": "dla-zdrowia-i-medycyny",
+      "acceptableCards": [
+        "inteligentny-organizer-do-lekow",
+        "cold-box"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "rak",
+      "category": "dla-zdrowia-i-medycyny",
+      "acceptableCards": [
+        "oncotriada",
+        "drogowskazy-ajkum"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "choroba rzadka",
+      "category": "dla-zdrowia-i-medycyny",
+      "acceptableCards": [
+        "paszport-pacjenta-z-choroba-rzadka"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "niepełnosprawny intelektualnie nie umie załatwić sprawy w urzędzie",
+      "category": "dla-osob-z-niepelnosprawnoscia-intelektualna",
+      "acceptableCards": [
+        "urzedowy-ambaras",
+        "zalatw-to-sam",
+        "dostepny-wniosek-dla-ggluchych"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "dziecko z autyzmem w szkole",
+      "category": "dla-dzieci-mlodziezy-i-rodziny",
+      "acceptableCards": [
+        "mobilny-pomocnik-dydaktyczno-sensoryczny-dla-uczniowstudentow-ze-spektrum-autyzmu",
+        "autyzm-i-ja",
+        "ta-sciezka-terapeutyczna-sciezka-kulturowa-dla-dzieci-i-doroslych-z-autyzmem",
+        "przewodnik-dla-osob-z-asd-moje-potrzeby-gdzie-i-jak-je-realizowac"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "prysznic dla bezdomnych",
+      "category": "dla-osob-w-kryzysie-bezdomnosci",
+      "acceptableCards": [
+        "szlakiem-ludzi-bezdomnych"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "kobiety na wsi bez pracy",
+      "category": "dla-rynku-pracy",
+      "acceptableCards": [
+        "mobilna-gielda-pracy"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "wypalenie zawodowe",
+      "category": "dla-rynku-pracy",
+      "acceptableCards": [
+        "niewypaleni"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "gra planszowa o sądzie",
+      "category": "dla-osob-z-niepelnosprawnoscia-intelektualna",
+      "acceptableCards": [
+        "pelna-wokanda"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "przemoc w rodzinie",
+      "category": "dla-dzieci-mlodziezy-i-rodziny",
+      "acceptableCards": [
+        "mobilna-pomoc-terapeutyczna"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "dziadek nie umie obsłużyć automatu w kiosku",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "merkury",
+        "wirtualne-izby-pamieci"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "po amputacji nogi",
+      "category": "dla-osob-o-ograniczonej-mobilnosci",
+      "acceptableCards": [
+        "kompleksowa-pomoc-dla-osob-po-amputacji-konczyny-dolnej",
+        "cloudleg",
+        "chlap-pro"
+      ],
+      "tag": "clean"
+    },
+    {
+      "query": "nikt do mnie nie dzownii",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "centrum-antydepresyjne",
+        "terapeuta-przestrzeni",
+        "mobilne-centrum-pomocy-dla-osob-starszych",
+        "wirtualne-izby-pamieci"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "spie na dworczu",
+      "category": "dla-osob-w-kryzysie-bezdomnosci",
+      "acceptableCards": [
+        "szlakiem-ludzi-bezdomnych",
+        "wiejski-program-pomocy-osobom-w-kryzysie-bezdomnosci-sciezka-feniksa"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "babcia nie wychodzi z doomu",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "terapeuta-przestrzeni",
+        "mobilne-centrum-pomocy-dla-osob-starszych",
+        "organizator-kompleksowej-opieki-w-miejscu-zamieszkania",
+        "sciezka-motosensoryczna"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "niemoge znalesc roboty po 50tce",
+      "category": "dla-rynku-pracy",
+      "acceptableCards": [
+        "agencja-pracy-incydentalnej",
+        "mobilna-gielda-pracy",
+        "konsultant-etr"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "jestem uchodzca nie znam polskigo",
+      "category": "dla-cudzoziemcow",
+      "acceptableCards": [
+        "wortal-informacyjny",
+        "dialog-ponad-kulturami-1",
+        "health-guide-pl",
+        "dialog-ponad-kulturami",
+        "zrozum-moja-kulture-zrozum-mnie"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "wuzek inwalidzki",
+      "category": "dla-osob-o-ograniczonej-mobilnosci",
+      "acceptableCards": [
+        "ev-modul-do-wozkow-inwalidzkich",
+        "lekki-wozek-aktywny",
+        "uniodziez",
+        "wozek-szermierczy"
+      ],
+      "tag": "typo"
+    },
+    {
+      "query": "nie moge znalezc roboty po 50tce",
+      "category": "dla-rynku-pracy",
+      "acceptableCards": [
+        "agencja-pracy-incydentalnej",
+        "mobilna-gielda-pracy",
+        "konsultant-etr"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "dziadek zapomina gdzie mieszka",
+      "category": "dla-seniorow",
+      "acceptableCards": [
+        "kody-qr-na-pomoc-seniorom",
+        "korytarz-wspomnien",
+        "sciezka-treningu-umyslu"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "niewidomy nie umie trafic do urzedu",
+      "category": "dla-osob-z-niepelnosprawnoscia-sensoryczna",
+      "acceptableCards": [
+        "ngoz-nawigacja-glosowa-osob-zaleznych",
+        "teleasystent",
+        "blue-sea-eye",
+        "dostepny-wniosek-dla-ggluchych"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "jestem uchodzca nie znam polskiego",
+      "category": "dla-cudzoziemcow",
+      "acceptableCards": [
+        "wortal-informacyjny",
+        "dialog-ponad-kulturami-1",
+        "health-guide-pl",
+        "dialog-ponad-kulturami",
+        "zrozum-moja-kulture-zrozum-mnie"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "zapominam brac leki",
+      "category": "dla-zdrowia-i-medycyny",
+      "acceptableCards": [
+        "inteligentny-organizer-do-lekow",
+        "cold-box"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "spie na dworcu",
+      "category": "dla-osob-w-kryzysie-bezdomnosci",
+      "acceptableCards": [
+        "szlakiem-ludzi-bezdomnych",
+        "wiejski-program-pomocy-osobom-w-kryzysie-bezdomnosci-sciezka-feniksa"
+      ],
+      "tag": "no-diacritics"
+    },
+    {
+      "query": "kupiłem wczoraj pizzę",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "jaka jutro będzie pogoda",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "jak ugotować rosół",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "gdzie kupić tani samochód",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "chcę założyć firmę budowlaną",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "problem z podatkiem VAT w firmie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "mój pies nie chce jeść",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "naprawa pralki",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "najlepsze kino w Krakowie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "kiedy gra Wisła Kraków",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "asdf qwer zxcv",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "jak nauczyć się programować w pythonie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "ile kosztuje bilet do Paryża",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "przepis na szarlotkę",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "dostałem mandat za parkowanie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "jak wymienić oponę w samochodzie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "wynajem mieszkania w Warszawie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "kredyt hipoteczny na dom",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "zepsuł mi się telefon",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "co oglądać na Netflixie",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "wymiana dachu na domu",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    },
+    {
+      "query": "jak zrobić prawo jazdy kategorii B",
+      "category": null,
+      "acceptableCards": [],
+      "tag": "none"
+    }
+  ]
+}

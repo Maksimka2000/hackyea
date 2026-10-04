@@ -11,9 +11,10 @@ Scope: everything under `web/`. Backend rules live in `server/AGENTS.md`. Compon
 
 ## Routing and languages
 
-- All routes live under `src/app/[locale]/`. Groups: `(public)` for the public site, `(auth)` for admin login, `(admin)` for the staff panel.
-- Polish (`pl`) is the primary language and default; English (`en`) is secondary. Locale detection is off on purpose.
-- Never hardcode user-facing text. Add keys to `messages/pl.json` first, then mirror them in `messages/en.json` with the same structure. Keys are typed from `pl.json`.
+- All routes live under `src/app/[locale]/`. Groups: `(public)` for the public site (including `/login`, the simulated Profil Zaufany sign-in), `(auth)` for staff login, `(admin)` for the staff panel.
+- Sending a submission, "Moje zgłoszenia", canvases and rating need a signed-in resident, NGO or JST; wrap such UI in `RequireRole` (`shared/account`). The session (token in sessionStorage) lives in `shared/lib/auth-session.ts`; `fetchJson` attaches the token and clears the session on 401.
+- The service is Polish only (`pl`): no other language and no language switcher (TASK.MD requirement). Do not add `en.json` or other locales.
+- Never hardcode user-facing text. Add keys to `messages/pl.json`; keys are typed from it.
 - Links between pages use `Link`/`ButtonLink` from `@/i18n/navigation`, never `next/link`.
 - Seeded content (innovations, resources) comes from the API in Polish only.
 
@@ -46,7 +47,7 @@ Scope: everything under `web/`. Backend rules live in `server/AGENTS.md`. Compon
 
 - The backend contract is not final. Each feature keeps three separate layers: DTO schema (`schemas/*DtoSchema.ts`, mirrors the server), mapper (`utils/map*.ts`), and a view-model type (`types/`). Components only see view models.
 - When the real contract changes, edit the DTO schema and mapper. Do not change components for a renamed field.
-- Each feature switches between mock and live on its own (`apiModeFor("matching" | "innovationDetail" | "innovationList" | "submissions")`): `NEXT_PUBLIC_API_MODE` is the default and `NEXT_PUBLIC_API_MODE_<FEATURE>` overrides it (see `.env.example`). Switch a feature to live only when the backend serves it. Mock fixtures live in `api/*Mock.ts` and pass through the same DTO schema as live data.
+- Public read features switch between mock and live on their own (`apiModeFor("matching" | "innovationDetail" | "innovationList")`); signed-in features are always live: `NEXT_PUBLIC_API_MODE` is the default and `NEXT_PUBLIC_API_MODE_<FEATURE>` overrides it (see `.env.example`). Switch a feature to live only when the backend serves it. Mock fixtures live in `api/*Mock.ts` and pass through the same DTO schema as live data.
 - Browser calls use the same-origin `/api` path, which `next.config.ts` proxies to `API_ORIGIN`; server components call `serverApiBaseUrl`. Frontend work does not edit `server/` by default; a small backend change is fine when the backend owner agrees to it, kept in its own commit, and backend gaps otherwise go to the backend developer as a request.
 - Mark guessed endpoints and shapes as PLACEHOLDER/PROPOSED in a comment.
 - Never put the user's problem description (or any free text they typed) in a URL or query string; it may contain personal details. Pass it between pages through `shared/lib/problem-session.ts`.
@@ -59,3 +60,13 @@ Scope: everything under `web/`. Backend rules live in `server/AGENTS.md`. Compon
 - Run `npm run typecheck` and `npm run lint` before committing; both must be clean.
 - Do not commit `.next/`, `node_modules/`, or `.env*` files other than `.env.example`.
 - Preserve a teammate's uncommitted work. Coordinate edits to shared files: `tokens.css`, `messages/*.json`, `package.json`.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
