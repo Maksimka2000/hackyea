@@ -29,7 +29,7 @@ jobs:
 
       - name: Read provisioned HubMi resource names
         env:
-          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
         run: |
           set -euo pipefail
           for output in registryName apiName webName apiUrl webUrl; do
@@ -56,7 +56,7 @@ jobs:
 
       - name: Deploy API image
         env:
-          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
         run: |
           set -euo pipefail
           az webapp config container set \
@@ -79,7 +79,7 @@ jobs:
 
       - name: Deploy web image
         env:
-          RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
+          RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
         run: |
           set -euo pipefail
           az webapp config container set \

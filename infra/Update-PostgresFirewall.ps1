@@ -2,22 +2,25 @@
 param(
     [Parameter(Mandatory)] [string] $ResourceGroup,
     [Parameter(Mandatory)] [string] $PostgresServerName,
-    [Parameter(Mandatory)] [string] $ApiWebAppName
+    [Parameter(Mandatory)] [string] $ApiWebAppName,
+    [switch] $IncludePossibleOutboundIps
 )
 
 $ErrorActionPreference = 'Stop'
+$addressProperty = if ($IncludePossibleOutboundIps) { 'possibleOutboundIpAddresses' } else { 'outboundIpAddresses' }
 
 $rawAddresses = az webapp show `
     --resource-group $ResourceGroup `
     --name $ApiWebAppName `
-    --query possibleOutboundIpAddresses `
+    --query $addressProperty `
     --output tsv
 
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($rawAddresses)) {
     throw "Cannot determine outbound addresses for $ApiWebAppName."
 }
 
-$addresses = $rawAddresses.Split(',', [StringSplitOptions]::RemoveEmptyEntries).Trim() | Sort-Object -Unique
+$addresses = @($rawAddresses.Split(',', [StringSplitOptions]::RemoveEmptyEntries).Trim() | Sort-Object -Unique)
+Write-Host "Found $($addresses.Count) $addressProperty for $ApiWebAppName."
 $existingRules = @(az postgres flexible-server firewall-rule list `
     --resource-group $ResourceGroup `
     --name $PostgresServerName `
@@ -28,12 +31,15 @@ if ($LASTEXITCODE -ne 0) {
     throw "Could not list existing firewall rules on $PostgresServerName."
 }
 
-foreach ($address in $addresses) {
+for ($index = 0; $index -lt $addresses.Count; $index++) {
+    $address = $addresses[$index]
     $ruleName = 'hubmi-api-' + $address.Replace('.', '-')
     if ($existingRules -contains $ruleName) {
+        Write-Host "[$($index + 1)/$($addresses.Count)] Already allowed: $address"
         continue
     }
 
+    Write-Host "[$($index + 1)/$($addresses.Count)] Allowing: $address"
     az postgres flexible-server firewall-rule create `
         --resource-group $ResourceGroup `
         --name $PostgresServerName `
@@ -47,4 +53,4 @@ foreach ($address in $addresses) {
     }
 }
 
-Write-Host "Allowed $($addresses.Count) possible API outbound addresses on $PostgresServerName."
+Write-Host "Allowed all $($addresses.Count) selected API outbound addresses on $PostgresServerName."
