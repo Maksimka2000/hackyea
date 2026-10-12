@@ -48,7 +48,12 @@ services:
       Auth__ExposeDemoAccounts: ${HUBMI_SEED_DEMO_ACCOUNTS:-true}
       Auth__Jwt__SecretKey: ${HUBMI_JWT_SECRET:?Set HUBMI_JWT_SECRET (32+ characters) in server/.env}
       Matching__ClientKeySalt: ${HUBMI_CLIENT_KEY_SALT:-}
+      # Thresholds T and F for tuning (tools/tune-thresholds.sh). Keep the defaults equal to search-config.json.
+      Matching__RerankThreshold: ${HUBMI_RERANK_T:-0.001}
+      Matching__RetrievalFloor: ${HUBMI_FLOOR_F:-0.30}
       RateLimiting__Match__PermitLimit: ${HUBMI_MATCH_RATE_LIMIT:-20}
+      # Without this every SQL command is logged, including the refresher's checks every 10 s, which buries the "Match scores" lines.
+      Logging__LogLevel__Microsoft.EntityFrameworkCore: Warning
     ports:
       - "8081:8080"
     restart: unless-stopped

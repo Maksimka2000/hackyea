@@ -37,7 +37,8 @@ public sealed class MatchingOptions
 
     /// <summary>
     /// F: when even the best card's best row is less similar than this to the query, nothing is returned and the reranker is not run.
-    /// Calibrate on the evaluation set.
+    /// With BGE-M3 even off-topic questions score above 0.30, so on the evaluation set this floor stopped no question: the
+    /// reranker threshold T does the filtering.
     /// </summary>
     [Range(0.0, 1.0)] public double RetrievalFloor { get; set; } = 0.30;
 
@@ -46,9 +47,10 @@ public sealed class MatchingOptions
 
     /// <summary>
     /// T: reranker score (a probability, 0-1) a card needs to be returned. bge-reranker-v2-m3 is strict with everyday wording, so
-    /// useful matches often score far below 0.5; calibrate on the evaluation set. A wrong card is worse than none, so favour precision.
+    /// useful matches often score far below 0.5. 0.001 is the lowest value that kept the off-topic queries at one wrong card of 22
+    /// on matching-eval.json (0.0005 gave 4, 0.0002 gave 8); see .doc/search-engine.md. A wrong card is worse than none, so favour precision.
     /// </summary>
-    [Range(0.0, 1.0)] public double RerankThreshold { get; set; } = 0.005;
+    [Range(0.0, 1.0)] public double RerankThreshold { get; set; } = 0.001;
 
     /// <summary>Reranker score at or above which a card counts as a 100 % match. Between T (0 %) and this score the percentage grows with the model's logit.</summary>
     [Range(0.0, 1.0)] public double RerankCeiling { get; set; } = 0.9;

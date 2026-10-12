@@ -1,3 +1,4 @@
+using HubMi.Features.Matching;
 using HubMi.Features.Matching.Ports;
 using HubMi.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -19,10 +20,17 @@ internal sealed class VectorIndexRefresher(
     ITextEmbedder embedder,
     IReranker reranker,
     IOptions<EmbeddingOptions> options,
+    IOptions<MatchingOptions> matching,
     ILogger<VectorIndexRefresher> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        // The values that really apply after configuration sources are merged; tools/tune-thresholds.sh checks this line.
+        logger.LogInformation(
+            "Matching thresholds: F={Floor} T={Threshold} retrieval={Retrieval} rerank={Rerank} results={Results}",
+            matching.Value.RetrievalFloor, matching.Value.RerankThreshold, matching.Value.RetrievalLimit,
+            matching.Value.RerankCandidates, matching.Value.ResultCount);
+
         if (!embedder.IsReady)
             return;
 

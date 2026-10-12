@@ -4,7 +4,7 @@
     "PartialThreshold": 30,
     "RetrievalFloor": 0.3,
     "RetrievalOnlyFloor": 0.55,
-    "RerankThreshold": 0.005,
+    "RerankThreshold": 0.001,
     "RerankCeiling": 0.9,
     "RetrievalOnlyCeiling": 0.75,
     "StopWords": [
