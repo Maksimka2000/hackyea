@@ -8,7 +8,7 @@ set -euo pipefail
 
 BASE="${1:-http://localhost:8081}"
 FILE="${2:-$(dirname "$0")/../../.doc/data/matching-eval.json}"
-total=0 top1=0 top3=0 card3=0 empty=0 none=0 none_ok=0 detected=0 none_cat=0
+total=0 top1=0 top4=0 card4=0 empty=0 none=0 none_ok=0 detected=0 none_cat=0
 
 while IFS='|' read -r query category cards tag; do
   response=$(curl -fsS -X POST "$BASE/api/match" -H 'Content-Type: application/json' \
@@ -26,18 +26,18 @@ while IFS='|' read -r query category cards tag; do
 
   # category of each returned card is in .results[].category.id; the card slug is the text after the last comma of sourceUrl
   got1=$(jq -r '.results[0].category.id // "-"' <<<"$response")
-  got3=$(jq -r '[.results[:3][].category.id] | join(" ")' <<<"$response")
-  slugs=$(jq -r '[.results[:3][].sourceUrl | split(",") | last] | join(" ")' <<<"$response")
+  got4=$(jq -r '[.results[:4][].category.id] | join(" ")' <<<"$response")
+  slugs=$(jq -r '[.results[:4][].sourceUrl | split(",") | last] | join(" ")' <<<"$response")
   total=$((total+1))
   [[ "$count" == "0" ]] && empty=$((empty+1))
   [[ "$(jq -r '.category.id // "-"' <<<"$response")" == "$category" ]] && detected=$((detected+1))
   [[ "$got1" == "$category" ]] && top1=$((top1+1)) && mark="OK " || mark="-- "
-  [[ " $got3 " == *" $category "* ]] && top3=$((top3+1))
-  for slug in $slugs; do [[ ",$cards," == *",$slug,"* ]] && { card3=$((card3+1)); break; }; done
+  [[ " $got4 " == *" $category "* ]] && top4=$((top4+1))
+  for slug in $slugs; do [[ ",$cards," == *",$slug,"* ]] && { card4=$((card4+1)); break; }; done
   printf '%s %-13s %-62s -> %-12s conf=%s\n' "$mark" "$tag" "${query:0:62}" "${got1:0:12}" "$conf"
 done < <(jq -r '.queries[] | [.query, (.category // ""), (.acceptableCards | join(",")), .tag] | join("|")' "$FILE")
 
 echo
-echo "queries with an answer: $total   top-1 category: $top1   top-3 category: $top3   acceptable card in top 3: $card3   returned nothing: $empty"
+echo "queries with an answer: $total   top-1 category: $top1   top-4 category: $top4   acceptable card in top 4: $card4   returned nothing: $empty"
 echo "detected category (response-level) correct: $detected of $total"
 echo "no-match queries: $none   correctly empty: $none_ok   wrong cards shown: $((none-none_ok))   with a category although empty or wrong: $none_cat"

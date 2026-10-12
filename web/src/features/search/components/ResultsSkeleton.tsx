@@ -1,6 +1,6 @@
 import { MatchCardSkeleton } from "./MatchCardSkeleton";
 
-const SKELETON_COUNT = 3;
+const SKELETON_COUNT = 4;
 
 export function ResultsSkeleton() {
   return (

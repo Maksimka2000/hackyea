@@ -12,7 +12,7 @@ public sealed class HubMiDbContextFactory : IDesignTimeDbContextFactory<HubMiDbC
                                ?? "Host=localhost;Database=hubmi";
 
         var options = new DbContextOptionsBuilder<HubMiDbContext>()
-            .UseNpgsql(connectionString)
+            .UseNpgsql(connectionString, npgsql => npgsql.UseVector())
             .UseSnakeCaseNamingConvention()
             .Options;
 

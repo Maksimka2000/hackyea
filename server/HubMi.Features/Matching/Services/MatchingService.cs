@@ -10,7 +10,7 @@ using Microsoft.Extensions.Options;
 namespace HubMi.Features.Matching.Services;
 
 /// <summary>
-/// Describe a problem, get solutions. The vector search proposes the cards whose problem, solution or reviewed everyday sentences are
+/// Describe a problem, get solutions. The vector search (pgvector, cosine) proposes the cards whose problem or solution text is
 /// closest in meaning; below the floor F nothing is returned. The reranker then reads the text together with each candidate, and only
 /// cards scoring at least T are returned, so "no match" is a valid answer. The keyword scorer only explains which of the user's words
 /// each card contains. If the meaning models are unavailable the service falls back to keyword search.
@@ -69,12 +69,16 @@ public sealed class MatchingService(
     private async Task<List<ScoredInnovation>?> RankByMeaningAsync(
         string text, AnalyzedQuery query, CorpusStatistics statistics, CancellationToken cancellationToken)
     {
-        if (!embedder.IsReady || !vectorIndex.IsReady)
+        if (!embedder.IsReady)
             return null;
 
         try
         {
-            var cards = await FindCardsAsync(text, cancellationToken);
+            var version = await vectorIndex.GetVersionAsync(cancellationToken);
+            if (version is null)
+                return null;
+
+            var cards = await FindCardsAsync(text, version, cancellationToken);
             return cards?
                 .Select(c => scorer.Score(c.Card, query, statistics) with
                 {
@@ -95,14 +99,14 @@ public sealed class MatchingService(
     private sealed record CardScore(Innovation Card, double Score, int Percent, string Kind);
 
     /// <summary>Vector search, early exit below F, rerank, keep score >= T. Best first. Null when the index has nothing to say.</summary>
-    private async Task<List<CardScore>?> FindCardsAsync(string text, CancellationToken cancellationToken)
+    private async Task<List<CardScore>?> FindCardsAsync(string text, string indexVersion, CancellationToken cancellationToken)
     {
-        var cacheKey = $"{vectorIndex.Version}|{text.ToLowerInvariant()}";
+        var cacheKey = $"{indexVersion}|{text.ToLowerInvariant()}";
         if (cache.TryGet(cacheKey, out List<CardScore>? cached))
             return cached;
 
         var vector = await embedder.EmbedAsync(text, cancellationToken);
-        var hits = vectorIndex.Search(vector, _options.RetrievalLimit);
+        var hits = await vectorIndex.SearchAsync(vector, _options.RetrievalLimit, cancellationToken);
         if (hits.Count == 0)
             return null;
 

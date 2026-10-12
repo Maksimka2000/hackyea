@@ -27,7 +27,7 @@ public static partial class MatchExplainer
     [GeneratedRegex(@"^Innowacja\s+(?:odpowiada\s+na|stanowi\s+odpowiedź\s+na|jest\s+odpowiedzią\s+na|dotyczy|ma\s+na\s+celu)\s+", RegexOptions.IgnoreCase)]
     private static partial Regex LeadIn();
 
-    /// <param name="matchedKind">The row that matched in the vector search (problem, solution, synthetic) or null for the keyword fallback.</param>
+    /// <param name="matchedKind">The row that matched in the vector search (problem, solution) or null for the keyword fallback.</param>
     /// <param name="sharesWords">Whether the user's words occur anywhere in the card.</param>
     public static WhyDto Explain(Innovation card, string? matchedKind, AnalyzedQuery query, bool sharesWords)
     {
@@ -38,7 +38,7 @@ public static partial class MatchExplainer
         var field = matchedKind switch
         {
             "solution" => SolutionField,
-            "problem" or "synthetic" => ProblemField,
+            "problem" => ProblemField,
             // Keyword fallback: the field that holds more of the user's words.
             _ => HitCount(problem, stems) >= HitCount(solution, stems) ? ProblemField : SolutionField
         };

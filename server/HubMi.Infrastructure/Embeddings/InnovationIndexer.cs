@@ -4,18 +4,17 @@ using HubMi.Features.Matching.Services;
 using HubMi.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Pgvector;
 
 namespace HubMi.Infrastructure.Embeddings;
 
 /// <summary>
-/// Keeps each card's rows (problem, solution, one per synthetic sentence) in step with its text: embeds the rows whose text or
-/// model changed, deletes rows that no longer exist, and reloads the in-memory index from the database.
+/// Keeps each card's rows (problem, solution) in step with its text: embeds the rows whose text or model changed and deletes rows
+/// that no longer exist. The search reads the rows straight from Postgres, so nothing has to be reloaded afterwards.
 /// </summary>
 internal sealed class InnovationIndexer(
     HubMiDbContext db,
     ITextEmbedder embedder,
-    ISyntheticSentenceSource synthetic,
-    InnovationVectorIndex index,
     TimeProvider clock,
     ILogger<InnovationIndexer> logger) : IInnovationIndexer
 {
@@ -49,7 +48,7 @@ internal sealed class InnovationIndexer(
                 if (current is not null && current.Model == embedder.ModelId && current.TextHash == hash)
                     continue;
 
-                var vector = await embedder.EmbedAsync(row.Text, cancellationToken);
+                var vector = new Vector(await embedder.EmbedAsync(row.Text, cancellationToken));
                 var now = clock.GetUtcNow().UtcDateTime;
                 if (current is null)
                 {
@@ -71,7 +70,7 @@ internal sealed class InnovationIndexer(
                 embedded++;
             }
 
-            // Whatever is left was a row of an older text (a removed sentence, a card that lost its problem text).
+            // Whatever is left was a row of an older text (a card that lost its problem text).
             db.InnovationEmbeddings.RemoveRange(existing.Values);
             removed += existing.Count;
 
@@ -82,8 +81,6 @@ internal sealed class InnovationIndexer(
 
         if (embedded > 0 || removed > 0)
             logger.LogInformation("Indexed {Embedded} row(s), removed {Removed}.", embedded, removed);
-
-        await LoadIndexAsync(cancellationToken);
     }
 
     private List<DesiredRow> DesiredRows(Innovation card)
@@ -98,22 +95,6 @@ internal sealed class InnovationIndexer(
         if (solution.Length > 0)
             rows.Add(new DesiredRow(PassageTextBuilder.SolutionKind, 0, solution));
 
-        var sentences = synthetic.For(card.SourceUrl);
-        for (var i = 0; i < sentences.Count; i++)
-            rows.Add(new DesiredRow(PassageTextBuilder.SyntheticKind, i, sentences[i]));
-
         return rows;
-    }
-
-    private async Task LoadIndexAsync(CancellationToken cancellationToken)
-    {
-        var model = embedder.ModelId;
-        var rows = await db.InnovationEmbeddings
-            .AsNoTracking()
-            .Where(e => e.Model == model && db.Innovations.Any(i => i.Id == e.InnovationId && i.IsPublished))
-            .Select(e => new { e.InnovationId, e.Kind, e.Vector })
-            .ToListAsync(cancellationToken);
-
-        index.Replace(rows.Select(r => (r.InnovationId, r.Kind, r.Vector)).ToList());
     }
 }

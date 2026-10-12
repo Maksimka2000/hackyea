@@ -2,7 +2,7 @@
   "Matching": {
     "GoodThreshold": 65,
     "PartialThreshold": 30,
-    "RetrievalFloor": 0.4,
+    "RetrievalFloor": 0.3,
     "RetrievalOnlyFloor": 0.55,
     "RerankThreshold": 0.005,
     "RerankCeiling": 0.9,

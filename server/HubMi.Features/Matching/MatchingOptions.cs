@@ -19,13 +19,13 @@ public sealed class MatchingOptions
     [Range(3, 200)] public int CandidateLimit { get; set; } = 30;
 
     /// <summary>How many cards the vector search proposes (best row of each card).</summary>
-    [Range(3, 200)] public int RetrievalLimit { get; set; } = 20;
+    [Range(3, 200)] public int RetrievalLimit { get; set; } = 7;
 
     /// <summary>How many of the proposed cards the reranker reads; it is the slow step, so keep this small.</summary>
-    [Range(1, 50)] public int RerankCandidates { get; set; } = 10;
+    [Range(1, 50)] public int RerankCandidates { get; set; } = 7;
 
     /// <summary>The most cards returned (best first).</summary>
-    [Range(1, 10)] public int ResultCount { get; set; } = 3;
+    [Range(1, 10)] public int ResultCount { get; set; } = 4;
     [Range(1, 50)] public int CategoryTopN { get; set; } = 10;
     [Range(0.1, 1.0)] public double AlsoRelatedRatio { get; set; } = 0.7;
     [Range(0, 5)] public int MaxAlsoRelated { get; set; } = 2;
@@ -39,7 +39,7 @@ public sealed class MatchingOptions
     /// F: when even the best card's best row is less similar than this to the query, nothing is returned and the reranker is not run.
     /// Calibrate on the evaluation set.
     /// </summary>
-    [Range(0.0, 1.0)] public double RetrievalFloor { get; set; } = 0.40;
+    [Range(0.0, 1.0)] public double RetrievalFloor { get; set; } = 0.30;
 
     /// <summary>The floor that replaces <see cref="RetrievalFloor"/> when the reranker is unavailable: vector similarity alone is less reliable.</summary>
     [Range(0.0, 1.0)] public double RetrievalOnlyFloor { get; set; } = 0.55;

@@ -1,17 +1,17 @@
 namespace HubMi.Features.Matching.Ports;
 
-/// <summary>A card's best-matching row: <paramref name="Kind"/> is problem, solution or synthetic.</summary>
+/// <summary>A card's best-matching row: <paramref name="Kind"/> is problem or solution.</summary>
 public sealed record VectorHit(Guid InnovationId, double Similarity, string Kind);
 
-/// <summary>In-memory nearest-neighbour search over the rows of the published cards (cosine similarity of normalized vectors).</summary>
+/// <summary>Nearest-neighbour search over the rows of the published cards (cosine similarity, 1 is the same meaning).</summary>
 public interface IInnovationVectorIndex
 {
-    /// <summary>False until at least one vector is loaded.</summary>
-    bool IsReady { get; }
-
-    /// <summary>Changes whenever the index content is replaced; keys cached answers.</summary>
-    string Version { get; }
+    /// <summary>
+    /// Changes whenever a row or a published card changes; keys cached answers. Null while no vector of the current model is stored,
+    /// so the caller falls back to keyword search.
+    /// </summary>
+    Task<string?> GetVersionAsync(CancellationToken cancellationToken);
 
     /// <summary>The <paramref name="limit"/> cards whose best row is most similar to the query, best first.</summary>
-    IReadOnlyList<VectorHit> Search(float[] query, int limit);
+    Task<IReadOnlyList<VectorHit>> SearchAsync(float[] query, int limit, CancellationToken cancellationToken);
 }

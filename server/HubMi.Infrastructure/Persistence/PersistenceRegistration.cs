@@ -25,11 +25,12 @@ public static class PersistenceRegistration
                                    "Connection string 'HubMi' is not configured. Set ConnectionStrings__HubMi in the environment.");
 
         services.AddDbContext<HubMiDbContext>(options => options
-            .UseNpgsql(connectionString)
+            .UseNpgsql(connectionString, npgsql => npgsql.UseVector())
             .UseSnakeCaseNamingConvention());
 
         services.AddMemoryCache();
         services.AddScoped<IInnovationSearch, PostgresInnovationSearch>();
+        services.AddScoped<IInnovationVectorIndex, PostgresInnovationVectorIndex>();
         services.AddScoped<IDocumentFrequencyProvider, PostgresDocumentFrequencyProvider>();
         services.AddScoped<IInnovationCategoryReader, InnovationCategoryReader>();
         services.AddScoped<IMatchRequestLog, MatchRequestLog>();

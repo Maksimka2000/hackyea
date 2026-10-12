@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using Pgvector;
 
 #nullable disable
 
@@ -20,6 +21,7 @@ namespace HubMi.Infrastructure.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "vector");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.HasSequence("submission_number_seq");
@@ -945,13 +947,19 @@ namespace HubMi.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
 
-                    b.Property<float[]>("Vector")
+                    b.Property<Vector>("Vector")
                         .IsRequired()
-                        .HasColumnType("real[]")
+                        .HasColumnType("vector(1024)")
                         .HasColumnName("vector");
 
                     b.HasKey("InnovationId", "Kind", "Ordinal")
                         .HasName("pk_innovation_embedding");
+
+                    b.HasIndex("Vector")
+                        .HasDatabaseName("ix_innovation_embedding_vector");
+
+                    NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex("Vector"), "hnsw");
+                    NpgsqlIndexBuilderExtensions.HasOperators(b.HasIndex("Vector"), new[] { "vector_cosine_ops" });
 
                     b.ToTable("innovation_embedding", (string)null);
                 });
