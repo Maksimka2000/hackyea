@@ -14,6 +14,9 @@ namespace HubMi.Infrastructure.Persistence.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("Npgsql:PostgresExtension:vector", ",,");
 
+            // Vectors are derived data: the old rows (including the removed synthetic ones) are re-created by the indexer.
+            migrationBuilder.Sql("DELETE FROM innovation_embedding;");
+
             migrationBuilder.AlterColumn<Vector>(
                 name: "vector",
                 table: "innovation_embedding",
@@ -37,8 +40,7 @@ namespace HubMi.Infrastructure.Persistence.Migrations
                 name: "ix_innovation_embedding_vector",
                 table: "innovation_embedding");
 
-            migrationBuilder.AlterDatabase()
-                .OldAnnotation("Npgsql:PostgresExtension:vector", ",,");
+            migrationBuilder.Sql("DELETE FROM innovation_embedding;");
 
             migrationBuilder.AlterColumn<float[]>(
                 name: "vector",
@@ -47,6 +49,10 @@ namespace HubMi.Infrastructure.Persistence.Migrations
                 nullable: false,
                 oldClrType: typeof(Vector),
                 oldType: "vector(1024)");
+
+            // After the column: the extension cannot be dropped while a column still uses its type.
+            migrationBuilder.AlterDatabase()
+                .OldAnnotation("Npgsql:PostgresExtension:vector", ",,");
         }
     }
 }
