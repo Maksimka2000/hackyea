@@ -9,6 +9,10 @@ public static class MatchingOptionsRegistration
     public static ConfigurationManager AddSearchConfiguration(this ConfigurationManager configuration)
     {
         configuration.AddJsonFile("search-config.json", optional: false, reloadOnChange: false);
+
+        // The file was added after the default sources, so it would override environment variables (Matching__RerankThreshold ...).
+        // Add them again on top: a deployment or a tuning run must be able to change a threshold without editing the file.
+        configuration.AddEnvironmentVariables();
         return configuration;
     }
 

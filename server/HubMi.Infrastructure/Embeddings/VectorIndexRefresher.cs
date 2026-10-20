@@ -1,3 +1,4 @@
+using HubMi.Features.Matching;
 using HubMi.Features.Matching.Ports;
 using HubMi.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -10,18 +11,26 @@ namespace HubMi.Infrastructure.Embeddings;
 
 /// <summary>
 /// Loads both models at startup (taking the reranker as a dependency makes the container build it, so the first question is not slow),
-/// builds the meaning index in the background (the API starts answering immediately, with keyword search until it is ready) and then
-/// watches for changed cards or vectors, so an edit made on any instance reaches every instance within the refresh interval.
+/// embeds the cards in the background (the API starts answering immediately, with keyword search until vectors exist) and then
+/// watches for changed cards, so an edit that did not call the indexer itself is embedded within the refresh interval. The vectors
+/// live in Postgres, so every instance searches the same rows as soon as they are written.
 /// </summary>
 internal sealed class VectorIndexRefresher(
     IServiceScopeFactory scopeFactory,
     ITextEmbedder embedder,
     IReranker reranker,
     IOptions<EmbeddingOptions> options,
+    IOptions<MatchingOptions> matching,
     ILogger<VectorIndexRefresher> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        // The values that really apply after configuration sources are merged; tools/tune-thresholds.sh checks this line.
+        logger.LogInformation(
+            "Matching thresholds: F={Floor} T={Threshold} retrieval={Retrieval} rerank={Rerank} results={Results}",
+            matching.Value.RetrievalFloor, matching.Value.RerankThreshold, matching.Value.RetrievalLimit,
+            matching.Value.RerankCandidates, matching.Value.ResultCount);
+
         if (!embedder.IsReady)
             return;
 

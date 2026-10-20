@@ -31,6 +31,7 @@ public sealed class HubMiDbContext(DbContextOptions<HubMiDbContext> options)
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.HasPostgresExtension("vector");
         modelBuilder.HasSequence<long>(Configurations.SubmissionConfiguration.NumberSequence);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(HubMiDbContext).Assembly);
     }

@@ -13,7 +13,9 @@ public static class PassageTextBuilder
 {
     public const string ProblemKind = "problem";
     public const string SolutionKind = "solution";
-    public const string SyntheticKind = "synthetic";
+
+    /// <summary>Rows per card (problem, solution): the vector search reads this many rows per wanted card.</summary>
+    public const int RowsPerCard = 2;
 
     public const int SolutionMaxLength = 600;
 
@@ -28,15 +30,14 @@ public static class PassageTextBuilder
         Join(" ", card.Title, card.Tagline, Shorten(card.Solution, SolutionMaxLength));
 
     /// <summary>
-    /// The text the reranker reads together with the query. Problem and target group come before the solution so that
-    /// they survive when the pair is cut to the model's token limit.
+    /// The text the reranker reads together with the query: the problem, then the solution, nothing else. The problem is what a
+    /// resident describes, so it comes first: it carries the most weight and survives if the pair is ever cut to the token limit.
+    /// At about 3.8 characters per token a problem plus a 600-character solution fits the limit, so normally nothing is cut.
     /// </summary>
     public static string BuildRerank(Innovation card) =>
         Join("\n",
-            Labelled("Tytuł", card.Title),
             Labelled("Problem", card.Problems),
-            Labelled("Dla kogo", card.TargetGroup),
-            Labelled("Rozwiązanie", Join(" ", card.Tagline, Shorten(card.Solution, SolutionMaxLength))));
+            Labelled("Rozwiązanie", Shorten(card.Solution, SolutionMaxLength)));
 
     public static string Hash(string text) => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(text))).ToLowerInvariant();
 

@@ -19,13 +19,13 @@ public sealed class MatchingOptions
     [Range(3, 200)] public int CandidateLimit { get; set; } = 30;
 
     /// <summary>How many cards the vector search proposes (best row of each card).</summary>
-    [Range(3, 200)] public int RetrievalLimit { get; set; } = 20;
+    [Range(3, 200)] public int RetrievalLimit { get; set; } = 7;
 
     /// <summary>How many of the proposed cards the reranker reads; it is the slow step, so keep this small.</summary>
-    [Range(1, 50)] public int RerankCandidates { get; set; } = 10;
+    [Range(1, 50)] public int RerankCandidates { get; set; } = 7;
 
     /// <summary>The most cards returned (best first).</summary>
-    [Range(1, 10)] public int ResultCount { get; set; } = 3;
+    [Range(1, 10)] public int ResultCount { get; set; } = 4;
     [Range(1, 50)] public int CategoryTopN { get; set; } = 10;
     [Range(0.1, 1.0)] public double AlsoRelatedRatio { get; set; } = 0.7;
     [Range(0, 5)] public int MaxAlsoRelated { get; set; } = 2;
@@ -37,18 +37,20 @@ public sealed class MatchingOptions
 
     /// <summary>
     /// F: when even the best card's best row is less similar than this to the query, nothing is returned and the reranker is not run.
-    /// Calibrate on the evaluation set.
+    /// With BGE-M3 even off-topic questions score above 0.30, so on the evaluation set this floor stopped no question: the
+    /// reranker threshold T does the filtering.
     /// </summary>
-    [Range(0.0, 1.0)] public double RetrievalFloor { get; set; } = 0.40;
+    [Range(0.0, 1.0)] public double RetrievalFloor { get; set; } = 0.30;
 
     /// <summary>The floor that replaces <see cref="RetrievalFloor"/> when the reranker is unavailable: vector similarity alone is less reliable.</summary>
     [Range(0.0, 1.0)] public double RetrievalOnlyFloor { get; set; } = 0.55;
 
     /// <summary>
     /// T: reranker score (a probability, 0-1) a card needs to be returned. bge-reranker-v2-m3 is strict with everyday wording, so
-    /// useful matches often score far below 0.5; calibrate on the evaluation set. A wrong card is worse than none, so favour precision.
+    /// useful matches often score far below 0.5. 0.001 is the lowest value that kept the off-topic queries at one wrong card of 22
+    /// on matching-eval.json (0.0005 gave 4, 0.0002 gave 8); see .doc/search-engine.md. A wrong card is worse than none, so favour precision.
     /// </summary>
-    [Range(0.0, 1.0)] public double RerankThreshold { get; set; } = 0.005;
+    [Range(0.0, 1.0)] public double RerankThreshold { get; set; } = 0.001;
 
     /// <summary>Reranker score at or above which a card counts as a 100 % match. Between T (0 %) and this score the percentage grows with the model's logit.</summary>
     [Range(0.0, 1.0)] public double RerankCeiling { get; set; } = 0.9;

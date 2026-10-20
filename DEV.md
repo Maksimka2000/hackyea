@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | Web app | Next.js 16 (`web/`) | http://localhost:3000 |
 | API | ASP.NET Core 8 (`server/HubMi.Api`) | http://localhost:8081 (Docker), or http://localhost:5299 if you run it with `dotnet run` (section 3) |
-| Database | PostgreSQL 16 (Docker) | `localhost:5433`, database and user `hubmi` |
+| Database | PostgreSQL 16 with pgvector (Docker image `pgvector/pgvector:pg16`) | `localhost:5433`, database and user `hubmi` |
 
 The browser only talks to the web app. Next.js forwards `/api/*` to the API address in `API_ORIGIN`, so CORS never needs setting up.
 

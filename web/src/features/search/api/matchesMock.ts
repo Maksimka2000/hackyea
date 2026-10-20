@@ -5,7 +5,7 @@ import { matchResponseDtoSchema, type MatchLevel, type MatchResponseDto } from "
 import { mockCatalog } from "./matchesMockCatalog";
 
 const MOCK_LATENCY_MS = 900;
-const RESULT_COUNT = 3;
+const RESULT_COUNT = 4;
 const NO_EVIDENCE_TEXT = "Brak opisu testu w bibliotece ROPS.";
 
 type MockEntry = { id: (typeof mockCatalog)[number]["id"]; level: MatchLevel; percent: number };

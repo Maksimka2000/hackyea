@@ -2,8 +2,8 @@ import { z } from "zod";
 
 /*
   The response of the backend's POST /api/match (HubMi.Features/Matching/Contracts/MatchResponse.cs),
-  in the backend's camelCase naming. The backend always returns three results; `confidence: "low"` means
-  even the best one is a weak match.
+  in the backend's camelCase naming. The backend returns up to four results, or none when nothing is close
+  enough; `confidence: "low"` means even the best one is a weak match.
 */
 export const matchLevels = ["good", "partial", "weak"] as const;
 
